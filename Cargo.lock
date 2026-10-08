@@ -275,7 +275,10 @@ dependencies = [
 name = "dog_online_companion"
 version = "0.1.0"
 dependencies = [
+ "anyhow",
  "leptos",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]
