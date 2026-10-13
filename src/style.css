@@ -165,17 +165,122 @@ button {
 }
 
 
-/* Enemy grid */
+/* Tabs */
 
-.enemy-grid {
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 16px 0 24px;
+  border-bottom: 2px solid var(--surface-border);
+}
+
+.tab-button {
+  padding: 8px 12px;
+  color: var(--text-muted);
+  border-bottom: 3px solid transparent;
+}
+
+.tab-button:hover {
+  color: var(--nav-link-hover);
+}
+
+.tab-button.active {
+  color: var(--nav-link);
+  border-bottom-color: var(--accent-border);
+}
+
+.tab-content {
+  width: 100%;
+}
+
+.tab-content > h2 {
+  margin: 0 0 16px;
+}
+
+
+/* Shared item grid: Bravery and Coordination */
+
+.item-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   max-width: 1000px;
+  margin: 0 auto;
   --item-icon-size: 124px;
 }
 
-.enemy-card {
+
+/* Coordination Filters */
+
+.coordination-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 auto 24px;
+  max-width: 1000px;
+}
+
+.coordination-filters label {
+  display: flex;
+  flex: 1 1 180px;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  max-width: 240px;
+  text-align: left;
+  color: var(--text-muted);
+}
+
+.coordination-filters select {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 2px solid var(--surface-border);
+  border-radius: 6px;
+  background-color: var(--surface-bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 20px;
+  cursor: var(--cursor-hover);
+}
+
+.coordination-filters select:hover {
+  border-color: var(--accent-border);
+}
+
+.coordination-filters select:focus-visible {
+  outline: 2px solid var(--accent-border);
+  outline-offset: 2px;
+}
+
+.coordination-filters select option,
+.coordination-filters select optgroup {
+  background-color: var(--surface-bg);
+  color: var(--text);
+}
+
+.show-caught-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: fit-content;
+  margin: 0 auto 24px;
+  color: var(--text-muted);
+  cursor: var(--cursor-hover);
+}
+
+.show-caught-filter input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  accent-color: #3ca65c;
+  cursor: var(--cursor-hover);
+}
+
+.item-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -191,11 +296,15 @@ button {
   cursor: inherit;
 }
 
-.enemy-card:hover {
+button.item-card {
+  cursor: var(--cursor-hover);
+}
+
+.item-card:hover {
   text-decoration: underline;
 }
 
-.enemy-icon-wrap {
+.item-icon-wrap {
   position: relative;
   display: inline-block;
   margin-bottom: 5px;
@@ -204,14 +313,18 @@ button {
   border: 2px solid var(--item-frame);
 }
 
-.enemy-icon-placeholder {
+.item-icon-placeholder {
   width: var(--item-icon-size, 124px);
   height: var(--item-icon-size, 124px);
   display: block;
   background: #000;
 }
 
-.enemy-icon {
+.item-icon-placeholder.caught {
+  background-color: #3ca65c;
+}
+
+.item-icon {
   width: var(--item-icon-size, 124px);
   height: var(--item-icon-size, 124px);
   object-fit: contain;
@@ -219,15 +332,39 @@ button {
   display: block;
 }
 
-.enemy-name {
+.item-name {
   font-size: 24px;
   margin: 0;
   word-break: break-word;
 }
 
-.enemy-card:hover .enemy-icon {
+.item-card:hover .item-icon {
   transform: scale(1.025);
   background-color: var(--item-hover-bg);
+}
+
+.item-value {
+  margin: 0;
+  font-size: 20px;
+  color: var(--text-muted);
+  word-break: break-word;
+}
+
+.item-details {
+  width: 100%;
+  margin-top: 8px;
+  text-align: left;
+}
+
+.item-details p {
+  margin: 0;
+  font-size: 18px;
+  word-break: break-word;
+}
+
+.item-details strong {
+  font-size: inherit;
+  color: var(--text);
 }
 
 
@@ -338,21 +475,21 @@ button {
 /* Responsive */
 
 @media (max-width: 780px) {
-  .enemy-grid {
+  .item-grid {
     --item-icon-size: 71px;
   }
 
-  .enemy-name {
+  .item-name {
     font-size: 20px;
   }
 
-  .enemy-card {
+  .item-card {
     padding: 5px;
   }
 }
 
 @media (max-width: 750px) {
-  .enemy-card {
+  .item-card {
     padding: 5px;
   }
 }
@@ -366,14 +503,43 @@ button {
   .content {
     padding: 16px;
   }
-}
 
-@media (max-width: 400px) {
-  .enemy-name {
+  .tabs {
+    gap: 12px;
+  }
+
+  .tab-button {
+    padding: 8px;
+  }
+
+  .coordination-filters {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .coordination-filters label {
+    flex-basis: calc(50% - 6px);
+    max-width: none;
     font-size: 20px;
   }
 
-  .enemy-icon-wrap {
+  .coordination-filters select {
+    padding: 8px;
+    font-size: 18px;
+}
+
+@media (max-width: 350px) {
+  .coordination-filters label {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .item-name {
+    font-size: 20px;
+  }
+
+  .item-icon-wrap {
     border-width: 2px;
   }
 }

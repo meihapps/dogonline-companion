@@ -1,0 +1,1368 @@
+{
+  "fish": [
+    {
+      "name": "Minnow",
+      "location": [
+        "OldFishingHole",
+        "OceanFishingCruiser"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Guppy",
+      "location": [
+        "OldFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Barracuda",
+      "location": [
+        "OldFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Freshwater Eel",
+      "location": [
+        "OldFishingHole"
+      ],
+      "time": [
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Stormy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Octojelly",
+      "location": [
+        "OldFishingHole"
+      ],
+      "time": [
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Funny Duck",
+      "location": [
+        "OldFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "MoundOfMinnows",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Salmon",
+      "location": [
+        "OldFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "MoundOfMinnows",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Sniffillet",
+      "location": [
+        "OldFishingHole"
+      ],
+      "time": [
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "MoundOfMinnows",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Coelacanth",
+      "location": [
+        "OldFishingHole"
+      ],
+      "time": [
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies"
+      ],
+      "bait": "MoundOfMinnows",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Crayfish",
+      "location": [
+        "OldFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "CupOfCrickets",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Rainbow Trout",
+      "location": [
+        "OldFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "CupOfCrickets",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Largemouth Bass",
+      "location": [
+        "OldFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "CupOfCrickets",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Breadfish",
+      "location": [
+        "OldFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies"
+      ],
+      "bait": "CupOfCrickets",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Butterfish",
+      "location": [
+        "OldFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies"
+      ],
+      "bait": "CupOfCrickets",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Handfish",
+      "location": [
+        "OldFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "PouchOfPrawns",
+      "coordination": 3,
+      "caught": false
+    },
+    {
+      "name": "Gleepfish",
+      "location": [
+        "OldFishingHole"
+      ],
+      "time": [
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy"
+      ],
+      "bait": "PouchOfPrawns",
+      "coordination": 3,
+      "caught": false
+    },
+    {
+      "name": "Prismatic Koi",
+      "location": [
+        "OldFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "GoldenGrub",
+      "coordination": 5,
+      "caught": false
+    },
+    {
+      "name": "Cactus Pufferfish",
+      "location": [
+        "DesertOasis"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Lungfish",
+      "location": [
+        "DesertOasis"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Fossil Fish",
+      "location": [
+        "DesertOasis"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Craw's Dad",
+      "location": [
+        "DesertOasis"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Sizzling Shad",
+      "location": [
+        "DesertOasis"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Rattleray",
+      "location": [
+        "DesertOasis"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Batfish",
+      "location": [
+        "DesertOasis"
+      ],
+      "time": [
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Eye of Horus Fish",
+      "location": [
+        "DesertOasis"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Gothfish",
+      "location": [
+        "DesertOasis"
+      ],
+      "time": [
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 2,
+      "caught": false
+    },
+    {
+      "name": "Hourglass Fish",
+      "location": [
+        "DesertOasis"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "MoundOfMinnows",
+      "coordination": 2,
+      "caught": false
+    },
+    {
+      "name": "Camel Fish",
+      "location": [
+        "DesertOasis"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "MoundOfMinnows",
+      "coordination": 2,
+      "caught": false
+    },
+    {
+      "name": "Hot N Spicy Fish",
+      "location": [
+        "DesertOasis"
+      ],
+      "time": [
+        "Afternoon",
+        "Evening"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "MoundOfMinnows",
+      "coordination": 2,
+      "caught": false
+    },
+    {
+      "name": "Scorpion Fish",
+      "location": [
+        "DesertOasis"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "PouchOfPrawns",
+      "coordination": 2,
+      "caught": false
+    },
+    {
+      "name": "Sunfish",
+      "location": [
+        "DesertOasis"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "PouchOfPrawns",
+      "coordination": 3,
+      "caught": false
+    },
+    {
+      "name": "Moonfish",
+      "location": [
+        "DesertOasis"
+      ],
+      "time": [
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "PouchOfPrawns",
+      "coordination": 3,
+      "caught": false
+    },
+    {
+      "name": "Pupfish",
+      "location": [
+        "DesertOasis"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "GoldenGrub",
+      "coordination": 7,
+      "caught": false
+    },
+    {
+      "name": "Arctic Cod",
+      "location": [
+        "IceFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Capelin",
+      "location": [
+        "IceFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Coldfish",
+      "location": [
+        "IceFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Polar Prawn",
+      "location": [
+        "IceFishingHole"
+      ],
+      "time": [
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Hotdogtopus",
+      "location": [
+        "IceFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "PouchOfPrawns",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Ice Cream Sharkwich",
+      "location": [
+        "IceFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "PouchOfPrawns",
+      "coordination": 2,
+      "caught": false
+    },
+    {
+      "name": "Strawberry Ice Cream Sharkwich",
+      "location": [
+        "IceFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "PouchOfPrawns",
+      "coordination": 2,
+      "caught": false
+    },
+    {
+      "name": "Chocolate Ice Cream Sharkwich",
+      "location": [
+        "IceFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "PouchOfPrawns",
+      "coordination": 2,
+      "caught": false
+    },
+    {
+      "name": "Sabretooth Tigerfish",
+      "location": [
+        "IceFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "PouchOfPrawns",
+      "coordination": 3,
+      "caught": false
+    },
+    {
+      "name": "Mammothfish",
+      "location": [
+        "IceFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "PouchOfPrawns",
+      "coordination": 3,
+      "caught": false
+    },
+    {
+      "name": "Rocketfish",
+      "location": [
+        "IceFishingHole"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "GoldenGrub",
+      "coordination": 5,
+      "caught": false
+    },
+    {
+      "name": "Sea Star",
+      "location": [
+        "OceanFishingCruiser"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Mussel",
+      "location": [
+        "OceanFishingCruiser"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Stormy"
+      ],
+      "bait": "BucketOfWorms",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Deepsea Fangly Fish",
+      "location": [
+        "OceanFishingCruiser"
+      ],
+      "time": [
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "MoundOfMinnows",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Gummy Shark",
+      "location": [
+        "OceanFishingCruiser"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "MoundOfMinnows",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Lobster",
+      "location": [
+        "OceanFishingCruiser"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies"
+      ],
+      "bait": "CupOfCrickets",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Musscle",
+      "location": [
+        "OceanFishingCruiser"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon"
+      ],
+      "weather": [
+        "ClearSkies"
+      ],
+      "bait": "CupOfCrickets",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Crimson Crawler",
+      "location": [
+        "OceanFishingCruiser"
+      ],
+      "time": [
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "CupOfCrickets",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Comb Jelly",
+      "location": [
+        "OceanFishingCruiser"
+      ],
+      "time": [
+        "Morning",
+        "Night"
+      ],
+      "weather": [],
+      "bait": "PouchOfPrawns",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Jelly Jellyfish",
+      "location": [
+        "OceanFishingCruiser"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon"
+      ],
+      "weather": [],
+      "bait": "PouchOfPrawns",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Leafy Sheepdog",
+      "location": [
+        "OceanFishingCruiser"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [],
+      "bait": "PouchOfPrawns",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Blue Lobster",
+      "location": [
+        "OceanFishingCruiser"
+      ],
+      "time": [
+        "Morning",
+        "Evening",
+        "Night"
+      ],
+      "weather": [],
+      "bait": "PouchOfPrawns",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Sea Angel",
+      "location": [
+        "OceanFishingCruiser"
+      ],
+      "time": [
+        "Morning"
+      ],
+      "weather": [],
+      "bait": "PouchOfPrawns",
+      "coordination": 3,
+      "caught": false
+    },
+    {
+      "name": "Shooting Starfish",
+      "location": [
+        "OceanFishingCruiser"
+      ],
+      "time": [
+        "Night"
+      ],
+      "weather": [],
+      "bait": "PouchOfPrawns",
+      "coordination": 0,
+      "caught": false
+    },
+    {
+      "name": "Clam",
+      "location": [
+        "OceanFishingCruiser"
+      ],
+      "time": [],
+      "weather": [],
+      "bait": "PouchOfPrawns",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Flying Fish",
+      "location": [
+        "FlyFishingShip"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "BalloonHook",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Cloudfish",
+      "location": [
+        "FlyFishingShip"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Snowy"
+      ],
+      "bait": "BalloonHook",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Thundering Cloudfish",
+      "location": [
+        "FlyFishingShip"
+      ],
+      "time": [
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "Stormy"
+      ],
+      "bait": "BalloonHook",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Steamfish",
+      "location": [
+        "FlyFishingShip"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Snowy"
+      ],
+      "bait": "BalloonHook",
+      "coordination": 3,
+      "caught": false
+    },
+    {
+      "name": "Red Balloonfish",
+      "location": [
+        "FlyFishingShip"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon"
+      ],
+      "weather": [
+        "ClearSkies"
+      ],
+      "bait": "WickedSkymetalHook",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Blue Balloonfish",
+      "location": [
+        "FlyFishingShip"
+      ],
+      "time": [
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies"
+      ],
+      "bait": "WickedSkymetalHook",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Plane-Mimicking Fish",
+      "location": [
+        "FlyFishingShip"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy"
+      ],
+      "bait": "WickedSkymetalHook",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Rainbow Trout (Sky)",
+      "location": [
+        "FlyFishingShip"
+      ],
+      "time": [
+        "Afternoon"
+      ],
+      "weather": [
+        "Rainy"
+      ],
+      "bait": "WickedSkymetalHook",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Very Lost Fish",
+      "location": [
+        "FlyFishingShip"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy"
+      ],
+      "bait": "WickedSkymetalHook",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Starwhale",
+      "location": [
+        "FlyFishingShip"
+      ],
+      "time": [
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies"
+      ],
+      "bait": "WickedSkymetalHook",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Aurora Eel",
+      "location": [
+        "FlyFishingShip"
+      ],
+      "time": [
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies"
+      ],
+      "bait": "SkyTackle",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Skyfish",
+      "location": [
+        "FlyFishingShip"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon"
+      ],
+      "weather": [
+        "ClearSkies"
+      ],
+      "bait": "SkyTackle",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Extraterrestrial Octopus",
+      "location": [
+        "FlyFishingShip"
+      ],
+      "time": [
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy"
+      ],
+      "bait": "SkyTackle",
+      "coordination": 1,
+      "caught": false
+    },
+    {
+      "name": "Jellyfish...?",
+      "location": [
+        "FlyFishingShip"
+      ],
+      "time": [
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy"
+      ],
+      "bait": "SkyTackle",
+      "coordination": 3,
+      "caught": false
+    },
+    {
+      "name": "Ocean Fella",
+      "location": [
+        "FlyFishingShip"
+      ],
+      "time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
+      "bait": "GoldenGrub",
+      "coordination": 5,
+      "caught": false
+    }
+  ]
+}
