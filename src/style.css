@@ -1,6 +1,6 @@
 @font-face {
   font-family: NDS BIOS;
-  src: url(/fonts/nds_bios.ttf) format("truetype");
+  src: url(fonts/nds_bios.ttf) format("truetype");
 }
 
 :root,
@@ -20,7 +20,7 @@
   --color-primary-text: #b9adff;
 
   --page-bg: #0f2648;
-  --nav-image: url(/img/themes/nav_dark.png);
+  --nav-image: url(img/themes/nav_dark.png);
   --nav-link: #e8eeff;
   --nav-link-hover: #9fb3d9;
 
