@@ -290,7 +290,7 @@ fn FishGrid(
                             &time,
                             &weather,
                             &bait,
-                        ) && (!show_caught || !fish.caught)
+                        ) && (show_caught || !fish.caught)
                     })
                     .map(|(fish_index, fish)| {
                         view! {
@@ -383,7 +383,7 @@ pub fn CoordinationTab(data: RwSignal<CoordinationData>) -> impl IntoView {
     let (selected_bait, set_selected_bait) = signal(storage::load_filter_string(Filter::Bait));
 
     let (show_caught, set_show_caught) =
-        signal(storage::load_filter_bool(Filter::ShowCaught, false));
+        signal(storage::load_filter_bool(Filter::ShowCaught, true));
 
     // Remember the filters between visits.
     Effect::new(move |_| {
