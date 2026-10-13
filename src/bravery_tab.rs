@@ -1,3 +1,4 @@
+
 use crate::bravery::{BraveryData, Enemy};
 use crate::formatting::format_enum;
 use crate::storage::{self, Filter};
@@ -27,6 +28,8 @@ pub fn BraveryTab(data: RwSignal<BraveryData>) -> impl IntoView {
     view! {
         <section class="tab-content">
             <h2>"Bravery"</h2>
+
+            <p class="hint">"Right-click an enemy to mark it as killed"</p>
 
             <label class="show-caught-filter">
                 <input

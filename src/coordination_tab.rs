@@ -402,6 +402,8 @@ pub fn CoordinationTab(data: RwSignal<CoordinationData>) -> impl IntoView {
         <section class="tab-content">
             <h2>"Coordination"</h2>
 
+            <p class="hint">"Right-click a fish to mark it as caught"</p>
+
             <CoordinationFilters
                 selected_location=selected_location
                 set_selected_location=set_selected_location
