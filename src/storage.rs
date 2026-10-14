@@ -136,3 +136,35 @@ pub fn load_harvested_items() -> HashSet<String> {
 pub fn save_harvested_items(names: &HashSet<String>) {
     save_names(HARVESTED_ITEMS_KEY, names);
 }
+
+/// Manual colour-scheme override. `Device` follows the OS/browser setting.
+#[derive(Clone, Copy, PartialEq)]
+pub enum Theme {
+    Device,
+    Light,
+    Dark,
+}
+
+impl Theme {
+    pub fn as_str(self) -> &'static str {
+        match self {
+            Self::Device => "device",
+            Self::Light => "light",
+            Self::Dark => "dark",
+        }
+    }
+}
+
+const THEME_KEY: &str = "dogonline_companion.theme";
+
+pub fn load_theme() -> Theme {
+    match load_string(THEME_KEY).as_deref() {
+        Some("light") => Theme::Light,
+        Some("dark") => Theme::Dark,
+        _ => Theme::Device,
+    }
+}
+
+pub fn save_theme(theme: Theme) {
+    save_string(THEME_KEY, theme.as_str());
+}
