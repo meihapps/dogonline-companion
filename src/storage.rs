@@ -8,6 +8,7 @@ use std::collections::HashSet;
 
 const CAUGHT_FISH_KEY: &str = "dogonline_companion.caught_fish";
 const DAILIES_KEY: &str = "dogonline_companion.dailies";
+const HARVESTED_ITEMS_KEY: &str = "dogonline_companion.harvested_items";
 const KILLED_ENEMIES_KEY: &str = "dogonline_companion.killed_enemies";
 
 fn local_storage() -> Option<web_sys::Storage> {
@@ -55,6 +56,7 @@ pub enum Filter {
     Bait,
     ShowCaught,
     ShowKilled,
+    ShowHarvested,
 }
 
 impl Filter {
@@ -66,6 +68,7 @@ impl Filter {
             Self::Bait => "dogonline_companion.filter.bait",
             Self::ShowCaught => "dogonline_companion.filter.show_caught",
             Self::ShowKilled => "dogonline_companion.filter.show_killed",
+            Self::ShowHarvested => "dogonline_companion.filter.show_harvested",
         }
     }
 }
@@ -124,4 +127,12 @@ pub fn save_dailies(today: &str, done: &HashSet<String>) {
     if let Ok(raw) = serde_json::to_string(&(today, sorted)) {
         save_string(DAILIES_KEY, &raw);
     }
+}
+
+pub fn load_harvested_items() -> HashSet<String> {
+    load_names(HARVESTED_ITEMS_KEY)
+}
+
+pub fn save_harvested_items(names: &HashSet<String>) {
+    save_names(HARVESTED_ITEMS_KEY, names);
 }

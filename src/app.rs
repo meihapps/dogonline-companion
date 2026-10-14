@@ -3,6 +3,8 @@ use crate::bravery_tab::BraveryTab;
 use crate::coordination::CoordinationData;
 use crate::coordination_tab::CoordinationTab;
 use crate::dailies_tab::{self, DailiesTab};
+use crate::hardiness::HardinessData;
+use crate::hardiness_tab::HardinessTab;
 use crate::storage;
 use leptos::prelude::*;
 
@@ -10,14 +12,20 @@ use leptos::prelude::*;
 enum Tab {
     Bravery,
     Coordination,
+    Hardiness,
     Dailies,
 }
 
 #[component]
-pub fn App(bravery_data: BraveryData, coordination_data: CoordinationData) -> impl IntoView {
+pub fn App(
+    bravery_data: BraveryData,
+    coordination_data: CoordinationData,
+    hardiness_data: HardinessData,
+) -> impl IntoView {
     // The data lives here (not in the tabs) so toggled progress survives switching tabs.
     let bravery_data = RwSignal::new(bravery_data);
     let coordination_data = RwSignal::new(coordination_data);
+    let hardiness_data = RwSignal::new(hardiness_data);
     let dailies = RwSignal::new(storage::load_dailies(&dailies_tab::reset_day()));
     dailies_tab::start_reset_timer(dailies);
     let (selected_tab, set_selected_tab) = signal(Tab::Bravery);
@@ -64,6 +72,21 @@ pub fn App(bravery_data: BraveryData, coordination_data: CoordinationData) -> im
                         <button
                             class="tab-button"
                             class:active=move || {
+                                selected_tab.get() == Tab::Hardiness
+                            }
+                            aria-pressed=move || {
+                                selected_tab.get() == Tab::Hardiness
+                            }
+                            on:click=move |_| {
+                                set_selected_tab.set(Tab::Hardiness);
+                            }
+                        >
+                            "Hardiness"
+                        </button>
+
+                        <button
+                            class="tab-button"
+                            class:active=move || {
                                 selected_tab.get() == Tab::Dailies
                             }
                             aria-pressed=move || {
@@ -84,6 +107,10 @@ pub fn App(bravery_data: BraveryData, coordination_data: CoordinationData) -> im
 
                         Tab::Coordination => view! {
                             <CoordinationTab data=coordination_data />
+                        }.into_any(),
+
+                        Tab::Hardiness => view! {
+                            <HardinessTab data=hardiness_data />
                         }.into_any(),
 
                         Tab::Dailies => view! {

@@ -1,0 +1,384 @@
+{
+  "items": [
+    {
+      "name": "Acorn",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Apple",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Worm Apple",
+      "item_type": "Crop",
+      "hardiness": 2
+    },
+    {
+      "name": "Golden Apple",
+      "item_type": "Crop",
+      "hardiness": 3
+    },
+    {
+      "name": "Apl",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Watermelon",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Water Melon",
+      "item_type": "Crop",
+      "hardiness": 5
+    },
+    {
+      "name": "Cube Watermelon",
+      "item_type": "Crop",
+      "hardiness": 2
+    },
+    {
+      "name": "Boneanna",
+      "item_type": "Crop",
+      "hardiness": 2
+    },
+    {
+      "name": "Doggplant",
+      "item_type": "Crop",
+      "hardiness": 3
+    },
+    {
+      "name": "Pomnapple",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "White Pomnapple",
+      "item_type": "Crop",
+      "hardiness": 2
+    },
+    {
+      "name": "Pawberry",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Rainbow Pawberry",
+      "item_type": "Crop",
+      "hardiness": 2
+    },
+    {
+      "name": "Power Pawberry",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Oak Leaf",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Oak Syrup",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Collieflower",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Purple Collieflower",
+      "item_type": "Crop",
+      "hardiness": 2
+    },
+    {
+      "name": "Barkkoli",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Hot Choccoli",
+      "item_type": "Crop",
+      "hardiness": 3
+    },
+    {
+      "name": "Sweet Peas",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Sour Peas",
+      "item_type": "Crop",
+      "hardiness": 2
+    },
+    {
+      "name": "Flowery Cactus",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Cowboy Cactus",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Starry Cactus",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Cact-o-lantern",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Cactus Juice",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Prickly Pear",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Blue Doggyflower",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Green Doggyflower",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Purple Doggyflower",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Red Doggyflower",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Cranberries",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Rice",
+      "item_type": "Crop",
+      "hardiness": 1
+    },
+    {
+      "name": "Big Rice",
+      "item_type": "Crop",
+      "hardiness": 3
+    },
+    {
+      "name": "Agate",
+      "item_type": "Gem",
+      "hardiness": 1
+    },
+    {
+      "name": "Rose Quartz",
+      "item_type": "Gem",
+      "hardiness": 3
+    },
+    {
+      "name": "Obsidian",
+      "item_type": "Gem",
+      "hardiness": 3
+    },
+    {
+      "name": "Smoky Quartz",
+      "item_type": "Gem",
+      "hardiness": 1
+    },
+    {
+      "name": "Turquoise",
+      "item_type": "Gem",
+      "hardiness": 1
+    },
+    {
+      "name": "Garnet",
+      "item_type": "Gem",
+      "hardiness": 1
+    },
+    {
+      "name": "Amber",
+      "item_type": "Gem",
+      "hardiness": 1
+    },
+    {
+      "name": "Amethyst",
+      "item_type": "Gem",
+      "hardiness": 1
+    },
+    {
+      "name": "Geode",
+      "item_type": "Gem",
+      "hardiness": 1
+    },
+    {
+      "name": "Opal",
+      "item_type": "Gem",
+      "hardiness": 1
+    },
+    {
+      "name": "Pyrite",
+      "item_type": "Gem",
+      "hardiness": 1
+    },
+    {
+      "name": "Bivalve Fossil",
+      "item_type": "Gem",
+      "hardiness": 1
+    },
+    {
+      "name": "Gastropod Fossil",
+      "item_type": "Gem",
+      "hardiness": 1
+    },
+    {
+      "name": "Lizard Fossil",
+      "item_type": "Gem",
+      "hardiness": 1
+    },
+    {
+      "name": "Bumblebee",
+      "item_type": "Bug",
+      "hardiness": 1
+    },
+    {
+      "name": "Gummy Worm",
+      "item_type": "Bug",
+      "hardiness": 1
+    },
+    {
+      "name": "Snail",
+      "item_type": "Bug",
+      "hardiness": 1
+    },
+    {
+      "name": "Acorn Weevil",
+      "item_type": "Bug",
+      "hardiness": 1
+    },
+    {
+      "name": "Apple Moth",
+      "item_type": "Bug",
+      "hardiness": 1
+    },
+    {
+      "name": "Candy-Striped Leafhopper",
+      "item_type": "Bug",
+      "hardiness": 1
+    },
+    {
+      "name": "Dragonfly",
+      "item_type": "Bug",
+      "hardiness": 2
+    },
+    {
+      "name": "Fire Ant",
+      "item_type": "Bug",
+      "hardiness": 1
+    },
+    {
+      "name": "Giraffe Weevil",
+      "item_type": "Bug",
+      "hardiness": 2
+    },
+    {
+      "name": "Hercules Beetle",
+      "item_type": "Bug",
+      "hardiness": 3
+    },
+    {
+      "name": "Rhino Beetle",
+      "item_type": "Bug",
+      "hardiness": 2
+    },
+    {
+      "name": "Rosy Maple Moth",
+      "item_type": "Bug",
+      "hardiness": 2
+    },
+    {
+      "name": "Sockfly",
+      "item_type": "Bug",
+      "hardiness": 1
+    },
+    {
+      "name": "Stickbug",
+      "item_type": "Bug",
+      "hardiness": 1
+    },
+    {
+      "name": "Io Moth",
+      "item_type": "Bug",
+      "hardiness": 2
+    },
+    {
+      "name": "Dog Egg",
+      "item_type": "Egg",
+      "hardiness": 1
+    },
+    {
+      "name": "Bug Egg",
+      "item_type": "Egg",
+      "hardiness": 1
+    },
+    {
+      "name": "Pig Egg",
+      "item_type": "Egg",
+      "hardiness": 1
+    },
+    {
+      "name": "Evil Egg",
+      "item_type": "Egg",
+      "hardiness": 2
+    },
+    {
+      "name": "Blue Secretegg",
+      "item_type": "Egg",
+      "hardiness": 1
+    },
+    {
+      "name": "Green Secretegg",
+      "item_type": "Egg",
+      "hardiness": 1
+    },
+    {
+      "name": "Red Secretegg",
+      "item_type": "Egg",
+      "hardiness": 1
+    },
+    {
+      "name": "Gold Secretegg",
+      "item_type": "Egg",
+      "hardiness": 3
+    },
+    {
+      "name": "Chrysalis Egg",
+      "item_type": "Egg",
+      "hardiness": 1
+    },
+    {
+      "name": "Strange Egg",
+      "item_type": "Egg",
+      "hardiness": 3
+    },
+    {
+      "name": "Vacation Egg",
+      "item_type": "Egg",
+      "hardiness": 3
+    }
+  ]
+}

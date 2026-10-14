@@ -175,6 +175,12 @@ button {
   border-bottom: 2px solid var(--surface-border);
 }
 
+/* Second row of tabs inside a tab (e.g. Hardiness categories) */
+.tabs.sub-tabs {
+  margin-top: 0;
+  gap: 16px;
+}
+
 .tab-button {
   padding: 8px 12px;
   color: var(--text-muted);
