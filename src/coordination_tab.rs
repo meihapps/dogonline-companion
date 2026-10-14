@@ -41,7 +41,16 @@ fn matches_bait(fish: &Fish, selected: &str) -> bool {
 
     let (fish_line, fish_tier) = bait_tier(&fish.bait);
 
-    fish_line == selected_line && fish_tier <= selected_tier
+    if fish_line != selected_line {
+        return false;
+    }
+
+    // Golden Grub has its own loot pool: it can't catch fish from lower bait tiers.
+    if (selected_line, selected_tier) == (0, 4) {
+        return fish_tier == selected_tier;
+    }
+
+    fish_tier <= selected_tier
 }
 
 fn matches_filters(fish: &Fish, location: &str, time: &str, weather: &str, bait: &str) -> bool {
