@@ -8,6 +8,10 @@ use crate::hardiness_tab::HardinessTab;
 use crate::storage::{self, Theme};
 use leptos::prelude::*;
 
+const MONITOR_SVG: &str = include_str!("../assets/monitor.svg");
+const SUN_SVG: &str = include_str!("../assets/sun.svg");
+const MOON_SVG: &str = include_str!("../assets/moon.svg");
+
 #[derive(Clone, Copy, PartialEq)]
 enum Tab {
     Bravery,
@@ -61,7 +65,7 @@ pub fn App(
                                         storage::save_theme(Theme::Device);
                                     }
                                 >
-                                    <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2.5" width="12" height="8" rx="1"/><path d="M6 14h4M8 10.5V14"/></svg>
+                                    <span class="theme-icon" inner_html=MONITOR_SVG></span>
                                 </button>
                                 <button
                                     class="theme-button"
@@ -74,7 +78,7 @@ pub fn App(
                                         storage::save_theme(Theme::Light);
                                     }
                                 >
-                                    <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="2.8"/><path d="M8 1.5v1.7M8 12.8v1.7M1.5 8h1.7M12.8 8h1.7M3.4 3.4l1.2 1.2M11.4 11.4l1.2 1.2M12.6 3.4l-1.2 1.2M4.6 11.4l-1.2 1.2"/></svg>
+                                    <span class="theme-icon" inner_html=SUN_SVG></span>
                                 </button>
                                 <button
                                     class="theme-button"
@@ -87,7 +91,7 @@ pub fn App(
                                         storage::save_theme(Theme::Dark);
                                     }
                                 >
-                                    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.6A5.8 5.8 0 0 1 6.4 2.5a5.8 5.8 0 1 0 7.1 7.1z"/></svg>
+                                    <span class="theme-icon" inner_html=MOON_SVG></span>
                                 </button>
                             </div>
                             <span class="header-divider" aria-hidden="true"></span>

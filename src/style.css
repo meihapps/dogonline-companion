@@ -204,14 +204,14 @@ button {
   border-bottom: 3px solid transparent;
 }
 
-.theme-button svg {
+.theme-icon {
+  display: flex;
+}
+
+.theme-icon svg {
   width: 20px;
   height: 20px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  display: block;
 }
 
 .theme-button:hover {
