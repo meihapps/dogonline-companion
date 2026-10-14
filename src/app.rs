@@ -8,6 +8,7 @@ use crate::hardiness_tab::HardinessTab;
 use crate::storage::{self, Theme};
 use leptos::prelude::*;
 
+// icons from lucide icons
 const MONITOR_SVG: &str = include_str!("../assets/monitor.svg");
 const SUN_SVG: &str = include_str!("../assets/sun.svg");
 const MOON_SVG: &str = include_str!("../assets/moon.svg");
