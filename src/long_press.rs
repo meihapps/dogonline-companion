@@ -9,11 +9,16 @@ use std::time::Duration;
 
 const HOLD_TIME: Duration = Duration::from_millis(500);
 
+thread_local! {
+    /// Set when a hold completes, so the click that follows the release is ignored.
+    /// Global rather than per-card: the hold toggles progress, which re-renders the grid and
+    /// replaces the card, so the click can arrive at a brand-new card with fresh state.
+    static LONG_PRESS_FIRED: Cell<bool> = const { Cell::new(false) };
+}
+
 #[derive(Default)]
 struct State {
     timer: Cell<Option<TimeoutHandle>>,
-    /// Set when a hold completed, so the click that follows the release can be ignored.
-    fired: Cell<bool>,
     /// Whether the latest press was touch/pen rather than mouse.
     touch: Cell<bool>,
 }
@@ -35,7 +40,7 @@ impl LongPress {
     /// Hook up to `on:pointerdown`.
     pub fn pointer_down(&self, ev: PointerEvent) {
         self.cancel();
-        self.state.fired.set(false);
+        LONG_PRESS_FIRED.set(false);
 
         let touch = ev.pointer_type() != "mouse";
         self.state.touch.set(touch);
@@ -51,7 +56,7 @@ impl LongPress {
         if let Ok(handle) = set_timeout_with_handle(
             move || {
                 state.timer.set(None);
-                state.fired.set(true);
+                LONG_PRESS_FIRED.set(true);
                 action();
             },
             HOLD_TIME,
@@ -80,6 +85,6 @@ impl LongPress {
 
     /// Use at the top of `on:click`: returns true if the click is just the end of a long press.
     pub fn take_fired(&self) -> bool {
-        self.state.fired.replace(false)
+        LONG_PRESS_FIRED.replace(false)
     }
 }
