@@ -2,12 +2,15 @@ use crate::bravery::BraveryData;
 use crate::bravery_tab::BraveryTab;
 use crate::coordination::CoordinationData;
 use crate::coordination_tab::CoordinationTab;
+use crate::dailies_tab::{self, DailiesTab};
+use crate::storage;
 use leptos::prelude::*;
 
 #[derive(Clone, Copy, PartialEq)]
 enum Tab {
     Bravery,
     Coordination,
+    Dailies,
 }
 
 #[component]
@@ -15,6 +18,8 @@ pub fn App(bravery_data: BraveryData, coordination_data: CoordinationData) -> im
     // The data lives here (not in the tabs) so toggled progress survives switching tabs.
     let bravery_data = RwSignal::new(bravery_data);
     let coordination_data = RwSignal::new(coordination_data);
+    let dailies = RwSignal::new(storage::load_dailies(&dailies_tab::reset_day()));
+    dailies_tab::start_reset_timer(dailies);
     let (selected_tab, set_selected_tab) = signal(Tab::Bravery);
 
     view! {
@@ -55,6 +60,21 @@ pub fn App(bravery_data: BraveryData, coordination_data: CoordinationData) -> im
                         >
                             "Coordination"
                         </button>
+
+                        <button
+                            class="tab-button"
+                            class:active=move || {
+                                selected_tab.get() == Tab::Dailies
+                            }
+                            aria-pressed=move || {
+                                selected_tab.get() == Tab::Dailies
+                            }
+                            on:click=move |_| {
+                                set_selected_tab.set(Tab::Dailies);
+                            }
+                        >
+                            "Dailies"
+                        </button>
                     </nav>
 
                     {move || match selected_tab.get() {
@@ -64,6 +84,10 @@ pub fn App(bravery_data: BraveryData, coordination_data: CoordinationData) -> im
 
                         Tab::Coordination => view! {
                             <CoordinationTab data=coordination_data />
+                        }.into_any(),
+
+                        Tab::Dailies => view! {
+                            <DailiesTab done=dailies />
                         }.into_any(),
                     }}
                 </div>

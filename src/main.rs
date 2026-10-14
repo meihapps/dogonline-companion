@@ -3,6 +3,7 @@ mod bravery;
 mod bravery_tab;
 mod coordination;
 mod coordination_tab;
+mod dailies_tab;
 mod formatting;
 mod generate_bravery_data;
 mod generate_coordination_data;

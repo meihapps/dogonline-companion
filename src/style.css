@@ -199,6 +199,47 @@ button {
 }
 
 
+.dailies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 auto 24px;
+  padding: 0;
+  max-width: 500px;
+  list-style: none;
+}
+
+.daily-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border: 2px solid var(--surface-border);
+  border-radius: 6px;
+  background-color: var(--surface-bg);
+  color: var(--text);
+  text-align: left;
+  cursor: var(--cursor-hover);
+}
+
+.daily-item:hover {
+  border-color: var(--accent-border);
+}
+
+.daily-item input[type="checkbox"] {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  accent-color: #3ca65c;
+  cursor: var(--cursor-hover);
+}
+
+.daily-item .done {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
 /* Shared item grid: Bravery and Coordination */
 
 .item-grid {

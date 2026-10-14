@@ -7,6 +7,7 @@
 use std::collections::HashSet;
 
 const CAUGHT_FISH_KEY: &str = "dogonline_companion.caught_fish";
+const DAILIES_KEY: &str = "dogonline_companion.dailies";
 const KILLED_ENEMIES_KEY: &str = "dogonline_companion.killed_enemies";
 
 fn local_storage() -> Option<web_sys::Storage> {
@@ -99,4 +100,28 @@ pub fn load_killed_enemies() -> HashSet<String> {
 
 pub fn save_killed_enemies(names: &HashSet<String>) {
     save_names(KILLED_ENEMIES_KEY, names);
+}
+
+/// Ticked-off dailies. Stored with the (Pacific) day they were ticked, so a new day
+/// reads back as empty.
+pub fn load_dailies(today: &str) -> HashSet<String> {
+    let Some(raw) = load_string(DAILIES_KEY) else {
+        return HashSet::new();
+    };
+
+    serde_json::from_str::<(String, HashSet<String>)>(&raw)
+        .ok()
+        .filter(|(day, _)| day == today)
+        .map(|(_, done)| done)
+        .unwrap_or_default()
+}
+
+pub fn save_dailies(today: &str, done: &HashSet<String>) {
+    // Sorted so the stored value is stable between saves.
+    let mut sorted: Vec<&String> = done.iter().collect();
+    sorted.sort();
+
+    if let Ok(raw) = serde_json::to_string(&(today, sorted)) {
+        save_string(DAILIES_KEY, &raw);
+    }
 }
