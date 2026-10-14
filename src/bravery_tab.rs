@@ -1,6 +1,7 @@
 
 use crate::bravery::{BraveryData, Enemy};
 use crate::formatting::format_enum;
+use crate::long_press::LongPress;
 use crate::storage::{self, Filter};
 use leptos::prelude::*;
 
@@ -29,7 +30,7 @@ pub fn BraveryTab(data: RwSignal<BraveryData>) -> impl IntoView {
         <section class="tab-content">
             <h2>"Bravery"</h2>
 
-            <p class="hint">"Right-click an enemy to mark it as killed"</p>
+            <p class="hint">"Long-press (or right-click) an enemy to mark it as killed"</p>
 
             <label class="show-caught-filter">
                 <input
@@ -54,17 +55,23 @@ pub fn BraveryTab(data: RwSignal<BraveryData>) -> impl IntoView {
                         .filter(|(_, enemy)| show_killed || !enemy.killed)
                         .map(|(index, enemy)| {
                     let enemy_for_click = enemy.clone();
+                    let long_press = LongPress::new(move || toggle_killed(data, index));
+                    let click_press = long_press.clone();
 
                     view! {
                         <button
                             class="item-card"
                             on:click=move |_| {
+                                if click_press.take_fired() {
+                                    return;
+                                }
                                 set_selected_enemy.set(Some(enemy_for_click.clone()));
                             }
-                            on:contextmenu=move |ev| {
-                                ev.prevent_default();
-                                toggle_killed(data, index);
-                            }
+                            on:pointerdown={let lp = long_press.clone(); move |ev| lp.pointer_down(ev)}
+                            on:pointerup={let lp = long_press.clone(); move |_| lp.cancel()}
+                            on:pointerleave={let lp = long_press.clone(); move |_| lp.cancel()}
+                            on:pointercancel={let lp = long_press.clone(); move |_| lp.cancel()}
+                            on:contextmenu={let lp = long_press.clone(); move |ev| lp.context_menu(ev)}
                         >
                             <div class="item-icon-wrap">
                                 <div

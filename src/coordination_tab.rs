@@ -1,5 +1,6 @@
 use crate::coordination::{Bait, CoordinationData, Fish};
 use crate::formatting::{format_enum, format_list};
+use crate::long_press::LongPress;
 use crate::storage::{self, Filter};
 use leptos::prelude::*;
 
@@ -226,17 +227,23 @@ fn FishCard(
     set_selected_fish: WriteSignal<Option<Fish>>,
 ) -> impl IntoView {
     let is_caught = fish.caught;
+    let long_press = LongPress::new(move || toggle_caught(data, fish_index));
+    let click_press = long_press.clone();
 
     view! {
         <button
             class="item-card"
             on:click=move |_| {
+                if click_press.take_fired() {
+                    return;
+                }
                 set_selected_fish.set(Some(fish.clone()));
             }
-            on:contextmenu=move |ev| {
-                ev.prevent_default();
-                toggle_caught(data, fish_index);
-            }
+            on:pointerdown={let lp = long_press.clone(); move |ev| lp.pointer_down(ev)}
+            on:pointerup={let lp = long_press.clone(); move |_| lp.cancel()}
+            on:pointerleave={let lp = long_press.clone(); move |_| lp.cancel()}
+            on:pointercancel={let lp = long_press.clone(); move |_| lp.cancel()}
+            on:contextmenu={let lp = long_press.clone(); move |ev| lp.context_menu(ev)}
         >
             <div class="item-icon-wrap">
                 <div
@@ -461,7 +468,7 @@ pub fn CoordinationTab(data: RwSignal<CoordinationData>) -> impl IntoView {
         <section class="tab-content">
             <h2>"Coordination"</h2>
 
-            <p class="hint">"Right-click a fish to mark it as caught"</p>
+            <p class="hint">"Long-press (or right-click) a fish to mark it as caught"</p>
 
             <CoordinationFilters
                 selected_location=selected_location

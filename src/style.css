@@ -368,6 +368,10 @@ button {
   max-width: 200px;
   font-family: inherit;
   cursor: inherit;
+  /* Stop long-press from selecting text or showing the iOS callout menu. */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 button.item-card {
