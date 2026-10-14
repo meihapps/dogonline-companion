@@ -280,6 +280,39 @@ button {
   cursor: var(--cursor-hover);
 }
 
+.uncaught-title {
+  margin: 0 0 12px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.uncaught-counts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 auto 24px;
+  max-width: 1000px;
+}
+
+.uncaught-count {
+  display: flex;
+  flex: 0 1 180px;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border: 2px solid var(--surface-border);
+  border-radius: 6px;
+  background-color: var(--surface-bg);
+  color: var(--text-muted);
+}
+
+.uncaught-count-value {
+  color: var(--text);
+  font-size: 1.5em;
+}
+
 .item-card {
   display: flex;
   flex-direction: column;
@@ -526,6 +559,7 @@ button.item-card {
   .coordination-filters select {
     padding: 8px;
     font-size: 18px;
+  }
 }
 
 @media (max-width: 350px) {

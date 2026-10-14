@@ -259,6 +259,65 @@ fn FishCard(
     }
 }
 
+const AREAS: [(&str, &str); 5] = [
+    ("OldFishingHole", "Old Fishing Hole"),
+    ("DesertOasis", "Desert Oasis"),
+    ("IceFishingHole", "Ice Fishing Hole"),
+    ("OceanFishingCruiser", "Ocean Fishing Cruiser"),
+    ("FlyFishingShip", "Fly Fishing Ship"),
+];
+
+/// Shows how many uncaught fish match the current filters in each area.
+/// A fish that lives in several areas is counted in each of them.
+#[component]
+fn UncaughtCounts(
+    data: RwSignal<CoordinationData>,
+    selected_location: ReadSignal<String>,
+    selected_time: ReadSignal<String>,
+    selected_weather: ReadSignal<String>,
+    selected_bait: ReadSignal<String>,
+) -> impl IntoView {
+    view! {
+        <div class="uncaught-section">
+            <p class="uncaught-title">"Uncaught fish per area (with current filters)"</p>
+
+            <div class="uncaught-counts">
+            {move || {
+                let location = selected_location.get();
+                let time = selected_time.get();
+                let weather = selected_weather.get();
+                let bait = selected_bait.get();
+
+                data.with(|data| {
+                    AREAS
+                        .iter()
+                        // With an area filter set, only that area is shown.
+                        .filter(|(key, _)| location.is_empty() || location == *key)
+                        .map(|(key, label)| {
+                            let count = data
+                                .fish
+                                .iter()
+                                .filter(|fish| {
+                                    !fish.caught
+                                        && matches_filters(fish, key, &time, &weather, &bait)
+                                })
+                                .count();
+
+                            view! {
+                                <div class="uncaught-count">
+                                    <span class="uncaught-count-label">{*label}</span>
+                                    <span class="uncaught-count-value">{count}</span>
+                                </div>
+                            }
+                        })
+                        .collect_view()
+                })
+            }}
+            </div>
+        </div>
+    }
+}
+
 #[component]
 fn FishGrid(
     data: RwSignal<CoordinationData>,
@@ -425,6 +484,14 @@ pub fn CoordinationTab(data: RwSignal<CoordinationData>) -> impl IntoView {
                 />
                 " Show caught"
             </label>
+
+            <UncaughtCounts
+                data=data
+                selected_location=selected_location
+                selected_time=selected_time
+                selected_weather=selected_weather
+                selected_bait=selected_bait
+            />
 
             <FishGrid
                 data=data
