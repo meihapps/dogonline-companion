@@ -402,6 +402,20 @@ pub fn generate_bravery_data() -> BraveryData {
                 bravery: 2,
                 killed: false,
             },
+            Enemy {
+                name: "Doggy Ghost".into(),
+                damage_type: DamageType::Magic,
+                hp: 25,
+                bravery: 1,
+                killed: false,
+            },
+            Enemy {
+                name: "Haunted Pumpkin Dog".into(),
+                damage_type: DamageType::Magic,
+                hp: 35,
+                bravery: 1,
+                killed: false,
+            },
         ],
     }
 }
