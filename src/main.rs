@@ -26,7 +26,7 @@ const HARDINESS_DATA: &str = include_str!("../assets/hardiness_data.json");
 
 fn main() {
     // To regenerate the JSON data: uncomment, `cargo run`, then comment it out again.
-    regenerate::regenerate_json_data();
+    // regenerate::regenerate_json_data();
 
     // Immutable data comes from the bundled JSON...
     let mut bravery_data =
