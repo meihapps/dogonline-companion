@@ -341,6 +341,18 @@
       "damage_type": "Melee",
       "hp": 90,
       "bravery": 2
+    },
+    {
+      "name": "Doggy Ghost",
+      "damage_type": "Magic",
+      "hp": 25,
+      "bravery": 1
+    },
+    {
+      "name": "Haunted Pumpkin Dog",
+      "damage_type": "Magic",
+      "hp": 35,
+      "bravery": 1
     }
   ]
 }

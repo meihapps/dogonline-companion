@@ -26,7 +26,7 @@ const HARDINESS_DATA: &str = include_str!("../assets/hardiness_data.json");
 
 fn main() {
     // To regenerate the JSON data: uncomment, `cargo run`, then comment it out again.
-    // regenerate::regenerate_json_data();
+    regenerate::regenerate_json_data();
 
     // Immutable data comes from the bundled JSON...
     let mut bravery_data =
@@ -34,8 +34,8 @@ fn main() {
     let mut coordination_data = serde_json::from_str::<CoordinationData>(COORDINATION_DATA)
         .expect("invalid coordination_data.json");
 
-    let mut hardiness_data = serde_json::from_str::<HardinessData>(HARDINESS_DATA)
-        .expect("invalid hardiness_data.json");
+    let mut hardiness_data =
+        serde_json::from_str::<HardinessData>(HARDINESS_DATA).expect("invalid hardiness_data.json");
 
     // ...and the mutable progress comes from browser storage.
     bravery_data.apply_progress(&storage::load_killed_enemies());
