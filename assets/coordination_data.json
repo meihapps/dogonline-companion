@@ -76,7 +76,7 @@
         "Stormy",
         "Snowy"
       ],
-      "bait": "BucketOfWorms",
+      "bait": "MoundOfMinnows",
       "coordination": 1
     },
     {
@@ -286,7 +286,8 @@
         "Night"
       ],
       "weather": [
-        "ClearSkies"
+        "ClearSkies",
+        "Rainy"
       ],
       "bait": "MoundOfMinnows",
       "coordination": 1
@@ -373,14 +374,12 @@
       ],
       "time": [
         "Morning",
-        "Afternoon",
-        "Night"
+        "Afternoon"
       ],
       "weather": [
         "ClearSkies",
         "Rainy",
-        "Stormy",
-        "Snowy"
+        "Stormy"
       ],
       "bait": "MoundOfMinnows",
       "coordination": 2
@@ -402,7 +401,7 @@
         "Stormy",
         "Snowy"
       ],
-      "bait": "BucketOfWorms",
+      "bait": "CupOfCrickets",
       "coordination": 1
     },
     {
@@ -422,8 +421,8 @@
         "Stormy",
         "Snowy"
       ],
-      "bait": "MoundOfMinnows",
-      "coordination": 2
+      "bait": "CupOfCrickets",
+      "coordination": 1
     },
     {
       "name": "Hot N Spicy Fish",
@@ -459,7 +458,7 @@
         "Stormy",
         "Snowy"
       ],
-      "bait": "BucketOfWorms",
+      "bait": "CupOfCrickets",
       "coordination": 1
     },
     {
@@ -479,7 +478,7 @@
         "Stormy",
         "Snowy"
       ],
-      "bait": "BucketOfWorms",
+      "bait": "CupOfCrickets",
       "coordination": 1
     },
     {
@@ -498,7 +497,7 @@
         "Stormy",
         "Snowy"
       ],
-      "bait": "BucketOfWorms",
+      "bait": "CupOfCrickets",
       "coordination": 1
     },
     {
@@ -515,7 +514,7 @@
         "Stormy",
         "Snowy"
       ],
-      "bait": "BucketOfWorms",
+      "bait": "CupOfCrickets",
       "coordination": 1
     },
     {
@@ -555,7 +554,7 @@
         "Stormy",
         "Snowy"
       ],
-      "bait": "BucketOfWorms",
+      "bait": "PouchOfPrawns",
       "coordination": 1
     },
     {
@@ -620,6 +619,7 @@
         "IceFishingHole"
       ],
       "time": [
+        "Morning",
         "Afternoon",
         "Evening",
         "Night"
@@ -661,6 +661,7 @@
       "time": [
         "Morning",
         "Afternoon",
+        "Evening",
         "Night"
       ],
       "weather": [
@@ -670,7 +671,7 @@
         "Snowy"
       ],
       "bait": "BucketOfWorms",
-      "coordination": 1
+      "coordination": 2
     },
     {
       "name": "Capelin",
@@ -709,7 +710,7 @@
         "Stormy",
         "Snowy"
       ],
-      "bait": "PouchOfPrawns",
+      "bait": "CupOfCrickets",
       "coordination": 3
     },
     {
@@ -729,7 +730,7 @@
         "Stormy",
         "Snowy"
       ],
-      "bait": "PouchOfPrawns",
+      "bait": "CupOfCrickets",
       "coordination": 3
     },
     {
@@ -749,7 +750,7 @@
         "Stormy",
         "Snowy"
       ],
-      "bait": "PouchOfPrawns",
+      "bait": "CupOfCrickets",
       "coordination": 2
     },
     {
@@ -800,6 +801,7 @@
       "time": [
         "Morning",
         "Afternoon",
+        "Evening",
         "Night"
       ],
       "weather": [
@@ -899,7 +901,7 @@
         "Snowy"
       ],
       "bait": "MoundOfMinnows",
-      "coordination": 1
+      "coordination": 2
     },
     {
       "name": "Gummy Shark",
@@ -919,7 +921,7 @@
         "Snowy"
       ],
       "bait": "MoundOfMinnows",
-      "coordination": 1
+      "coordination": 2
     },
     {
       "name": "Comb Jelly",
@@ -930,9 +932,14 @@
         "Morning",
         "Night"
       ],
-      "weather": [],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
       "bait": "PouchOfPrawns",
-      "coordination": 1
+      "coordination": 2
     },
     {
       "name": "Jelly Jellyfish",
@@ -943,7 +950,12 @@
         "Morning",
         "Afternoon"
       ],
-      "weather": [],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
       "bait": "PouchOfPrawns",
       "coordination": 1
     },
@@ -953,6 +965,8 @@
         "OceanFishingCruiser"
       ],
       "time": [
+        "Morning",
+        "Afternoon",
         "Evening",
         "Night"
       ],
@@ -977,7 +991,8 @@
         "Night"
       ],
       "weather": [
-        "ClearSkies"
+        "ClearSkies",
+        "Rainy"
       ],
       "bait": "CupOfCrickets",
       "coordination": 1
@@ -987,9 +1002,15 @@
       "location": [
         "OceanFishingCruiser"
       ],
-      "time": [],
-      "weather": [],
-      "bait": "PouchOfPrawns",
+      "time": [
+        "Night"
+      ],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy"
+      ],
+      "bait": "CupOfCrickets",
       "coordination": 1
     },
     {
@@ -1003,7 +1024,12 @@
         "Evening",
         "Night"
       ],
-      "weather": [],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
       "bait": "PouchOfPrawns",
       "coordination": 1
     },
@@ -1017,7 +1043,12 @@
         "Evening",
         "Night"
       ],
-      "weather": [],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
       "bait": "PouchOfPrawns",
       "coordination": 1
     },
@@ -1029,7 +1060,12 @@
       "time": [
         "Morning"
       ],
-      "weather": [],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
       "bait": "PouchOfPrawns",
       "coordination": 3
     },
@@ -1041,9 +1077,14 @@
       "time": [
         "Night"
       ],
-      "weather": [],
+      "weather": [
+        "ClearSkies",
+        "Rainy",
+        "Stormy",
+        "Snowy"
+      ],
       "bait": "PouchOfPrawns",
-      "coordination": 0
+      "coordination": 3
     },
     {
       "name": "Flying Fish",
@@ -1079,6 +1120,7 @@
       "weather": [
         "ClearSkies",
         "Rainy",
+        "Stormy",
         "Snowy"
       ],
       "bait": "BalloonHook",
@@ -1097,7 +1139,7 @@
       "weather": [
         "Stormy"
       ],
-      "bait": "BalloonHook",
+      "bait": "WickedSkymetalHook",
       "coordination": 1
     },
     {
@@ -1112,6 +1154,7 @@
       "weather": [
         "ClearSkies",
         "Rainy",
+        "Stormy",
         "Snowy"
       ],
       "bait": "BalloonHook",
@@ -1129,7 +1172,7 @@
       "weather": [
         "ClearSkies"
       ],
-      "bait": "WickedSkymetalHook",
+      "bait": "BalloonHook",
       "coordination": 1
     },
     {
@@ -1144,7 +1187,7 @@
       "weather": [
         "ClearSkies"
       ],
-      "bait": "WickedSkymetalHook",
+      "bait": "BalloonHook",
       "coordination": 1
     },
     {
@@ -1193,7 +1236,7 @@
         "Stormy"
       ],
       "bait": "WickedSkymetalHook",
-      "coordination": 1
+      "coordination": 0
     },
     {
       "name": "Starwhale",
@@ -1208,7 +1251,7 @@
         "ClearSkies"
       ],
       "bait": "WickedSkymetalHook",
-      "coordination": 1
+      "coordination": 3
     },
     {
       "name": "Aurora Eel",
@@ -1222,7 +1265,7 @@
         "ClearSkies"
       ],
       "bait": "SkyTackle",
-      "coordination": 1
+      "coordination": 3
     },
     {
       "name": "Skyfish",
@@ -1252,7 +1295,7 @@
         "Rainy"
       ],
       "bait": "SkyTackle",
-      "coordination": 1
+      "coordination": 3
     },
     {
       "name": "Jellyfish...?",
@@ -1266,7 +1309,8 @@
       "weather": [
         "ClearSkies",
         "Rainy",
-        "Stormy"
+        "Stormy",
+        "Snowy"
       ],
       "bait": "SkyTackle",
       "coordination": 3
