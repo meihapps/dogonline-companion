@@ -164,6 +164,7 @@
       ],
       "weather": [
         "ClearSkies",
+        "Rainy",
         "Stormy"
       ],
       "bait": "BucketOfWorms",
@@ -1213,7 +1214,8 @@
         "FlyFishingShip"
       ],
       "time": [
-        "Afternoon"
+        "Afternoon",
+        "Evening"
       ],
       "weather": [
         "Rainy"
