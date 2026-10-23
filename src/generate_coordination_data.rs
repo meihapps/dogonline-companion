@@ -1024,7 +1024,7 @@ pub fn generate_coordination_data() -> CoordinationData {
             Fish {
                 name: "Rainbow Trout (Sky)".to_string(),
                 location: vec![FishingSpot::FlyFishingShip],
-                time: vec![TimeOfDay::Afternoon],
+                time: vec![TimeOfDay::Afternoon, TimeOfDay::Evening],
                 weather: vec![Weather::Rainy],
                 bait: Bait::WickedSkymetalHook,
                 coordination: 1,
