@@ -147,7 +147,7 @@ pub fn generate_coordination_data() -> CoordinationData {
                 name: "Freshwater Eel".to_string(),
                 location: vec![FishingSpot::OldFishingHole],
                 time: vec![TimeOfDay::Night],
-                weather: vec![Weather::ClearSkies, Weather::Stormy],
+                weather: vec![Weather::ClearSkies, Weather::Rainy, Weather::Stormy],
                 bait: Bait::BucketOfWorms,
                 coordination: 1,
                 caught: false,
