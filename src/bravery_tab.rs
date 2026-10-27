@@ -1,4 +1,3 @@
-
 use crate::bravery::{BraveryData, Enemy};
 use crate::formatting::format_enum;
 use crate::long_press::LongPress;

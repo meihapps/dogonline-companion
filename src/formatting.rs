@@ -25,9 +25,7 @@ pub fn format_enum<T: std::fmt::Debug>(item: &T) -> String {
                 let mut chars = word.chars();
 
                 match chars.next() {
-                    Some(first) => {
-                        first.to_uppercase().collect::<String>() + chars.as_str()
-                    }
+                    Some(first) => first.to_uppercase().collect::<String>() + chars.as_str(),
                     None => String::new(),
                 }
             } else {
@@ -39,9 +37,5 @@ pub fn format_enum<T: std::fmt::Debug>(item: &T) -> String {
 }
 
 pub fn format_list<T: std::fmt::Debug>(items: &[T]) -> String {
-    items
-        .iter()
-        .map(format_enum)
-        .collect::<Vec<_>>()
-        .join(", ")
+    items.iter().map(format_enum).collect::<Vec<_>>().join(", ")
 }
