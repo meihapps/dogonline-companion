@@ -22,6 +22,7 @@ enum Tab {
 }
 
 #[component]
+#[allow(clippy::too_many_lines)]
 pub fn App(
     bravery_data: BraveryData,
     coordination_data: CoordinationData,

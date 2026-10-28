@@ -38,7 +38,7 @@ impl LongPress {
     }
 
     /// Hook up to `on:pointerdown`.
-    pub fn pointer_down(&self, ev: PointerEvent) {
+    pub fn pointer_down(&self, ev: &PointerEvent) {
         self.cancel();
         LONG_PRESS_FIRED.set(false);
 
@@ -75,7 +75,7 @@ impl LongPress {
 
     /// Hook up to `on:contextmenu`. Always hides the browser menu; right-click triggers the
     /// action, while a touch long-press is handled by the timer instead.
-    pub fn context_menu(&self, ev: MouseEvent) {
+    pub fn context_menu(&self, ev: &MouseEvent) {
         ev.prevent_default();
 
         if !self.state.touch.get() {
@@ -84,7 +84,7 @@ impl LongPress {
     }
 
     /// Use at the top of `on:click`: returns true if the click is just the end of a long press.
-    pub fn take_fired(&self) -> bool {
+    pub fn take_fired() -> bool {
         LONG_PRESS_FIRED.replace(false)
     }
 }

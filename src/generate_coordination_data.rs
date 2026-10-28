@@ -1,5 +1,6 @@
 use crate::coordination::{Bait, CoordinationData, Fish, FishingSpot, TimeOfDay, Weather};
 
+#[allow(clippy::too_many_lines)]
 pub fn generate_coordination_data() -> CoordinationData {
     CoordinationData {
         fish: vec![

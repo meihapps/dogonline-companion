@@ -237,22 +237,21 @@ fn FishCard(
 ) -> impl IntoView {
     let is_caught = fish.caught;
     let long_press = LongPress::new(move || toggle_caught(data, fish_index));
-    let click_press = long_press.clone();
 
     view! {
         <button
             class="item-card"
             on:click=move |_| {
-                if click_press.take_fired() {
+                if LongPress::take_fired() {
                     return;
                 }
                 set_selected_fish.set(Some(fish.clone()));
             }
-            on:pointerdown={let lp = long_press.clone(); move |ev| lp.pointer_down(ev)}
+            on:pointerdown={let lp = long_press.clone(); move |ev| lp.pointer_down(&ev)}
             on:pointerup={let lp = long_press.clone(); move |_| lp.cancel()}
             on:pointerleave={let lp = long_press.clone(); move |_| lp.cancel()}
             on:pointercancel={let lp = long_press.clone(); move |_| lp.cancel()}
-            on:contextmenu={let lp = long_press.clone(); move |ev| lp.context_menu(ev)}
+            on:contextmenu={let lp = long_press.clone(); move |ev| lp.context_menu(&ev)}
         >
             <div class="item-icon-wrap">
                 <div

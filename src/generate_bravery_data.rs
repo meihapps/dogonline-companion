@@ -1,5 +1,6 @@
 use crate::bravery::{BraveryData, DamageType, Enemy};
 
+#[allow(clippy::too_many_lines)]
 pub fn generate_bravery_data() -> BraveryData {
     BraveryData {
         enemies: vec![

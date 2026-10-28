@@ -1,5 +1,6 @@
 use crate::hardiness::{HardinessData, HardinessItem, ItemType};
 
+#[allow(clippy::too_many_lines)]
 pub fn generate_hardiness_data() -> HardinessData {
     HardinessData {
         items: vec![

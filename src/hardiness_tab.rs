@@ -87,11 +87,11 @@ pub fn HardinessTab(data: RwSignal<HardinessData>) -> impl IntoView {
                             view! {
                                 <div
                                     class="item-card"
-                                    on:pointerdown={let lp = long_press.clone(); move |ev| lp.pointer_down(ev)}
+                                    on:pointerdown={let lp = long_press.clone(); move |ev| lp.pointer_down(&ev)}
                                     on:pointerup={let lp = long_press.clone(); move |_| lp.cancel()}
                                     on:pointerleave={let lp = long_press.clone(); move |_| lp.cancel()}
                                     on:pointercancel={let lp = long_press.clone(); move |_| lp.cancel()}
-                                    on:contextmenu={let lp = long_press.clone(); move |ev| lp.context_menu(ev)}
+                                    on:contextmenu={let lp = long_press.clone(); move |ev| lp.context_menu(&ev)}
                                 >
                                     <div class="item-icon-wrap">
                                         <div

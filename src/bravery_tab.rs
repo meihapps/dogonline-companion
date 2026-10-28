@@ -16,6 +16,7 @@ fn toggle_killed(data: RwSignal<BraveryData>, index: usize) {
 }
 
 #[component]
+#[allow(clippy::too_many_lines)]
 pub fn BraveryTab(data: RwSignal<BraveryData>) -> impl IntoView {
     let (selected_enemy, set_selected_enemy) = signal(None::<Enemy>);
     let (show_killed, set_show_killed) =
@@ -55,22 +56,21 @@ pub fn BraveryTab(data: RwSignal<BraveryData>) -> impl IntoView {
                         .map(|(index, enemy)| {
                     let enemy_for_click = enemy.clone();
                     let long_press = LongPress::new(move || toggle_killed(data, index));
-                    let click_press = long_press.clone();
 
                     view! {
                         <button
                             class="item-card"
                             on:click=move |_| {
-                                if click_press.take_fired() {
+                                if LongPress::take_fired() {
                                     return;
                                 }
                                 set_selected_enemy.set(Some(enemy_for_click.clone()));
                             }
-                            on:pointerdown={let lp = long_press.clone(); move |ev| lp.pointer_down(ev)}
+                            on:pointerdown={let lp = long_press.clone(); move |ev| lp.pointer_down(&ev)}
                             on:pointerup={let lp = long_press.clone(); move |_| lp.cancel()}
                             on:pointerleave={let lp = long_press.clone(); move |_| lp.cancel()}
                             on:pointercancel={let lp = long_press.clone(); move |_| lp.cancel()}
-                            on:contextmenu={let lp = long_press.clone(); move |ev| lp.context_menu(ev)}
+                            on:contextmenu={let lp = long_press.clone(); move |ev| lp.context_menu(&ev)}
                         >
                             <div class="item-icon-wrap">
                                 <div
