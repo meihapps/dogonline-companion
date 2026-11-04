@@ -1,5 +1,5 @@
 use crate::bravery::{BraveryData, Enemy};
-use crate::formatting::format_enum;
+use crate::formatting::{format_enum, image_path};
 use crate::long_press::LongPress;
 use crate::storage::{self, Filter};
 use leptos::prelude::*;
@@ -73,10 +73,12 @@ pub fn BraveryTab(data: RwSignal<BraveryData>) -> impl IntoView {
                             on:contextmenu={let lp = long_press.clone(); move |ev| lp.context_menu(&ev)}
                         >
                             <div class="item-icon-wrap">
-                                <div
-                                    class="item-icon-placeholder"
-                                    class:caught=enemy.killed
-                                ></div>
+                                <img
+                                    class="item-icon"
+                                    class:complete=enemy.killed
+                                    src=image_path("bravery", &enemy.name)
+                                    alt=""
+                                />
                             </div>
 
                             <p class="item-name">
@@ -116,7 +118,12 @@ pub fn BraveryTab(data: RwSignal<BraveryData>) -> impl IntoView {
                             </button>
 
                             <div class="modal-body">
-                                <div class="modal-image"></div>
+                                <img
+                                    class="modal-image"
+                                    class:complete=enemy.killed
+                                    src=image_path("bravery", &enemy.name)
+                                    alt=""
+                                />
 
                                 <h2>{enemy.name.clone()}</h2>
 

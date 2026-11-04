@@ -45,3 +45,67 @@ fn main() {
         }
     });
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::formatting::image_path;
+    use std::collections::HashSet;
+    use std::path::Path;
+
+    fn bravery_names() -> Vec<String> {
+        let data: BraveryData = serde_json::from_str(BRAVERY_DATA).unwrap();
+        data.enemies.into_iter().map(|enemy| enemy.name).collect()
+    }
+
+    fn coordination_names() -> Vec<String> {
+        let data: CoordinationData = serde_json::from_str(COORDINATION_DATA).unwrap();
+        data.fish.into_iter().map(|fish| fish.name).collect()
+    }
+
+    fn hardiness_names() -> Vec<String> {
+        let data: HardinessData = serde_json::from_str(HARDINESS_DATA).unwrap();
+        data.items.into_iter().map(|item| item.name).collect()
+    }
+
+    fn all_tabs() -> [(&'static str, Vec<String>); 3] {
+        [
+            ("bravery", bravery_names()),
+            ("coordination", coordination_names()),
+            ("hardiness", hardiness_names()),
+        ]
+    }
+
+    #[test]
+    fn every_name_has_an_image() {
+        for (tab, names) in all_tabs() {
+            for name in names {
+                let path = image_path(tab, &name);
+                let file = path.replacen("wiki/", "assets/wiki/", 1);
+
+                assert!(Path::new(&file).exists(), "no image for {name}: {file}");
+            }
+        }
+    }
+
+    // Progress is stored by name, so a duplicate would mark two entries at once.
+    #[test]
+    fn names_are_unique_within_a_tab() {
+        for (tab, names) in all_tabs() {
+            let unique: HashSet<&String> = names.iter().collect();
+
+            assert_eq!(unique.len(), names.len(), "duplicate name in {tab}");
+        }
+    }
+
+    #[test]
+    fn progress_round_trips_through_names() {
+        let mut data: BraveryData = serde_json::from_str(BRAVERY_DATA).unwrap();
+        let killed = HashSet::from([data.enemies[0].name.clone()]);
+
+        data.apply_progress(&killed);
+
+        assert!(data.enemies[0].killed);
+        assert_eq!(data.killed_names(), killed);
+    }
+}

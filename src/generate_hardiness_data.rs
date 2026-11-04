@@ -437,7 +437,7 @@ pub fn generate_hardiness_data() -> HardinessData {
                 harvested: false,
             },
             HardinessItem {
-                name: "Gold Secretegg".into(),
+                name: "Golden Secretegg".into(),
                 item_type: ItemType::Egg,
                 hardiness: 3,
                 harvested: false,

@@ -1,5 +1,5 @@
 use crate::coordination::{Bait, CoordinationData, Fish};
-use crate::formatting::{format_enum, format_list};
+use crate::formatting::{format_enum, format_list, image_path};
 use crate::long_press::LongPress;
 use crate::storage::{self, Filter};
 use leptos::prelude::*;
@@ -254,13 +254,12 @@ fn FishCard(
             on:contextmenu={let lp = long_press.clone(); move |ev| lp.context_menu(&ev)}
         >
             <div class="item-icon-wrap">
-                <div
-                    class=if is_caught {
-                        "item-icon-placeholder caught"
-                    } else {
-                        "item-icon-placeholder"
-                    }
-                ></div>
+                <img
+                    class="item-icon"
+                    class:complete=is_caught
+                    src=image_path("coordination", &fish.name)
+                    alt=""
+                />
             </div>
 
             <p class="item-name">
@@ -406,7 +405,12 @@ fn FishModal(fish: Fish, on_close: Callback<()>) -> impl IntoView {
                 </button>
 
                 <div class="modal-body">
-                    <div class="modal-image"></div>
+                    <img
+                        class="modal-image"
+                        class:complete=fish.caught
+                        src=image_path("coordination", &fish.name)
+                        alt=""
+                    />
 
                     <h2>{fish.name.clone()}</h2>
 
@@ -529,5 +533,50 @@ pub fn CoordinationTab(data: RwSignal<CoordinationData>) -> impl IntoView {
                 })
             }}
         </section>
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn fish_with_bait(bait: Bait) -> Fish {
+        Fish {
+            name: "Test Fish".to_string(),
+            location: Vec::new(),
+            time: Vec::new(),
+            weather: Vec::new(),
+            bait,
+            coordination: 1,
+            caught: false,
+        }
+    }
+
+    #[test]
+    fn better_bait_also_catches_lower_tier_fish() {
+        let fish = fish_with_bait(Bait::MoundOfMinnows);
+
+        assert!(matches_bait(&fish, "CupOfCrickets"));
+        assert!(!matches_bait(&fish, "BucketOfWorms"));
+    }
+
+    #[test]
+    fn golden_grub_only_catches_its_own_fish() {
+        assert!(!matches_bait(
+            &fish_with_bait(Bait::BucketOfWorms),
+            "GoldenGrub"
+        ));
+        assert!(matches_bait(
+            &fish_with_bait(Bait::GoldenGrub),
+            "GoldenGrub"
+        ));
+    }
+
+    #[test]
+    fn bait_lines_are_separate() {
+        assert!(!matches_bait(
+            &fish_with_bait(Bait::BucketOfWorms),
+            "SkyTackle"
+        ));
     }
 }

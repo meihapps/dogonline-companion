@@ -32,6 +32,7 @@
             # toolchain + components come from rust-toolchain.toml
             (pkgs.rust-bin.fromRustupToolchainFile ./rust-toolchain.toml)
             pkgs.trunk
+            pkgs.git-lfs
           ];
         };
       });

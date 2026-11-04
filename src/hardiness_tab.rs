@@ -1,3 +1,4 @@
+use crate::formatting::image_path;
 use crate::hardiness::{HardinessData, ItemType};
 use crate::long_press::LongPress;
 use crate::storage::{self, Filter};
@@ -94,10 +95,12 @@ pub fn HardinessTab(data: RwSignal<HardinessData>) -> impl IntoView {
                                     on:contextmenu={let lp = long_press.clone(); move |ev| lp.context_menu(&ev)}
                                 >
                                     <div class="item-icon-wrap">
-                                        <div
-                                            class="item-icon-placeholder"
-                                            class:caught=item.harvested
-                                        ></div>
+                                        <img
+                                            class="item-icon"
+                                            class:complete=item.harvested
+                                            src=image_path("hardiness", &item.name)
+                                            alt=""
+                                        />
                                     </div>
 
                                     <p class="item-name">{item.name.clone()}</p>

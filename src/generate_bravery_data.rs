@@ -12,7 +12,7 @@ pub fn generate_bravery_data() -> BraveryData {
                 killed: false,
             },
             Enemy {
-                name: "Pupcup".into(),
+                name: "Pup Cup".into(),
                 damage_type: DamageType::Melee,
                 hp: 12,
                 bravery: 1,
@@ -89,7 +89,7 @@ pub fn generate_bravery_data() -> BraveryData {
                 killed: false,
             },
             Enemy {
-                name: "Cheese".into(),
+                name: "Cheese (Enemy)".into(),
                 damage_type: DamageType::Magic,
                 hp: 125,
                 bravery: 3,
@@ -313,7 +313,7 @@ pub fn generate_bravery_data() -> BraveryData {
                 killed: false,
             },
             Enemy {
-                name: "Grow'd Up Pieder".into(),
+                name: "Growed-Up Pieder".into(),
                 damage_type: DamageType::Melee,
                 hp: 90,
                 bravery: 2,

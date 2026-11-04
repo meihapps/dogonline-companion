@@ -11,6 +11,15 @@ const DAILIES_KEY: &str = "dogonline_companion.dailies";
 const HARVESTED_ITEMS_KEY: &str = "dogonline_companion.harvested_items";
 const KILLED_ENEMIES_KEY: &str = "dogonline_companion.killed_enemies";
 
+/// Progress is stored by name, so names changed to match the wiki map (old, new) here to
+/// keep what people had already marked.
+const RENAMED_ENEMIES: [(&str, &str); 3] = [
+    ("Pupcup", "Pup Cup"),
+    ("Cheese", "Cheese (Enemy)"),
+    ("Grow'd Up Pieder", "Growed-Up Pieder"),
+];
+const RENAMED_ITEMS: [(&str, &str); 1] = [("Gold Secretegg", "Golden Secretegg")];
+
 fn local_storage() -> Option<web_sys::Storage> {
     web_sys::window()?.local_storage().ok().flatten()
 }
@@ -20,6 +29,17 @@ fn load_names(key: &str) -> HashSet<String> {
         .and_then(|storage| storage.get_item(key).ok().flatten())
         .and_then(|raw| serde_json::from_str::<HashSet<String>>(&raw).ok())
         .unwrap_or_default()
+}
+
+/// The stored value keeps the old names until the next save, which writes the new ones.
+fn apply_renames(mut names: HashSet<String>, renames: &[(&str, &str)]) -> HashSet<String> {
+    for (old, new) in renames {
+        if names.remove(*old) {
+            names.insert((*new).to_string());
+        }
+    }
+
+    names
 }
 
 fn save_names(key: &str, names: &HashSet<String>) {
@@ -98,7 +118,7 @@ pub fn save_caught_fish(names: &HashSet<String>) {
 }
 
 pub fn load_killed_enemies() -> HashSet<String> {
-    load_names(KILLED_ENEMIES_KEY)
+    apply_renames(load_names(KILLED_ENEMIES_KEY), &RENAMED_ENEMIES)
 }
 
 pub fn save_killed_enemies(names: &HashSet<String>) {
@@ -130,7 +150,7 @@ pub fn save_dailies(today: &str, done: &HashSet<String>) {
 }
 
 pub fn load_harvested_items() -> HashSet<String> {
-    load_names(HARVESTED_ITEMS_KEY)
+    apply_renames(load_names(HARVESTED_ITEMS_KEY), &RENAMED_ITEMS)
 }
 
 pub fn save_harvested_items(names: &HashSet<String>) {
@@ -167,4 +187,25 @@ pub fn load_theme() -> Theme {
 
 pub fn save_theme(theme: Theme) {
     save_string(THEME_KEY, theme.as_str());
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn names(list: &[&str]) -> HashSet<String> {
+        list.iter().map(ToString::to_string).collect()
+    }
+
+    #[test]
+    fn apply_renames_only_changes_old_names() {
+        assert_eq!(
+            apply_renames(names(&["Pupcup", "Peeper"]), &RENAMED_ENEMIES),
+            names(&["Pup Cup", "Peeper"])
+        );
+        assert_eq!(
+            apply_renames(names(&["Pup Cup"]), &RENAMED_ENEMIES),
+            names(&["Pup Cup"])
+        );
+    }
 }

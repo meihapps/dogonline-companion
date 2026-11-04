@@ -456,23 +456,20 @@ button.item-card {
   border: 2px solid var(--item-frame);
 }
 
-.item-icon-placeholder {
-  width: var(--item-icon-size, 124px);
-  height: var(--item-icon-size, 124px);
-  display: block;
-  background: #000;
-}
-
-.item-icon-placeholder.caught {
-  background-color: #3ca65c;
-}
-
 .item-icon {
   width: var(--item-icon-size, 124px);
   height: var(--item-icon-size, 124px);
   object-fit: contain;
   image-rendering: pixelated;
   display: block;
+  filter: grayscale(1);
+  /* Long-presses belong to the card, not the browser's own image menu. */
+  pointer-events: none;
+}
+
+.item-icon.complete,
+.modal-image.complete {
+  filter: none;
 }
 
 .item-name {
@@ -561,6 +558,7 @@ button.item-card {
   border-radius: 12px;
   padding: 10px;
   image-rendering: pixelated;
+  filter: grayscale(1);
 }
 
 .enemy-modal h2 {
