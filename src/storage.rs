@@ -73,7 +73,9 @@ pub enum Filter {
     Location,
     Time,
     Weather,
-    Bait,
+    StandardBait,
+    HookBait,
+    GoldenGrub,
     ShowCaught,
     ShowKilled,
     ShowHarvested,
@@ -85,7 +87,9 @@ impl Filter {
             Self::Location => "dogonline_companion.filter.location",
             Self::Time => "dogonline_companion.filter.time",
             Self::Weather => "dogonline_companion.filter.weather",
-            Self::Bait => "dogonline_companion.filter.bait",
+            Self::StandardBait => "dogonline_companion.filter.standard_bait",
+            Self::HookBait => "dogonline_companion.filter.hook_bait",
+            Self::GoldenGrub => "dogonline_companion.filter.golden_grub",
             Self::ShowCaught => "dogonline_companion.filter.show_caught",
             Self::ShowKilled => "dogonline_companion.filter.show_killed",
             Self::ShowHarvested => "dogonline_companion.filter.show_harvested",
@@ -93,8 +97,8 @@ impl Filter {
     }
 }
 
-pub fn load_filter_string(filter: Filter) -> String {
-    load_string(filter.key()).unwrap_or_default()
+pub fn load_filter_string(filter: Filter, default: &str) -> String {
+    load_string(filter.key()).unwrap_or_else(|| default.to_string())
 }
 
 pub fn save_filter_string(filter: Filter, value: &str) {
@@ -187,6 +191,41 @@ pub fn load_theme() -> Theme {
 
 pub fn save_theme(theme: Theme) {
     save_string(THEME_KEY, theme.as_str());
+}
+
+/// The page that was open last, reopened on the next visit.
+#[derive(Clone, Copy, PartialEq)]
+pub enum Tab {
+    Bravery,
+    Coordination,
+    Hardiness,
+    Dailies,
+}
+
+impl Tab {
+    fn as_str(self) -> &'static str {
+        match self {
+            Self::Bravery => "bravery",
+            Self::Coordination => "coordination",
+            Self::Hardiness => "hardiness",
+            Self::Dailies => "dailies",
+        }
+    }
+}
+
+const TAB_KEY: &str = "dogonline_companion.tab";
+
+pub fn load_tab() -> Tab {
+    match load_string(TAB_KEY).as_deref() {
+        Some("coordination") => Tab::Coordination,
+        Some("hardiness") => Tab::Hardiness,
+        Some("dailies") => Tab::Dailies,
+        _ => Tab::Bravery,
+    }
+}
+
+pub fn save_tab(tab: Tab) {
+    save_string(TAB_KEY, tab.as_str());
 }
 
 #[cfg(test)]

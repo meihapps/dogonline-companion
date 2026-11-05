@@ -5,21 +5,13 @@ use crate::coordination_tab::CoordinationTab;
 use crate::dailies_tab::{self, DailiesTab};
 use crate::hardiness::HardinessData;
 use crate::hardiness_tab::HardinessTab;
-use crate::storage::{self, Theme};
+use crate::storage::{self, Tab, Theme};
 use leptos::prelude::*;
 
 // icons from lucide icons
 const MONITOR_SVG: &str = include_str!("../assets/monitor.svg");
 const SUN_SVG: &str = include_str!("../assets/sun.svg");
 const MOON_SVG: &str = include_str!("../assets/moon.svg");
-
-#[derive(Clone, Copy, PartialEq)]
-enum Tab {
-    Bravery,
-    Coordination,
-    Hardiness,
-    Dailies,
-}
 
 #[component]
 #[allow(clippy::too_many_lines)]
@@ -34,8 +26,13 @@ pub fn App(
     let hardiness_data = RwSignal::new(hardiness_data);
     let dailies = RwSignal::new(storage::load_dailies(&dailies_tab::reset_day()));
     dailies_tab::start_reset_timer(dailies);
-    let (selected_tab, set_selected_tab) = signal(Tab::Bravery);
+    let (selected_tab, set_selected_tab) = signal(storage::load_tab());
     let theme = RwSignal::new(storage::load_theme());
+
+    // Remember the open page between visits.
+    Effect::new(move |_| {
+        storage::save_tab(selected_tab.get());
+    });
 
     // Mirror the theme onto <html data-theme="..."> so the CSS can override color-scheme.
     Effect::new(move |_| {

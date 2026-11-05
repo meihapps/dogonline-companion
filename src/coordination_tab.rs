@@ -11,6 +11,7 @@ fn bait_tier(bait: &Bait) -> (u8, u8) {
         Bait::MoundOfMinnows => (0, 1),
         Bait::CupOfCrickets => (0, 2),
         Bait::PouchOfPrawns => (0, 3),
+        // Golden Grub has its own loot pool: no other standard bait reaches this tier.
         Bait::GoldenGrub => (0, 4),
 
         // Hook bait progression
@@ -26,7 +27,6 @@ fn selected_bait_tier(value: &str) -> Option<(u8, u8)> {
         "MoundOfMinnows" => Some((0, 1)),
         "CupOfCrickets" => Some((0, 2)),
         "PouchOfPrawns" => Some((0, 3)),
-        "GoldenGrub" => Some((0, 4)),
         "BalloonHook" => Some((1, 0)),
         "WickedSkymetalHook" => Some((1, 1)),
         "SkyTackle" => Some((1, 2)),
@@ -34,26 +34,32 @@ fn selected_bait_tier(value: &str) -> Option<(u8, u8)> {
     }
 }
 
-fn matches_bait(fish: &Fish, selected: &str) -> bool {
-    let Some((selected_line, selected_tier)) = selected_bait_tier(selected) else {
+/// A fish matches if any of the selected baits can catch it.
+/// With nothing selected there is no bait filter, so every fish matches.
+fn matches_bait(fish: &Fish, standard: &str, hook: &str, golden_grub: bool) -> bool {
+    if standard.is_empty() && hook.is_empty() && !golden_grub {
         return true;
-    };
+    }
 
     let (fish_line, fish_tier) = bait_tier(&fish.bait);
 
-    if fish_line != selected_line {
-        return false;
-    }
+    let catches = |selected: &str| {
+        selected_bait_tier(selected)
+            .is_some_and(|(line, tier)| line == fish_line && fish_tier <= tier)
+    };
 
-    // Golden Grub has its own loot pool: it can't catch fish from lower bait tiers.
-    if (selected_line, selected_tier) == (0, 4) {
-        return fish_tier == selected_tier;
-    }
-
-    fish_tier <= selected_tier
+    catches(standard) || catches(hook) || (golden_grub && matches!(fish.bait, Bait::GoldenGrub))
 }
 
-fn matches_filters(fish: &Fish, location: &str, time: &str, weather: &str, bait: &str) -> bool {
+fn matches_filters(
+    fish: &Fish,
+    location: &str,
+    time: &str,
+    weather: &str,
+    standard_bait: &str,
+    hook_bait: &str,
+    golden_grub: bool,
+) -> bool {
     let location_matches = location.is_empty()
         || fish
             .location
@@ -65,9 +71,10 @@ fn matches_filters(fish: &Fish, location: &str, time: &str, weather: &str, bait:
     let weather_matches =
         weather.is_empty() || fish.weather.iter().any(|w| format!("{w:?}") == weather);
 
-    let bait_matches = bait.is_empty() || matches_bait(fish, bait);
-
-    location_matches && time_matches && weather_matches && bait_matches
+    location_matches
+        && time_matches
+        && weather_matches
+        && matches_bait(fish, standard_bait, hook_bait, golden_grub)
 }
 
 #[component]
@@ -109,54 +116,6 @@ fn FilterSelect(
 }
 
 #[component]
-fn BaitFilter(value: ReadSignal<String>, on_change: WriteSignal<String>) -> impl IntoView {
-    view! {
-        <label>
-            "Bait"
-
-            <select
-                prop:value=move || value.get()
-                on:change=move |ev| {
-                    on_change.set(event_target_value(&ev));
-                }
-            >
-                <option value="" selected=move || value.get().is_empty()>"All bait"</option>
-
-                <optgroup label="Standard Bait">
-                    <option value="BucketOfWorms" selected=move || value.get() == "BucketOfWorms">
-                        "Bucket of Worms"
-                    </option>
-                    <option value="MoundOfMinnows" selected=move || value.get() == "MoundOfMinnows">
-                        "Mound of Minnows"
-                    </option>
-                    <option value="CupOfCrickets" selected=move || value.get() == "CupOfCrickets">
-                        "Cup of Crickets"
-                    </option>
-                    <option value="PouchOfPrawns" selected=move || value.get() == "PouchOfPrawns">
-                        "Pouch of Prawns"
-                    </option>
-                    <option value="GoldenGrub" selected=move || value.get() == "GoldenGrub">
-                        "Golden Grub"
-                    </option>
-                </optgroup>
-
-                <optgroup label="Hook Bait">
-                    <option value="BalloonHook" selected=move || value.get() == "BalloonHook">
-                        "Balloon Hook"
-                    </option>
-                    <option value="WickedSkymetalHook" selected=move || value.get() == "WickedSkymetalHook">
-                        "Wicked Skymetal Hook"
-                    </option>
-                    <option value="SkyTackle" selected=move || value.get() == "SkyTackle">
-                        "Sky Tackle"
-                    </option>
-                </optgroup>
-            </select>
-        </label>
-    }
-}
-
-#[component]
 fn CoordinationFilters(
     selected_location: ReadSignal<String>,
     set_selected_location: WriteSignal<String>,
@@ -164,8 +123,10 @@ fn CoordinationFilters(
     set_selected_time: WriteSignal<String>,
     selected_weather: ReadSignal<String>,
     set_selected_weather: WriteSignal<String>,
-    selected_bait: ReadSignal<String>,
-    set_selected_bait: WriteSignal<String>,
+    selected_standard_bait: ReadSignal<String>,
+    set_selected_standard_bait: WriteSignal<String>,
+    selected_hook_bait: ReadSignal<String>,
+    set_selected_hook_bait: WriteSignal<String>,
 ) -> impl IntoView {
     view! {
         <div class="coordination-filters">
@@ -209,9 +170,29 @@ fn CoordinationFilters(
                 ]
             />
 
-            <BaitFilter
-                value=selected_bait
-                on_change=set_selected_bait
+            <FilterSelect
+                label="Standard Bait"
+                value=selected_standard_bait
+                on_change=set_selected_standard_bait
+                all_label="None"
+                options=vec![
+                    ("BucketOfWorms", "Bucket of Worms"),
+                    ("MoundOfMinnows", "Mound of Minnows"),
+                    ("CupOfCrickets", "Cup of Crickets"),
+                    ("PouchOfPrawns", "Pouch of Prawns"),
+                ]
+            />
+
+            <FilterSelect
+                label="Hook Bait"
+                value=selected_hook_bait
+                on_change=set_selected_hook_bait
+                all_label="None"
+                options=vec![
+                    ("BalloonHook", "Balloon Hook"),
+                    ("WickedSkymetalHook", "Wicked Skymetal Hook"),
+                    ("SkyTackle", "Sky Tackle"),
+                ]
             />
         </div>
     }
@@ -289,7 +270,9 @@ fn UncaughtCounts(
     selected_location: ReadSignal<String>,
     selected_time: ReadSignal<String>,
     selected_weather: ReadSignal<String>,
-    selected_bait: ReadSignal<String>,
+    selected_standard_bait: ReadSignal<String>,
+    selected_hook_bait: ReadSignal<String>,
+    golden_grub: ReadSignal<bool>,
 ) -> impl IntoView {
     view! {
         <div class="uncaught-section">
@@ -300,7 +283,9 @@ fn UncaughtCounts(
                 let location = selected_location.get();
                 let time = selected_time.get();
                 let weather = selected_weather.get();
-                let bait = selected_bait.get();
+                let standard_bait = selected_standard_bait.get();
+                let hook_bait = selected_hook_bait.get();
+                let golden_grub = golden_grub.get();
 
                 data.with(|data| {
                     AREAS
@@ -313,7 +298,15 @@ fn UncaughtCounts(
                                 .iter()
                                 .filter(|fish| {
                                     !fish.caught
-                                        && matches_filters(fish, key, &time, &weather, &bait)
+                                        && matches_filters(
+                                            fish,
+                                            key,
+                                            &time,
+                                            &weather,
+                                            &standard_bait,
+                                            &hook_bait,
+                                            golden_grub,
+                                        )
                                 })
                                 .count();
 
@@ -338,7 +331,9 @@ fn FishGrid(
     selected_location: ReadSignal<String>,
     selected_time: ReadSignal<String>,
     selected_weather: ReadSignal<String>,
-    selected_bait: ReadSignal<String>,
+    selected_standard_bait: ReadSignal<String>,
+    selected_hook_bait: ReadSignal<String>,
+    golden_grub: ReadSignal<bool>,
     show_caught: ReadSignal<bool>,
     set_selected_fish: WriteSignal<Option<Fish>>,
 ) -> impl IntoView {
@@ -348,7 +343,9 @@ fn FishGrid(
                 let location = selected_location.get();
                 let time = selected_time.get();
                 let weather = selected_weather.get();
-                let bait = selected_bait.get();
+                let standard_bait = selected_standard_bait.get();
+                let hook_bait = selected_hook_bait.get();
+                let golden_grub = golden_grub.get();
                 let show_caught = show_caught.get();
 
                 data.get()
@@ -362,7 +359,9 @@ fn FishGrid(
                             &location,
                             &time,
                             &weather,
-                            &bait,
+                            &standard_bait,
+                            &hook_bait,
+                            golden_grub,
                         ) && (show_caught || !fish.caught)
                     })
                     .map(|(fish_index, fish)| {
@@ -451,14 +450,24 @@ pub fn CoordinationTab(data: RwSignal<CoordinationData>) -> impl IntoView {
     let (selected_fish, set_selected_fish) = signal(None::<Fish>);
 
     let (selected_location, set_selected_location) =
-        signal(storage::load_filter_string(Filter::Location));
+        signal(storage::load_filter_string(Filter::Location, ""));
 
-    let (selected_time, set_selected_time) = signal(storage::load_filter_string(Filter::Time));
+    let (selected_time, set_selected_time) = signal(storage::load_filter_string(Filter::Time, ""));
 
     let (selected_weather, set_selected_weather) =
-        signal(storage::load_filter_string(Filter::Weather));
+        signal(storage::load_filter_string(Filter::Weather, ""));
 
-    let (selected_bait, set_selected_bait) = signal(storage::load_filter_string(Filter::Bait));
+    // Default to the best baits, which between them catch every fish.
+    let (selected_standard_bait, set_selected_standard_bait) = signal(storage::load_filter_string(
+        Filter::StandardBait,
+        "PouchOfPrawns",
+    ));
+
+    let (selected_hook_bait, set_selected_hook_bait) =
+        signal(storage::load_filter_string(Filter::HookBait, "SkyTackle"));
+
+    let (golden_grub, set_golden_grub) =
+        signal(storage::load_filter_bool(Filter::GoldenGrub, true));
 
     let (show_caught, set_show_caught) =
         signal(storage::load_filter_bool(Filter::ShowCaught, true));
@@ -468,7 +477,9 @@ pub fn CoordinationTab(data: RwSignal<CoordinationData>) -> impl IntoView {
         storage::save_filter_string(Filter::Location, &selected_location.get());
         storage::save_filter_string(Filter::Time, &selected_time.get());
         storage::save_filter_string(Filter::Weather, &selected_weather.get());
-        storage::save_filter_string(Filter::Bait, &selected_bait.get());
+        storage::save_filter_string(Filter::StandardBait, &selected_standard_bait.get());
+        storage::save_filter_string(Filter::HookBait, &selected_hook_bait.get());
+        storage::save_filter_bool(Filter::GoldenGrub, golden_grub.get());
         storage::save_filter_bool(Filter::ShowCaught, show_caught.get());
     });
 
@@ -489,9 +500,22 @@ pub fn CoordinationTab(data: RwSignal<CoordinationData>) -> impl IntoView {
                 set_selected_time=set_selected_time
                 selected_weather=selected_weather
                 set_selected_weather=set_selected_weather
-                selected_bait=selected_bait
-                set_selected_bait=set_selected_bait
+                selected_standard_bait=selected_standard_bait
+                set_selected_standard_bait=set_selected_standard_bait
+                selected_hook_bait=selected_hook_bait
+                set_selected_hook_bait=set_selected_hook_bait
             />
+
+            <label class="show-caught-filter">
+                <input
+                    type="checkbox"
+                    prop:checked=move || golden_grub.get()
+                    on:change=move |ev| {
+                        set_golden_grub.set(event_target_checked(&ev));
+                    }
+                />
+                " Golden Grub"
+            </label>
 
             <label class="show-caught-filter">
                 <input
@@ -509,7 +533,9 @@ pub fn CoordinationTab(data: RwSignal<CoordinationData>) -> impl IntoView {
                 selected_location=selected_location
                 selected_time=selected_time
                 selected_weather=selected_weather
-                selected_bait=selected_bait
+                selected_standard_bait=selected_standard_bait
+                selected_hook_bait=selected_hook_bait
+                golden_grub=golden_grub
             />
 
             <FishGrid
@@ -517,7 +543,9 @@ pub fn CoordinationTab(data: RwSignal<CoordinationData>) -> impl IntoView {
                 selected_location=selected_location
                 selected_time=selected_time
                 selected_weather=selected_weather
-                selected_bait=selected_bait
+                selected_standard_bait=selected_standard_bait
+                selected_hook_bait=selected_hook_bait
+                golden_grub=golden_grub
                 show_caught=show_caught
                 set_selected_fish=set_selected_fish
             />
@@ -556,19 +584,33 @@ mod tests {
     fn better_bait_also_catches_lower_tier_fish() {
         let fish = fish_with_bait(Bait::MoundOfMinnows);
 
-        assert!(matches_bait(&fish, "CupOfCrickets"));
-        assert!(!matches_bait(&fish, "BucketOfWorms"));
+        assert!(matches_bait(&fish, "CupOfCrickets", "", false));
+        assert!(!matches_bait(&fish, "BucketOfWorms", "", false));
     }
 
     #[test]
     fn golden_grub_only_catches_its_own_fish() {
         assert!(!matches_bait(
             &fish_with_bait(Bait::BucketOfWorms),
-            "GoldenGrub"
+            "",
+            "",
+            true
         ));
         assert!(matches_bait(
             &fish_with_bait(Bait::GoldenGrub),
-            "GoldenGrub"
+            "",
+            "",
+            true
+        ));
+    }
+
+    #[test]
+    fn standard_bait_does_not_catch_golden_grub_fish() {
+        assert!(!matches_bait(
+            &fish_with_bait(Bait::GoldenGrub),
+            "PouchOfPrawns",
+            "",
+            false
         ));
     }
 
@@ -576,7 +618,43 @@ mod tests {
     fn bait_lines_are_separate() {
         assert!(!matches_bait(
             &fish_with_bait(Bait::BucketOfWorms),
-            "SkyTackle"
+            "",
+            "SkyTackle",
+            false
+        ));
+        assert!(!matches_bait(
+            &fish_with_bait(Bait::BalloonHook),
+            "PouchOfPrawns",
+            "",
+            false
+        ));
+    }
+
+    #[test]
+    fn any_selected_bait_can_catch_the_fish() {
+        let selected =
+            |fish| matches_bait(&fish_with_bait(fish), "BucketOfWorms", "BalloonHook", true);
+
+        assert!(selected(Bait::BucketOfWorms));
+        assert!(selected(Bait::BalloonHook));
+        assert!(selected(Bait::GoldenGrub));
+        assert!(!selected(Bait::MoundOfMinnows));
+        assert!(!selected(Bait::SkyTackle));
+    }
+
+    #[test]
+    fn no_bait_selected_matches_every_fish() {
+        assert!(matches_bait(
+            &fish_with_bait(Bait::GoldenGrub),
+            "",
+            "",
+            false
+        ));
+        assert!(matches_bait(
+            &fish_with_bait(Bait::SkyTackle),
+            "",
+            "",
+            false
         ));
     }
 }
