@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
-"""Downloads the enemy, fish and hardiness item images from https://dogonline.wiki.
+"""Downloads the enemy, fish, hardiness item and food images from https://dogonline.wiki.
 
 Item names come from src/generate_*_data.rs. Run from anywhere with:
 
-    python3 -I scripts/fetch_wiki_assets.py [--dry-run]
+    python3 -I scripts/fetch_wiki_assets.py [--dry-run] [--force]
 
 Images land in assets/wiki/<tab>/<slug>.<ext>, listed in assets/wiki/manifest.json along
 with where each one came from (the wiki is CC BY-SA 4.0, so keep that attribution, along
 with the licence text in assets/wiki/LICENSE).
+
+Names that already have an image on disk and an entry in the manifest are skipped
+entirely; pass --force to look them all up again (re-downloading any whose checksum no
+longer matches the wiki).
 
 To go easy on the wiki, the API is only asked for up to 50 titles at a time, downloads run
 one at a time from the image CDN with a pause between them, and any file already on disk
@@ -35,6 +39,10 @@ USER_AGENT = (
 LICENSE = "CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)"
 ATTRIBUTION = "Dog Online Wiki contributors (https://dogonline.wiki)"
 
+# item name -> wiki file, for images whose name doesn't match the page title and that
+# aren't picked up as the page image either.
+IMAGE_EXCEPTIONS: dict[str, str] = {}
+
 BATCH_SIZE = 50
 REQUEST_DELAY_SECONDS = 1.0
 MAX_ATTEMPTS = 5
@@ -44,6 +52,7 @@ TABS = {
     "bravery": ("generate_bravery_data.rs", "Enemy_"),
     "coordination": ("generate_coordination_data.rs", "Item_"),
     "hardiness": ("generate_hardiness_data.rs", "Item_"),
+    "nutrition": ("generate_nutrition_data.rs", "Item_"),
 }
 
 
@@ -130,8 +139,18 @@ def load_entries() -> list[dict]:
     return entries
 
 
+def load_manifest() -> list[dict]:
+    path = OUT_DIR / "manifest.json"
+    return json.loads(path.read_text())["assets"] if path.exists() else []
+
+
 def resolve_images(entries: list[dict]) -> list[str]:
-    """Fills in each entry's image details, returning a description of any problems."""
+    """Fills in each entry's image details, returning a description of any problems.
+
+    Each entry's image is the first of these that exists on the wiki: the page image of
+    its page, the file name built from the page title (e.g. `Item_Oak_Leaf.png`), then
+    any exception listed in `IMAGE_EXCEPTIONS`.
+    """
     problems = []
     titles = sorted({entry["page"] for entry in entries})
     page_images: dict[str, str] = {}
@@ -152,19 +171,21 @@ def resolve_images(entries: list[dict]) -> list[str]:
 
     for entry in entries:
         title = redirects.get(entry["page"], entry["page"])
-        image = page_images.get(title)
         prefix = TABS[entry["tab"]][1]
+        entry["page"] = title
+        entry["candidates"] = [
+            image
+            for image in (
+                page_images.get(title),
+                f"{prefix}{title.replace(' ', '_')}.png",
+                IMAGE_EXCEPTIONS.get(entry["name"]),
+            )
+            if image is not None
+        ]
 
-        if image is None:
-            problems.append(f"{entry['name']}: no image on page {title!r}")
-        elif not image.startswith(prefix):
-            problems.append(f"{entry['name']}: {image!r} doesn't start with {prefix!r}")
-        else:
-            entry["wiki_file"] = image
-            entry["page"] = title
-
-    files = sorted({entry["wiki_file"] for entry in entries if "wiki_file" in entry})
-    file_info: dict[str, dict] = {}
+    files = sorted({image for entry in entries for image in entry["candidates"]})
+    # file name (or name of a redirect to it) -> (actual file name, image info)
+    file_info: dict[str, tuple[str, dict]] = {}
 
     for batch in batches(files):
         result = api_query(
@@ -173,23 +194,34 @@ def resolve_images(entries: list[dict]) -> list[str]:
             prop="imageinfo",
             iiprop="url|sha1",
         )
-        for title, page in result["pages"].items():
-            if page.get("imageinfo"):
-                info = page["imageinfo"][0]
-                file_info[title.removeprefix("File:").replace(" ", "_")] = info
+        def file_name(title: str) -> str:
+            return title.removeprefix("File:").replace(" ", "_")
+
+        found = {
+            file_name(title): (file_name(title), page["imageinfo"][0])
+            for title, page in result["pages"].items()
+            if page.get("imageinfo")
+        }
+        file_info |= found
+        for source, target in result["redirects"].items():
+            if file_name(target) in found:
+                file_info[file_name(source)] = found[file_name(target)]
 
     for entry in entries:
-        if "wiki_file" not in entry:
+        candidates = entry.pop("candidates")
+        prefix = TABS[entry["tab"]][1]
+        image = next((image for image in candidates if image in file_info), None)
+
+        if image is None:
+            problems.append(f"{entry['name']}: none of {candidates} exist on the wiki")
+            continue
+        if not file_info[image][0].startswith(prefix):
+            problems.append(f"{entry['name']}: {image!r} doesn't start with {prefix!r}")
             continue
 
-        info = file_info.get(entry["wiki_file"])
-        if info is None:
-            problems.append(f"{entry['name']}: no file info for {entry['wiki_file']!r}")
-            del entry["wiki_file"]
-            continue
-
-        suffix = Path(entry["wiki_file"]).suffix.lower()
-        entry["path"] = f"{entry['tab']}/{slugify(entry['name'])}{suffix}"
+        image, info = file_info[image]
+        entry["wiki_file"] = image
+        entry["path"] = f"{entry['tab']}/{slugify(entry['name'])}{Path(image).suffix.lower()}"
         entry["url"] = info["url"]
         entry["sha1"] = info["sha1"]
 
@@ -230,32 +262,50 @@ def download(entries: list[dict]) -> tuple[int, int, list[str]]:
     return fetched, reused, problems
 
 
-def write_manifest(entries: list[dict]) -> None:
+def manifest_entry(entry: dict) -> dict:
+    return {
+        "tab": entry["tab"],
+        "name": entry["name"],
+        "path": entry["path"],
+        "source": "https://dogonline.wiki/wiki/File:"
+        + urllib.parse.quote(entry["wiki_file"]),
+        "sha1": entry["sha1"],
+    }
+
+
+def write_manifest(assets: list[dict]) -> None:
     manifest = {
         "license": LICENSE,
         "attribution": ATTRIBUTION,
-        "assets": [
-            {
-                "tab": entry["tab"],
-                "name": entry["name"],
-                "path": entry["path"],
-                "source": "https://dogonline.wiki/wiki/File:"
-                + urllib.parse.quote(entry["wiki_file"]),
-                "sha1": entry["sha1"],
-            }
-            for entry in entries
-            if "path" in entry
-        ],
+        "assets": assets,
     }
     (OUT_DIR / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
 
 
 def main() -> int:
     dry_run = "--dry-run" in sys.argv[1:]
+    force = "--force" in sys.argv[1:]
     entries = load_entries()
-    print(f"resolving images for {len(entries)} names")
-    problems = resolve_images(entries)
-    resolved = [entry for entry in entries if "path" in entry]
+    old_assets = load_manifest()
+
+    # (tab, name) -> manifest entry, for images already on disk.
+    present = {
+        (asset["tab"], asset["name"]): asset
+        for asset in old_assets
+        if (OUT_DIR / asset["path"]).exists()
+    }
+    to_resolve = [
+        entry
+        for entry in entries
+        if force or (entry["tab"], entry["name"]) not in present
+    ]
+
+    print(
+        f"resolving images for {len(to_resolve)} names"
+        f" (skipping {len(entries) - len(to_resolve)} already present)"
+    )
+    problems = resolve_images(to_resolve) if to_resolve else []
+    resolved = [entry for entry in to_resolve if "path" in entry]
 
     if dry_run:
         for entry in resolved:
@@ -263,7 +313,15 @@ def main() -> int:
     else:
         fetched, reused, download_problems = download(resolved)
         problems += download_problems
-        write_manifest(entries)
+        # Keep the existing entry for anything that was skipped or couldn't be resolved.
+        new_assets = {(entry["tab"], entry["name"]): manifest_entry(entry) for entry in resolved}
+        write_manifest(
+            [
+                new_assets.get(key) or present[key]
+                for key in ((entry["tab"], entry["name"]) for entry in entries)
+                if key in new_assets or key in present
+            ]
+        )
         print(f"downloaded {fetched}, already had {reused}")
 
     for problem in problems:

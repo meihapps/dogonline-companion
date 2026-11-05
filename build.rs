@@ -13,9 +13,14 @@ mod generate_bravery_data;
 mod generate_coordination_data;
 #[path = "src/generate_hardiness_data.rs"]
 mod generate_hardiness_data;
+#[path = "src/generate_nutrition_data.rs"]
+mod generate_nutrition_data;
 #[allow(dead_code)]
 #[path = "src/hardiness.rs"]
 mod hardiness;
+#[allow(dead_code)]
+#[path = "src/nutrition.rs"]
+mod nutrition;
 
 use serde::Serialize;
 
@@ -33,9 +38,11 @@ fn main() {
         "bravery",
         "coordination",
         "hardiness",
+        "nutrition",
         "generate_bravery_data",
         "generate_coordination_data",
         "generate_hardiness_data",
+        "generate_nutrition_data",
     ] {
         println!("cargo::rerun-if-changed=src/{file}.rs");
     }
@@ -51,5 +58,9 @@ fn main() {
     write_json(
         "hardiness_data.json",
         &generate_hardiness_data::generate_hardiness_data(),
+    );
+    write_json(
+        "nutrition_data.json",
+        &generate_nutrition_data::generate_nutrition_data(),
     );
 }

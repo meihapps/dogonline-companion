@@ -1,6 +1,7 @@
 use crate::formatting::image_path;
 use crate::hardiness::{HardinessData, ItemType};
 use crate::long_press::LongPress;
+use crate::progress_counts::{Progress, ProgressCounts};
 use crate::storage::{self, Filter};
 use leptos::prelude::*;
 
@@ -23,6 +24,7 @@ fn toggle_harvested(data: RwSignal<HardinessData>, index: usize) {
 }
 
 #[component]
+#[allow(clippy::too_many_lines)]
 pub fn HardinessTab(data: RwSignal<HardinessData>) -> impl IntoView {
     let (selected, set_selected) = signal(ItemType::Crop);
     let (show_harvested, set_show_harvested) =
@@ -32,11 +34,42 @@ pub fn HardinessTab(data: RwSignal<HardinessData>) -> impl IntoView {
         storage::save_filter_bool(Filter::ShowHarvested, show_harvested.get());
     });
 
+    let total_progress = Signal::derive(move || {
+        data.with(|data| {
+            Progress::of(
+                data.items
+                    .iter()
+                    .map(|item| (item.harvested, item.hardiness)),
+            )
+        })
+    });
+
+    let progress = Signal::derive(move || {
+        let selected = selected.get();
+
+        data.with(|data| {
+            Progress::of(
+                data.items
+                    .iter()
+                    .filter(|item| item.item_type == selected)
+                    .map(|item| (item.harvested, item.hardiness)),
+            )
+        })
+    });
+
     view! {
         <section class="tab-content">
             <h2>"Hardiness"</h2>
 
             <p class="hint">"Long-press (or right-click) an item to mark it as harvested"</p>
+
+            <ProgressCounts
+                progress=total_progress
+                show_done=show_harvested
+                items="All items"
+                done_label="harvested"
+                stat="Total hardiness"
+            />
 
             <nav class="tabs sub-tabs" aria-label="Hardiness categories">
                 {SUB_TABS
@@ -68,6 +101,14 @@ pub fn HardinessTab(data: RwSignal<HardinessData>) -> impl IntoView {
                 />
                 " Show harvested"
             </label>
+
+            <ProgressCounts
+                progress=progress
+                show_done=show_harvested
+                items="Items"
+                done_label="harvested"
+                stat="Hardiness"
+            />
 
             <div class="item-grid">
                 {move || {

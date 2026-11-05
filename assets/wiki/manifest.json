@@ -1,3 +1,2820 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5696edcdc50b1252ac9c7cf533d7c66cbf9599146c7eb13fb7112c43807d9abd
-size 50551
+{
+  "license": "CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)",
+  "attribution": "Dog Online Wiki contributors (https://dogonline.wiki)",
+  "assets": [
+    {
+      "tab": "bravery",
+      "name": "Peeper",
+      "path": "bravery/peeper.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Peeper.png",
+      "sha1": "bb9ce89aa9a543d3a4cee7f180fc6cfd158d9fe0"
+    },
+    {
+      "tab": "bravery",
+      "name": "Pup Cup",
+      "path": "bravery/pup-cup.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Pup_Cup.png",
+      "sha1": "8ce0ca2618b7436aa08cedd141311c8837d0307c"
+    },
+    {
+      "tab": "bravery",
+      "name": "Balloon Dog",
+      "path": "bravery/balloon-dog.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Balloon_Dog.png",
+      "sha1": "6f4eca4f288ebd93a4cb1fc843a4fbab69520b12"
+    },
+    {
+      "tab": "bravery",
+      "name": "Boot Dog",
+      "path": "bravery/boot-dog.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Boot_Dog.png",
+      "sha1": "47256d08c3e2f1020ff9f0a8a5bcd14192677b7e"
+    },
+    {
+      "tab": "bravery",
+      "name": "Sky Dog",
+      "path": "bravery/sky-dog.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Sky_Dog.png",
+      "sha1": "045760c2392576cb5ccc225fa6334b279ce2ae9e"
+    },
+    {
+      "tab": "bravery",
+      "name": "Freezy Pup",
+      "path": "bravery/freezy-pup.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Freezy_Pup.png",
+      "sha1": "9aa6bd586ffdbd119d0fd7bd83e5510660a5d810"
+    },
+    {
+      "tab": "bravery",
+      "name": "Deadly Dogma",
+      "path": "bravery/deadly-dogma.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Deadly_Dogma.png",
+      "sha1": "fe0aee70c5fcc165f61dc748de53497570641b5f"
+    },
+    {
+      "tab": "bravery",
+      "name": "Cursed Conjuror",
+      "path": "bravery/cursed-conjuror.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Cursed_Conjuror.png",
+      "sha1": "a5b31d11c384cad7ef4dc4bab6903042948dcded"
+    },
+    {
+      "tab": "bravery",
+      "name": "Booby Trap",
+      "path": "bravery/booby-trap.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Booby_Trap.png",
+      "sha1": "f19927a246cede89e5c4f3d4b1770b8f78eef61f"
+    },
+    {
+      "tab": "bravery",
+      "name": "Rodin",
+      "path": "bravery/rodin.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Rodin.png",
+      "sha1": "67fbd9567b5e6a907d8cbfc91ebbff52b1fa7e50"
+    },
+    {
+      "tab": "bravery",
+      "name": "Crony Bones and Da Bawss",
+      "path": "bravery/crony-bones-and-da-bawss.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Crony_Bones_and_Da_Bawss.png",
+      "sha1": "b5016037d70edd8f7fb1eb8922bb52f6c61c47ac"
+    },
+    {
+      "tab": "bravery",
+      "name": "Big Mitts Molly",
+      "path": "bravery/big-mitts-molly.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Big_Mitts_Molly.png",
+      "sha1": "1b8b2343b9bd16a3a0ca37a17f197c261c87d399"
+    },
+    {
+      "tab": "bravery",
+      "name": "Cheese (Enemy)",
+      "path": "bravery/cheese-enemy.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Cheese_%28Enemy%29.png",
+      "sha1": "d3bdad034b6fed048fa2f783ef51be2f13295aeb"
+    },
+    {
+      "tab": "bravery",
+      "name": "Clouddoggy",
+      "path": "bravery/clouddoggy.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Clouddoggy.png",
+      "sha1": "23e6f63ab65e9541b97706358c89c81e8468f526"
+    },
+    {
+      "tab": "bravery",
+      "name": "Grimy Grim",
+      "path": "bravery/grimy-grim.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Grimy_Grim.png",
+      "sha1": "be90b4bddaff23b29912a9996b1f947907f25e4d"
+    },
+    {
+      "tab": "bravery",
+      "name": "Unigore",
+      "path": "bravery/unigore.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Unigore.png",
+      "sha1": "f593cbe19cfd19998de458b638042013fd8889c5"
+    },
+    {
+      "tab": "bravery",
+      "name": "Dogslime",
+      "path": "bravery/dogslime.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Dogslime.png",
+      "sha1": "e74d66dbb2b4b55f2406378df5c9dbab1a4fb5fc"
+    },
+    {
+      "tab": "bravery",
+      "name": "Weeper",
+      "path": "bravery/weeper.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_weeper.png",
+      "sha1": "1ce5a51763527c6572e2eeafaf44f20e88dbed4c"
+    },
+    {
+      "tab": "bravery",
+      "name": "Peeper Piper",
+      "path": "bravery/peeper-piper.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Peeper_Piper.png",
+      "sha1": "a637b153835ccacb2e638b29adeba9cf89e663c0"
+    },
+    {
+      "tab": "bravery",
+      "name": "Leeper",
+      "path": "bravery/leeper.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Leeper.png",
+      "sha1": "b57be4e06c9e0c7ffd5b07762d126a73ce6b03ea"
+    },
+    {
+      "tab": "bravery",
+      "name": "Creeper",
+      "path": "bravery/creeper.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Creeper.png",
+      "sha1": "c16fb586aeb2c2d7946ad6d829011be563cc5ff4"
+    },
+    {
+      "tab": "bravery",
+      "name": "Reeper",
+      "path": "bravery/reeper.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Reeper.png",
+      "sha1": "0ed9cb57a223ebc79fc4c8275ce8503647f8c978"
+    },
+    {
+      "tab": "bravery",
+      "name": "Papa Peeper",
+      "path": "bravery/papa-peeper.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Papa_Peeper.png",
+      "sha1": "691b4aeb1ffcd746a94693c8c53d82428cd2269b"
+    },
+    {
+      "tab": "bravery",
+      "name": "Surfer Peeper",
+      "path": "bravery/surfer-peeper.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Surfer_Peeper.png",
+      "sha1": "4646cc4b2c8848030242e3a1b6ef1194f26ae750"
+    },
+    {
+      "tab": "bravery",
+      "name": "Sweeper",
+      "path": "bravery/sweeper.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Sweeper.png",
+      "sha1": "07b3410966a3855fb023818b74161243949400f9"
+    },
+    {
+      "tab": "bravery",
+      "name": "Threeper",
+      "path": "bravery/threeper.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Threeper.png",
+      "sha1": "6281b33fa31bdb2ac77469f171128b1304cd1b58"
+    },
+    {
+      "tab": "bravery",
+      "name": "Pappy Peeper",
+      "path": "bravery/pappy-peeper.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Pappy_Peeper.png",
+      "sha1": "464385ff8bf791974005ab1e641d5866009dc530"
+    },
+    {
+      "tab": "bravery",
+      "name": "Two-Scoop Freezy Pup",
+      "path": "bravery/two-scoop-freezy-pup.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Two-Scoop_Freezy_Pup.png",
+      "sha1": "b3d553d0a2994118019b923fc8d1f2d56517041f"
+    },
+    {
+      "tab": "bravery",
+      "name": "Frost Biter",
+      "path": "bravery/frost-biter.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Frost_Biter.png",
+      "sha1": "42b5f0ee7bcf875b17f601ca7f4ec9d4ba4342a7"
+    },
+    {
+      "tab": "bravery",
+      "name": "Dingbat",
+      "path": "bravery/dingbat.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Dingbat.png",
+      "sha1": "f34e23db6f4b0dec1e8a69fed67898fe3e67579a"
+    },
+    {
+      "tab": "bravery",
+      "name": "Big Sno Dawg",
+      "path": "bravery/big-sno-dawg.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Big_sno_dawg.png",
+      "sha1": "f88a4211229cffe5e5c853e6a5d10b7c4b60e0e6"
+    },
+    {
+      "tab": "bravery",
+      "name": "Arcteeth",
+      "path": "bravery/arcteeth.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Arcteeth.png",
+      "sha1": "273296a5a6bb17a0b1d1f960c43467debe416027"
+    },
+    {
+      "tab": "bravery",
+      "name": "Slog",
+      "path": "bravery/slog.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Slog.png",
+      "sha1": "4a043fd568f3d49526f57e1af64624adf4a1d140"
+    },
+    {
+      "tab": "bravery",
+      "name": "Sluppy",
+      "path": "bravery/sluppy.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Sluppy.png",
+      "sha1": "8bf7575717079b8c4886c84d095719f4284a27dc"
+    },
+    {
+      "tab": "bravery",
+      "name": "Dog Germ",
+      "path": "bravery/dog-germ.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Dog_Germ.png",
+      "sha1": "a764da90867e1d85bb53f9a6c3296e288ad87a30"
+    },
+    {
+      "tab": "bravery",
+      "name": "Leatsch",
+      "path": "bravery/leatsch.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Leatsch.png",
+      "sha1": "3375821f8f7c183ee3b7d4472760a443070ee366"
+    },
+    {
+      "tab": "bravery",
+      "name": "Poison Potbull",
+      "path": "bravery/poison-potbull.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Poison_Potbull.png",
+      "sha1": "8daf7e87fef3569ab85fb6891f45d26af965c331"
+    },
+    {
+      "tab": "bravery",
+      "name": "The Devourer",
+      "path": "bravery/the-devourer.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_The_Devourer.png",
+      "sha1": "af25a49a64a01b4a536b47bd511818e254983b30"
+    },
+    {
+      "tab": "bravery",
+      "name": "The Alchemist",
+      "path": "bravery/the-alchemist.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_The_Alchemist.png",
+      "sha1": "e986e146b17fbff52aa407bf48fd6c03aa5fcfb8"
+    },
+    {
+      "tab": "bravery",
+      "name": "Dogre",
+      "path": "bravery/dogre.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Dogre.png",
+      "sha1": "b7170bc7463c72da53ae879f16e9cf63eb9f415c"
+    },
+    {
+      "tab": "bravery",
+      "name": "Aheemheem",
+      "path": "bravery/aheemheem.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Aheemheem.png",
+      "sha1": "bf86ef873f957ada9c21e42bf5d6f6bf3bad0dd1"
+    },
+    {
+      "tab": "bravery",
+      "name": "Pieder",
+      "path": "bravery/pieder.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Pieder.png",
+      "sha1": "ecf2e5a2795ae349ae3472386cf972115fa6ecf3"
+    },
+    {
+      "tab": "bravery",
+      "name": "Peam",
+      "path": "bravery/peam.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Peam.png",
+      "sha1": "592194a81bd8c22b11eac8bde0466f78a85a8a1e"
+    },
+    {
+      "tab": "bravery",
+      "name": "Dogburger",
+      "path": "bravery/dogburger.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Dogburger.png",
+      "sha1": "5c1ab70dc5ab600b9b8912c5450be9dc9ad86ba6"
+    },
+    {
+      "tab": "bravery",
+      "name": "Growed-Up Pieder",
+      "path": "bravery/growed-up-pieder.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Growed-Up_Pieder.png",
+      "sha1": "a6d68dce8759f7e7cd254b26b57726eb567d85a7"
+    },
+    {
+      "tab": "bravery",
+      "name": "Hop Pot",
+      "path": "bravery/hop-pot.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Hop_Pot.png",
+      "sha1": "f855a5127dc38f0baa6db23517a1fa83716b352a"
+    },
+    {
+      "tab": "bravery",
+      "name": "Ruff Roast",
+      "path": "bravery/ruff-roast.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Ruff_Roast.png",
+      "sha1": "217c53ff4e227e047189b5d9675b18cce11d5b83"
+    },
+    {
+      "tab": "bravery",
+      "name": "Barraskewer",
+      "path": "bravery/barraskewer.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Barraskewer.png",
+      "sha1": "ba41481948de5cfec30ab27767d70c8daac2a13c"
+    },
+    {
+      "tab": "bravery",
+      "name": "Cookie Nightjar",
+      "path": "bravery/cookie-nightjar.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Cookie_Nightjar.png",
+      "sha1": "7466b9bd6f02ea879578b0a0c3ec1ad4b231bb71"
+    },
+    {
+      "tab": "bravery",
+      "name": "Caution Collie",
+      "path": "bravery/caution-collie.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Caution_Collie.png",
+      "sha1": "d60322b9ae96352d82b62ed9b8fce1928ed950a5"
+    },
+    {
+      "tab": "bravery",
+      "name": "Mallet Mutt",
+      "path": "bravery/mallet-mutt.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Mallet_Mutt.png",
+      "sha1": "68f02f36827e6d447b4d07b59aede8a9cc82e3f6"
+    },
+    {
+      "tab": "bravery",
+      "name": "Telephony",
+      "path": "bravery/telephony.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Telephony.png",
+      "sha1": "a70369becca7e9b4fd6b8cbd22d942bad17e4a6d"
+    },
+    {
+      "tab": "bravery",
+      "name": "Clover",
+      "path": "bravery/clover.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Clover.png",
+      "sha1": "04aa75828422c065c6b03863b4d283530a76328f"
+    },
+    {
+      "tab": "bravery",
+      "name": "Harp of Dogda",
+      "path": "bravery/harp-of-dogda.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Harp_of_Dogda.png",
+      "sha1": "3eb25c1c94e4398cfef2c2d92b7596ef1faa30ba"
+    },
+    {
+      "tab": "bravery",
+      "name": "Rainbow",
+      "path": "bravery/rainbow.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Rainbow.png",
+      "sha1": "0c1edcad7c046e57e655286ef8c4c10492c17bbf"
+    },
+    {
+      "tab": "bravery",
+      "name": "Snooty Soot",
+      "path": "bravery/snooty-soot.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Snooty_Soot.png",
+      "sha1": "396d4e225ddcca8be47ba301d60ad728597f6c66"
+    },
+    {
+      "tab": "bravery",
+      "name": "Hatchling Tennis Ball",
+      "path": "bravery/hatchling-tennis-ball.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Hatchling_Tennis_Ball.png",
+      "sha1": "a26fd8789cc25892c28b987f1886add3ce199f13"
+    },
+    {
+      "tab": "bravery",
+      "name": "Doggy Ghost",
+      "path": "bravery/doggy-ghost.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Doggy_Ghost.png",
+      "sha1": "2fde74062a94c49f020a734e0100e858e0aef536"
+    },
+    {
+      "tab": "bravery",
+      "name": "Haunted Pumpkin Dog",
+      "path": "bravery/haunted-pumpkin-dog.png",
+      "source": "https://dogonline.wiki/wiki/File:Enemy_Haunted_Pumpkin_Dog.png",
+      "sha1": "799048f8613aa8c75ed07b3840647b099b7a772f"
+    },
+    {
+      "tab": "coordination",
+      "name": "Minnow",
+      "path": "coordination/minnow.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Minnow.png",
+      "sha1": "937053166b0d3e6593939b73d53e2a90d18305e6"
+    },
+    {
+      "tab": "coordination",
+      "name": "Guppy",
+      "path": "coordination/guppy.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Guppy.png",
+      "sha1": "f3e802c06e9ee66b8031cba617febbff8bd60426"
+    },
+    {
+      "tab": "coordination",
+      "name": "Barracuda",
+      "path": "coordination/barracuda.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Barracuda.png",
+      "sha1": "fc33f03c543fe4119b7d57f0118e75d22379d0f2"
+    },
+    {
+      "tab": "coordination",
+      "name": "Octojelly",
+      "path": "coordination/octojelly.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Octojelly.png",
+      "sha1": "ec5dce43bb0778868b0bcf60384dcfb66942db0f"
+    },
+    {
+      "tab": "coordination",
+      "name": "Sniffillet",
+      "path": "coordination/sniffillet.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sniffillet.png",
+      "sha1": "3d29bf6ca4f61cb85b52d7b8bd0fdef545387c68"
+    },
+    {
+      "tab": "coordination",
+      "name": "Funny Duck",
+      "path": "coordination/funny-duck.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Funny_Duck.png",
+      "sha1": "f54137254a2d9b80e5351828c9c99e34925609b8"
+    },
+    {
+      "tab": "coordination",
+      "name": "Salmon",
+      "path": "coordination/salmon.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Salmon.png",
+      "sha1": "894c512044e609ec5dcebe540f3ab175cc7f3f18"
+    },
+    {
+      "tab": "coordination",
+      "name": "Crayfish",
+      "path": "coordination/crayfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Crayfish.png",
+      "sha1": "d93349b0d025c6eda5776eb92578b63d25df6f16"
+    },
+    {
+      "tab": "coordination",
+      "name": "Freshwater Eel",
+      "path": "coordination/freshwater-eel.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Freshwater_Eel.png",
+      "sha1": "039f2fe5d7538e489db5eb27236918a129b7aea8"
+    },
+    {
+      "tab": "coordination",
+      "name": "Largemouth Bass",
+      "path": "coordination/largemouth-bass.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Largemouth_Bass.png",
+      "sha1": "e38dc4d714b3a96ee1ec554486546994435181c1"
+    },
+    {
+      "tab": "coordination",
+      "name": "Rainbow Trout",
+      "path": "coordination/rainbow-trout.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Rainbow_Trout.png",
+      "sha1": "c76a7ccb20b3540914326b1bd4511adb8299ef2b"
+    },
+    {
+      "tab": "coordination",
+      "name": "Breadfish",
+      "path": "coordination/breadfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Breadfish.png",
+      "sha1": "9e35f805295f0d87d1875e2e896d0b32a35aaee9"
+    },
+    {
+      "tab": "coordination",
+      "name": "Butterfish",
+      "path": "coordination/butterfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Butterfish.png",
+      "sha1": "eda38ab189518f8e1835f4e713547a89028d9041"
+    },
+    {
+      "tab": "coordination",
+      "name": "Handfish",
+      "path": "coordination/handfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Handfish.png",
+      "sha1": "9977edf88d497d20a58178f41cb5a4644d654b1a"
+    },
+    {
+      "tab": "coordination",
+      "name": "Gleepfish",
+      "path": "coordination/gleepfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Gleepfish.png",
+      "sha1": "99617b5c9a50d54064b01a88d6e3e1793008ae6e"
+    },
+    {
+      "tab": "coordination",
+      "name": "Coelacanth",
+      "path": "coordination/coelacanth.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Coelacanth.png",
+      "sha1": "97313cb4d8daca439a1760abce9bd7c1b6ba1c3a"
+    },
+    {
+      "tab": "coordination",
+      "name": "Prismatic Koi",
+      "path": "coordination/prismatic-koi.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Prismatic_Koi.png",
+      "sha1": "cfe2d74e6c597b66c9a3975136bd207c02c47514"
+    },
+    {
+      "tab": "coordination",
+      "name": "Cactus Pufferfish",
+      "path": "coordination/cactus-pufferfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cactus_Pufferfish.png",
+      "sha1": "929a6695f86db7e7258f9514dbc0bba6a36c37b9"
+    },
+    {
+      "tab": "coordination",
+      "name": "Lungfish",
+      "path": "coordination/lungfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Lungfish.png",
+      "sha1": "06aee80de05fab568f4cd2bbd25e6c968cdea6c5"
+    },
+    {
+      "tab": "coordination",
+      "name": "Gothfish",
+      "path": "coordination/gothfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Gothfish.png",
+      "sha1": "cd45cbe4c3b996c51ebef9f38baa8edc4f2e4a49"
+    },
+    {
+      "tab": "coordination",
+      "name": "Camel Fish",
+      "path": "coordination/camel-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Camel_Fish.png",
+      "sha1": "151b2c287124f0388d119494bfb1e2ec265e1190"
+    },
+    {
+      "tab": "coordination",
+      "name": "Fossil Fish",
+      "path": "coordination/fossil-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Fossil_Fish.png",
+      "sha1": "53cedf68f9f1935f66539dab028e1729bf13541c"
+    },
+    {
+      "tab": "coordination",
+      "name": "Hourglass Fish",
+      "path": "coordination/hourglass-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Hourglass_Fish.png",
+      "sha1": "b47d8dc3b0231f05f9477b1238ea62aaa985b756"
+    },
+    {
+      "tab": "coordination",
+      "name": "Hot N Spicy Fish",
+      "path": "coordination/hot-n-spicy-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Hot_N_Spicy_Fish.png",
+      "sha1": "8ca98a436d62dba207e208ee0618c79876164bc8"
+    },
+    {
+      "tab": "coordination",
+      "name": "Craw's Dad",
+      "path": "coordination/craws-dad.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Craw%27s_Dad.png",
+      "sha1": "23f60dd54486c87d5240760a4d02e369f0728f06"
+    },
+    {
+      "tab": "coordination",
+      "name": "Rattleray",
+      "path": "coordination/rattleray.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Rattleray.png",
+      "sha1": "dab0f29ff1821a362cdab599a53e6186201ff06e"
+    },
+    {
+      "tab": "coordination",
+      "name": "Sizzling Shad",
+      "path": "coordination/sizzling-shad.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sizzling_Shad.png",
+      "sha1": "7ec50ef6bb8764c544fab5f88ebc321c601977e6"
+    },
+    {
+      "tab": "coordination",
+      "name": "Batfish",
+      "path": "coordination/batfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Batfish.png",
+      "sha1": "d6352b60821febe66e15a33d5483d5261b21a369"
+    },
+    {
+      "tab": "coordination",
+      "name": "Scorpion Fish",
+      "path": "coordination/scorpion-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Scorpion_Fish.png",
+      "sha1": "fb3e2b1fad7ce7f1bd98b555da0acd81b8123c3a"
+    },
+    {
+      "tab": "coordination",
+      "name": "Eye of Horus Fish",
+      "path": "coordination/eye-of-horus-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Eye_of_Horus_Fish.png",
+      "sha1": "054093c8967b9ed019c5944ab6142ae9b5b2a7cb"
+    },
+    {
+      "tab": "coordination",
+      "name": "Sunfish",
+      "path": "coordination/sunfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sunfish.png",
+      "sha1": "611d20b792c705da32b3175e24e7df54b4e5dfc4"
+    },
+    {
+      "tab": "coordination",
+      "name": "Moonfish",
+      "path": "coordination/moonfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Moonfish.png",
+      "sha1": "6e192c4d695b6f31635342723ed0e4c4b77dbc01"
+    },
+    {
+      "tab": "coordination",
+      "name": "Pupfish",
+      "path": "coordination/pupfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Pupfish.png",
+      "sha1": "37a271145b3131d39b250fbad909bdd8571acf7f"
+    },
+    {
+      "tab": "coordination",
+      "name": "Polar Prawn",
+      "path": "coordination/polar-prawn.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Polar_Prawn.png",
+      "sha1": "11dacce7f561c1e0dc75655faee77ef914d94a47"
+    },
+    {
+      "tab": "coordination",
+      "name": "Arctic Cod",
+      "path": "coordination/arctic-cod.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Arctic_Cod.png",
+      "sha1": "bf1ac7126efe584edbf9abce4ac4c80aaede6bcf"
+    },
+    {
+      "tab": "coordination",
+      "name": "Coldfish",
+      "path": "coordination/coldfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Coldfish.png",
+      "sha1": "4c69325617bdb44d7b7ac1677b3f7cca94aeea0b"
+    },
+    {
+      "tab": "coordination",
+      "name": "Capelin",
+      "path": "coordination/capelin.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Capelin.png",
+      "sha1": "2e4d24ec622ef232c76e2ad99c42385bc0ef603f"
+    },
+    {
+      "tab": "coordination",
+      "name": "Sabretooth Tigerfish",
+      "path": "coordination/sabretooth-tigerfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sabretooth_Tigerfish.png",
+      "sha1": "2165ebd6848740b5b85be64573ad81da1709608a"
+    },
+    {
+      "tab": "coordination",
+      "name": "Mammothfish",
+      "path": "coordination/mammothfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Mammothfish.png",
+      "sha1": "dd46eeef6516cb0ace358be308f9ab6e7cd09727"
+    },
+    {
+      "tab": "coordination",
+      "name": "Ice Cream Sharkwich",
+      "path": "coordination/ice-cream-sharkwich.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Ice_Cream_Sharkwich.png",
+      "sha1": "c5badf561695198336368a78479a912ced7159a3"
+    },
+    {
+      "tab": "coordination",
+      "name": "Strawberry Ice Cream Sharkwich",
+      "path": "coordination/strawberry-ice-cream-sharkwich.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Strawberry_Ice_Cream_Sharkwich.png",
+      "sha1": "88b222f4dd8228ed60571b02b0933fa146e07c97"
+    },
+    {
+      "tab": "coordination",
+      "name": "Chocolate Ice Cream Sharkwich",
+      "path": "coordination/chocolate-ice-cream-sharkwich.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Chocolate_Ice_Cream_Sharkwich.png",
+      "sha1": "095502a4e22a7e9c60789b6393d918f9e8b2d098"
+    },
+    {
+      "tab": "coordination",
+      "name": "Hotdogtopus",
+      "path": "coordination/hotdogtopus.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Hotdogtopus.png",
+      "sha1": "38c417b570bb460fb0010964141a196becf37d0c"
+    },
+    {
+      "tab": "coordination",
+      "name": "Rocketfish",
+      "path": "coordination/rocketfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Rocketfish.png",
+      "sha1": "682a0595b944593b570969b404797f07fb82bb6c"
+    },
+    {
+      "tab": "coordination",
+      "name": "Sea Star",
+      "path": "coordination/sea-star.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sea_Star.png",
+      "sha1": "dfa305299a09c634b19df4451045aad5fdd52e0c"
+    },
+    {
+      "tab": "coordination",
+      "name": "Mussel",
+      "path": "coordination/mussel.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Mussel.png",
+      "sha1": "7d3dc554e0f445e87ee9a677dec5a9220d78ac5c"
+    },
+    {
+      "tab": "coordination",
+      "name": "Musscle",
+      "path": "coordination/musscle.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Musscle.png",
+      "sha1": "185b561881e40376815303b42ab633e0a480ae17"
+    },
+    {
+      "tab": "coordination",
+      "name": "Deepsea Fangly Fish",
+      "path": "coordination/deepsea-fangly-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Deepsea_Fangly_Fish.png",
+      "sha1": "0e3c6d5b6c9a21d268f053d4122f003854c1b0c9"
+    },
+    {
+      "tab": "coordination",
+      "name": "Gummy Shark",
+      "path": "coordination/gummy-shark.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Gummy_Shark.png",
+      "sha1": "60dade1874a7790a7c673b0fad6da33d06fa494a"
+    },
+    {
+      "tab": "coordination",
+      "name": "Comb Jelly",
+      "path": "coordination/comb-jelly.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Comb_Jelly.png",
+      "sha1": "12d087136e6c4c5b22511d37c2e5468d516fece6"
+    },
+    {
+      "tab": "coordination",
+      "name": "Jelly Jellyfish",
+      "path": "coordination/jelly-jellyfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Jelly_Jellyfish.png",
+      "sha1": "8336e913e4f8dcd1513426fccbf9187a10cc83e6"
+    },
+    {
+      "tab": "coordination",
+      "name": "Crimson Crawler",
+      "path": "coordination/crimson-crawler.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Crimson_Crawler.png",
+      "sha1": "4ed73c810b9412c34037a12c383bdcc347f15ab7"
+    },
+    {
+      "tab": "coordination",
+      "name": "Lobster",
+      "path": "coordination/lobster.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Lobster.png",
+      "sha1": "15c0967e43b407b937e79e78680d4c5729a3772b"
+    },
+    {
+      "tab": "coordination",
+      "name": "Clam",
+      "path": "coordination/clam.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Clam.png",
+      "sha1": "653b758433cf4e3221134e5b5d5de2e9bdba1775"
+    },
+    {
+      "tab": "coordination",
+      "name": "Leafy Sheepdog",
+      "path": "coordination/leafy-sheepdog.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Leafy_Sheepdog.png",
+      "sha1": "87e9e170f105659d2779dad4c2a23a4a8764b6b9"
+    },
+    {
+      "tab": "coordination",
+      "name": "Blue Lobster",
+      "path": "coordination/blue-lobster.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Blue_Lobster.png",
+      "sha1": "c0e0d8c2ddec4d9742f62ccfef660c6046ed91b6"
+    },
+    {
+      "tab": "coordination",
+      "name": "Sea Angel",
+      "path": "coordination/sea-angel.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sea_Angel.png",
+      "sha1": "bd853c7ded434cc5c4755f3f2416c45914e353b5"
+    },
+    {
+      "tab": "coordination",
+      "name": "Shooting Starfish",
+      "path": "coordination/shooting-starfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Shooting_Starfish.png",
+      "sha1": "768949e77bb04c59542b9493143a7b7b1421127e"
+    },
+    {
+      "tab": "coordination",
+      "name": "Flying Fish",
+      "path": "coordination/flying-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Flying_Fish.png",
+      "sha1": "ffa7c636d6489013be90e49c6864194b5c1760bc"
+    },
+    {
+      "tab": "coordination",
+      "name": "Cloudfish",
+      "path": "coordination/cloudfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cloudfish.png",
+      "sha1": "5c097f4fbbe7af5e533d7dda2292a46e631b0caa"
+    },
+    {
+      "tab": "coordination",
+      "name": "Thundering Cloudfish",
+      "path": "coordination/thundering-cloudfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Thundering_Cloudfish.png",
+      "sha1": "5485573c0e84d6b1f1cd7259f6eed5f744726e99"
+    },
+    {
+      "tab": "coordination",
+      "name": "Steamfish",
+      "path": "coordination/steamfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Steamfish.png",
+      "sha1": "ccc5bc92ad245a995da134150ac38d5534481a8d"
+    },
+    {
+      "tab": "coordination",
+      "name": "Red Balloonfish",
+      "path": "coordination/red-balloonfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Red_Balloonfish.png",
+      "sha1": "a7627664817a90439934b5cf14592f0c6b797a5f"
+    },
+    {
+      "tab": "coordination",
+      "name": "Blue Balloonfish",
+      "path": "coordination/blue-balloonfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Blue_Balloonfish.png",
+      "sha1": "4cd090ea50f65bc9b9bfbef133f21e2e953c1a48"
+    },
+    {
+      "tab": "coordination",
+      "name": "Plane-Mimicking Fish",
+      "path": "coordination/plane-mimicking-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Plane-Mimicking_Fish.png",
+      "sha1": "f6b3a3306484f84972ca303b7f7779ad7521afcf"
+    },
+    {
+      "tab": "coordination",
+      "name": "Rainbow Trout (Sky)",
+      "path": "coordination/rainbow-trout-sky.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Rainbow_Trout_%28Sky%29.png",
+      "sha1": "5b1a9f77c2794a65dec75d9d1485c21b2465b227"
+    },
+    {
+      "tab": "coordination",
+      "name": "Very Lost Fish",
+      "path": "coordination/very-lost-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Very_Lost_Fish.png",
+      "sha1": "f64f36e486b55486f04dbf03b312d87204f10894"
+    },
+    {
+      "tab": "coordination",
+      "name": "Starwhale",
+      "path": "coordination/starwhale.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Starwhale.png",
+      "sha1": "9e69ad923e388d37dece26f4865c30b181e71286"
+    },
+    {
+      "tab": "coordination",
+      "name": "Aurora Eel",
+      "path": "coordination/aurora-eel.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Aurora_Eel.png",
+      "sha1": "159b92bad65bb5e21ae79e236f00d20e6906ea70"
+    },
+    {
+      "tab": "coordination",
+      "name": "Skyfish",
+      "path": "coordination/skyfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Skyfish.png",
+      "sha1": "02766b2efb6a686f741a16fb873e07a4cca03a56"
+    },
+    {
+      "tab": "coordination",
+      "name": "Extraterrestrial Octopus",
+      "path": "coordination/extraterrestrial-octopus.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Extraterrestrial_Octopus.png",
+      "sha1": "2b3676bba064d4792b57aa1b3a63ba5540f26fbb"
+    },
+    {
+      "tab": "coordination",
+      "name": "Jellyfish...?",
+      "path": "coordination/jellyfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Jellyfish...%3F.png",
+      "sha1": "5362abcaddc5edc1f2635925335eccdd7951cf18"
+    },
+    {
+      "tab": "coordination",
+      "name": "Ocean Fella",
+      "path": "coordination/ocean-fella.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Ocean_Fella.png",
+      "sha1": "4eb2001afe8ab2ea9f7ce358de5ca1272d0da87f"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Acorn",
+      "path": "hardiness/acorn.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Acorn.png",
+      "sha1": "b688da5a37518de4ee1207ff931cfe8a737bc8fd"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Apple",
+      "path": "hardiness/apple.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Apple.png",
+      "sha1": "b67f7dd847e4c19d6e13584f93f6c6871651d78f"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Worm Apple",
+      "path": "hardiness/worm-apple.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Worm_Apple.png",
+      "sha1": "2008b26bc69f58a6a7b0006758809e2f9cd458b3"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Golden Apple",
+      "path": "hardiness/golden-apple.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Golden_Apple.png",
+      "sha1": "5b58e028c7f67b2f95069469b5396077f558b835"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Apl",
+      "path": "hardiness/apl.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Apl.png",
+      "sha1": "f8d99a0831ec0c716bde6e5514be49e827224800"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Watermelon",
+      "path": "hardiness/watermelon.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Watermelon.png",
+      "sha1": "8cbb12280ca6f398b50657889d3a125898575670"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Water Melon",
+      "path": "hardiness/water-melon.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Water_Melon.png",
+      "sha1": "f52eb2065f62ea42378cf5eda7bcee8fda94f775"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Cube Watermelon",
+      "path": "hardiness/cube-watermelon.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cube_Watermelon.png",
+      "sha1": "40faa530845e02e3d67838801b6091915bef9ed6"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Boneanna",
+      "path": "hardiness/boneanna.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Boneanna.png",
+      "sha1": "d2e0f8f6efacac6fa1ee41e48d3099fbac59c973"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Doggplant",
+      "path": "hardiness/doggplant.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Doggplant.png",
+      "sha1": "9b78124ebb0b237f343baa6d687442940aed797e"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Pomnapple",
+      "path": "hardiness/pomnapple.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Pomnapple.png",
+      "sha1": "ca99b2305428d6d3a7b4227502317eee7c9a3201"
+    },
+    {
+      "tab": "hardiness",
+      "name": "White Pomnapple",
+      "path": "hardiness/white-pomnapple.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_White_Pomnapple.png",
+      "sha1": "a2abec873d0e59b73f32142c837e338d55e0cc8f"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Pawberry",
+      "path": "hardiness/pawberry.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Pawberry.png",
+      "sha1": "2fd9caa80d7cb3984a0772cad494cae625444ee0"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Rainbow Pawberry",
+      "path": "hardiness/rainbow-pawberry.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Rainbow_Pawberry.png",
+      "sha1": "fa1b9c588e5ed00e6e97f0ce029e77dad5739235"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Power Pawberry",
+      "path": "hardiness/power-pawberry.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Power_Pawberry.png",
+      "sha1": "f5e9c7f0ed1418ed0adc12db87ad706d261505fe"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Oak Leaf",
+      "path": "hardiness/oak-leaf.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Oak_Leaf.png",
+      "sha1": "0e2ae0f7916745d5018ae38b8f38ab8b79334bfd"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Oak Syrup",
+      "path": "hardiness/oak-syrup.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Oak_Syrup.png",
+      "sha1": "d8958e036610ff967f728772b5e9ccdd364163b1"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Collieflower",
+      "path": "hardiness/collieflower.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Collieflower.png",
+      "sha1": "b32e2c4c9fd9382fccd7a7d36147cbac77436eba"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Purple Collieflower",
+      "path": "hardiness/purple-collieflower.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Purple_Collieflower.png",
+      "sha1": "21e11c78faa9eb4b3160e7d7d0898436cf3425a8"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Barkkoli",
+      "path": "hardiness/barkkoli.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Barkkoli.png",
+      "sha1": "66d124a3774f337c6e0d5cbb59e3bdd9a03c4d4e"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Hot Choccoli",
+      "path": "hardiness/hot-choccoli.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Hot_Choccoli.png",
+      "sha1": "106dc4001035a5885a2fbbf1b97b87106ca63b52"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Sweet Peas",
+      "path": "hardiness/sweet-peas.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sweet_Peas.png",
+      "sha1": "b45a6903bc77e4cebc4f5b40748b6fc2befb3994"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Sour Peas",
+      "path": "hardiness/sour-peas.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sour_Peas.png",
+      "sha1": "92be933ade376b5e6eeb186e812fa784c4a7b818"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Flowery Cactus",
+      "path": "hardiness/flowery-cactus.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Flowery_Cactus.png",
+      "sha1": "98faf3703a65fa1b80ac1ed362d4a5ba8d403367"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Cowboy Cactus",
+      "path": "hardiness/cowboy-cactus.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cowboy_Cactus.png",
+      "sha1": "5e2adc604ea5dc03abd1b03b73feb99996fff436"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Starry Cactus",
+      "path": "hardiness/starry-cactus.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Starry_Cactus.png",
+      "sha1": "a66786e4b6965dcbd9a87c5d8716cfa548a50053"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Cact-o-lantern",
+      "path": "hardiness/cact-o-lantern.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cack-o-lantern.png",
+      "sha1": "8eca7e8654ff8c367f5d2dda188fa5fe94872883"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Cactus Juice",
+      "path": "hardiness/cactus-juice.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cactus_Juice.png",
+      "sha1": "e39834e7c2cc0a40214cf8ea419fb52209739e8a"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Prickly Pear",
+      "path": "hardiness/prickly-pear.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Prickly_Pear.png",
+      "sha1": "a23b68396fb0c1ce61d106c41d18da41e138fa45"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Blue Doggyflower",
+      "path": "hardiness/blue-doggyflower.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Blue_Doggyflower.png",
+      "sha1": "cf702760b46d558bf767140f0d809f11555771fc"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Green Doggyflower",
+      "path": "hardiness/green-doggyflower.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Green_Doggyflower.png",
+      "sha1": "0223ee742edbe5bedf8b45c7927dd9c98f17d9a3"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Purple Doggyflower",
+      "path": "hardiness/purple-doggyflower.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Purple_Doggyflower.png",
+      "sha1": "377a5d125507e45f09f7337a428ced8893538307"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Red Doggyflower",
+      "path": "hardiness/red-doggyflower.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Red_Doggyflower.png",
+      "sha1": "ac018ae2c9b30a468f9a286b243671d258b97b9c"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Cranberries",
+      "path": "hardiness/cranberries.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cranberries.png",
+      "sha1": "8651318f29c130786746cb7be25f9874cf360889"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Rice",
+      "path": "hardiness/rice.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Rice.png",
+      "sha1": "73f7486e73f368f09840b3e17f84bc47c5d961ea"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Big Rice",
+      "path": "hardiness/big-rice.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Big_Rice.png",
+      "sha1": "29b4346d2a646f8c22245cf297541ce836b50c53"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Agate",
+      "path": "hardiness/agate.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Agate.png",
+      "sha1": "b8534bf42b5ad2d7b46fb6c787295fc55993f3e9"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Rose Quartz",
+      "path": "hardiness/rose-quartz.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Rose_Quartz.png",
+      "sha1": "e375339d538194bbf9009ee095a56b56184b77e5"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Obsidian",
+      "path": "hardiness/obsidian.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Obsidian.png",
+      "sha1": "7bf40b0081f68b08e5122ed3fc985094a8f35d37"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Smoky Quartz",
+      "path": "hardiness/smoky-quartz.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Smoky_Quartz.png",
+      "sha1": "2f0090f01303d3e9b464c7974c47cf8afdda341d"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Turquoise",
+      "path": "hardiness/turquoise.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Turquoise.png",
+      "sha1": "f68e6e5e6b323f2b0a0930478b86eea163787303"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Garnet",
+      "path": "hardiness/garnet.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Garnet.png",
+      "sha1": "4d2d29a6b924c29dbf9cd1067f9cdf6ed3d09fea"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Amber",
+      "path": "hardiness/amber.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Amber.png",
+      "sha1": "a46d5158e37071d71c3149155032e148dc284ba7"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Amethyst",
+      "path": "hardiness/amethyst.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Amethyst.png",
+      "sha1": "886304893e8f8ed4ce9005550f870507751445ea"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Geode",
+      "path": "hardiness/geode.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Geode.png",
+      "sha1": "93d409be4d7b6d59f39ce2bc8611548e70722fff"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Opal",
+      "path": "hardiness/opal.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Opal.png",
+      "sha1": "eb8bd826422a04353735a4ec39bfccc6bd790a56"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Pyrite",
+      "path": "hardiness/pyrite.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Pyrite.png",
+      "sha1": "a089d3286af52f0089362921bbfbffd35080335e"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Bivalve Fossil",
+      "path": "hardiness/bivalve-fossil.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Bivalve_Fossil.png",
+      "sha1": "34a2e26554d9fe2d219a0e6879bf373607b94dc0"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Gastropod Fossil",
+      "path": "hardiness/gastropod-fossil.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Gastropod_Fossil.png",
+      "sha1": "dd99c691b28d69486ee0a214be7818a45a8bd24e"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Lizard Fossil",
+      "path": "hardiness/lizard-fossil.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Lizard_Fossil.png",
+      "sha1": "d95c67d1f8a0856cebd95b3efd008865e75018a6"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Bumblebee",
+      "path": "hardiness/bumblebee.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Bumblebee.png",
+      "sha1": "e1e98904502d060a1f8ee225a6584bf3ac00c384"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Gummy Worm",
+      "path": "hardiness/gummy-worm.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Gummy_Worm.png",
+      "sha1": "9dec88dbda6383f72bc0fdfb517773c2c426e95b"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Snail",
+      "path": "hardiness/snail.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Snail.png",
+      "sha1": "4a4296a42d5ca2ff785999e44b27275dd1d217c7"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Acorn Weevil",
+      "path": "hardiness/acorn-weevil.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Acorn_Weevil.png",
+      "sha1": "d6f5bf5cddf671d261c78cc08d0af44a4ee23f03"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Apple Moth",
+      "path": "hardiness/apple-moth.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Apple_Moth.png",
+      "sha1": "ea2adab0c98ff12a1a93bb9a0bec4f0183de6228"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Candy-Striped Leafhopper",
+      "path": "hardiness/candy-striped-leafhopper.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Candy-Striped_Leafhopper.png",
+      "sha1": "052c1d25495f49e535fd8f5ef9545b4c650c080c"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Dragonfly",
+      "path": "hardiness/dragonfly.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Dragonfly.png",
+      "sha1": "ed14d6b80937f1373b1fe95d1eedb71718549784"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Fire Ant",
+      "path": "hardiness/fire-ant.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Fire_Ant.png",
+      "sha1": "5dc945da464edae65603015584996aada9ae3757"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Giraffe Weevil",
+      "path": "hardiness/giraffe-weevil.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Giraffe_Weevil.png",
+      "sha1": "8c8374d291f5338ad3db24e0cc0f1aa2bcc90f37"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Hercules Beetle",
+      "path": "hardiness/hercules-beetle.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Hercules_Beetle.png",
+      "sha1": "69ffd33740bbbdd89820de99bc984b2e2f13c164"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Rhino Beetle",
+      "path": "hardiness/rhino-beetle.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Rhino_Beetle.png",
+      "sha1": "6455da3f9e92282a02958e3e823c31292b55f169"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Rosy Maple Moth",
+      "path": "hardiness/rosy-maple-moth.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Rosy_Maple_Moth.png",
+      "sha1": "9efde48453969602a8a583e2fccfb7b9c2a5f93a"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Sockfly",
+      "path": "hardiness/sockfly.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sockfly.png",
+      "sha1": "f71e4561b1c8a2fa8dfe09a418c38853c4b45b3d"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Stickbug",
+      "path": "hardiness/stickbug.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Stickbug.png",
+      "sha1": "1222e84ae20763af088175a5a5d59bbef7f55c05"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Io Moth",
+      "path": "hardiness/io-moth.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Io_Moth.png",
+      "sha1": "0b7e149a6eb53c3d0f868ce33534e63e9d1291ef"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Dog Egg",
+      "path": "hardiness/dog-egg.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Dog_Egg.png",
+      "sha1": "6ab065b8f84d8605cae853e9f732bc32ae5e2aa2"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Bug Egg",
+      "path": "hardiness/bug-egg.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Bug_Egg.png",
+      "sha1": "e67373a05e00eb2f90ef51b4cb3121c4d9620405"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Pig Egg",
+      "path": "hardiness/pig-egg.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Pig_Egg.png",
+      "sha1": "bcdf2e959e3f6b62abf3b1b48f2d25fd540d76b4"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Evil Egg",
+      "path": "hardiness/evil-egg.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Evil_Egg.png",
+      "sha1": "7340a626433e406cae840570841ea332e39365cd"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Blue Secretegg",
+      "path": "hardiness/blue-secretegg.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Blue_Secretegg.png",
+      "sha1": "4a446d8096e36f2b032be582813e58adb6488255"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Green Secretegg",
+      "path": "hardiness/green-secretegg.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Green_Secretegg.png",
+      "sha1": "9d4a34954a572096096b2e04a68f98d38408b56e"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Red Secretegg",
+      "path": "hardiness/red-secretegg.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Red_Secretegg.png",
+      "sha1": "5b389892cf9eceeff876414a48319935045f7b3f"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Golden Secretegg",
+      "path": "hardiness/golden-secretegg.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Gold_Secretegg.png",
+      "sha1": "493ff088bf5618fb928df74fd5b3ab972be783b4"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Chrysalis Egg",
+      "path": "hardiness/chrysalis-egg.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Chrysalis_Egg.png",
+      "sha1": "69937fe31b487bb90bb7138c94014d723833b9fd"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Strange Egg",
+      "path": "hardiness/strange-egg.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Strange_Egg.png",
+      "sha1": "06f7849ec237a79b39b539ae7d95f309f415f3bc"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Vacation Egg",
+      "path": "hardiness/vacation-egg.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Vacation_Egg.png",
+      "sha1": "a043d8b423917bc388904a7356989aa782302d4c"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Boneanna Bow",
+      "path": "nutrition/boneanna-bow.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Boneanna_Bow.png",
+      "sha1": "e5940527f370d0e89f015a863573a784eabccee7"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Cheese Cutlass",
+      "path": "nutrition/cheese-cutlass.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cheese_Cutlass.png",
+      "sha1": "c0ee9907984020aacc39a4c9836d8c3a0b22284d"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Watermelon Buster",
+      "path": "nutrition/watermelon-buster.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Watermelon_Buster.png",
+      "sha1": "1f143738fded7ef9596db500b611f5b404cad064"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Cheese",
+      "path": "nutrition/cheese.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cheese.png",
+      "sha1": "5ac92bad1130c99aae980b39c126b204790d3c01"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Milk",
+      "path": "nutrition/milk.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Milk.png",
+      "sha1": "e4fad879e660dbf7dd8f345d075553b265ae61fe"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Smooshed Ice Cream",
+      "path": "nutrition/smooshed-ice-cream.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Smooshed_Ice_Cream.png",
+      "sha1": "ff4b0b182be06cf34d8a9f952edf81aea817bf9a"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Coconut",
+      "path": "nutrition/coconut.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Coconut.png",
+      "sha1": "1a1034d1c0fa454575f3d0b37884431d9d957d17"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Hotted Dog",
+      "path": "nutrition/hotted-dog.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Hotted_Dog.png",
+      "sha1": "11b6ebbe60932dacd7073072c9fce33345f7cd88"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Peanut Butter",
+      "path": "nutrition/peanut-butter.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Peanut_Butter.png",
+      "sha1": "517ceea96b589257b6f26c4530527462d421e266"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Taco",
+      "path": "nutrition/taco.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Taco.png",
+      "sha1": "7653fbc8e9c309252dfa3d7153909c5201591815"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Chicken Leg",
+      "path": "nutrition/chicken-leg.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Chicken_Leg.png",
+      "sha1": "87b7cf0abbefcdd697cce85a1a610fecd09c1d5d"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Power Pawberry",
+      "path": "nutrition/power-pawberry.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Power_Pawberry.png",
+      "sha1": "f5e9c7f0ed1418ed0adc12db87ad706d261505fe"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Amulet of Treats",
+      "path": "nutrition/amulet-of-treats.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Amulet_of_Treats.png",
+      "sha1": "d5595bfb7a4e8cc66f2d18f2f9568227f6c44bfd"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Minnow",
+      "path": "nutrition/minnow.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Minnow.png",
+      "sha1": "937053166b0d3e6593939b73d53e2a90d18305e6"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Barracuda",
+      "path": "nutrition/barracuda.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Barracuda.png",
+      "sha1": "fc33f03c543fe4119b7d57f0118e75d22379d0f2"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Sunfish",
+      "path": "nutrition/sunfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sunfish.png",
+      "sha1": "611d20b792c705da32b3175e24e7df54b4e5dfc4"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Moonfish",
+      "path": "nutrition/moonfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Moonfish.png",
+      "sha1": "6e192c4d695b6f31635342723ed0e4c4b77dbc01"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Sweet Peas",
+      "path": "nutrition/sweet-peas.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sweet_Peas.png",
+      "sha1": "b45a6903bc77e4cebc4f5b40748b6fc2befb3994"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Tomato",
+      "path": "nutrition/tomato.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Tomato.png",
+      "sha1": "f18cd9ab1cea3128196a2fcf5f47ac4c4d60c698"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Bone",
+      "path": "nutrition/bone.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Bone.png",
+      "sha1": "0965a34966b52c45c460788c02b27988f512c0a1"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Candy Cane",
+      "path": "nutrition/candy-cane.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Candy_Cane.png",
+      "sha1": "11ce3a473bf768c3dbe2c74b4a80e5dc782b952e"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Stick of Butter",
+      "path": "nutrition/stick-of-butter.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Stick_of_Butter.png",
+      "sha1": "ebad1c5cd9ea52c4207d023b2fad2d352ee1efc0"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Bacon Battleaxe",
+      "path": "nutrition/bacon-battleaxe.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Bacon_Battleaxe.png",
+      "sha1": "a9f4a12066488e42293e5a1f70a3ca28a32726fb"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Rainbow Pawberry",
+      "path": "nutrition/rainbow-pawberry.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Rainbow_Pawberry.png",
+      "sha1": "fa1b9c588e5ed00e6e97f0ce029e77dad5739235"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Blue Balloonfish",
+      "path": "nutrition/blue-balloonfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Blue_Balloonfish.png",
+      "sha1": "4cd090ea50f65bc9b9bfbef133f21e2e953c1a48"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Flying Fish",
+      "path": "nutrition/flying-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Flying_Fish.png",
+      "sha1": "ffa7c636d6489013be90e49c6864194b5c1760bc"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Cactus Pufferfish",
+      "path": "nutrition/cactus-pufferfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cactus_Pufferfish.png",
+      "sha1": "929a6695f86db7e7258f9514dbc0bba6a36c37b9"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Cube Watermelon",
+      "path": "nutrition/cube-watermelon.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cube_Watermelon.png",
+      "sha1": "40faa530845e02e3d67838801b6091915bef9ed6"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Sea Star",
+      "path": "nutrition/sea-star.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sea_Star.png",
+      "sha1": "dfa305299a09c634b19df4451045aad5fdd52e0c"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Boneanna",
+      "path": "nutrition/boneanna.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Boneanna.png",
+      "sha1": "d2e0f8f6efacac6fa1ee41e48d3099fbac59c973"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Pickle Buckler",
+      "path": "nutrition/pickle-buckler.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Pickle_Buckler.png",
+      "sha1": "1e6c9adbf7d5d7c2383ba122cd4876a8cdd0895d"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Barkkoli",
+      "path": "nutrition/barkkoli.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Barkkoli.png",
+      "sha1": "66d124a3774f337c6e0d5cbb59e3bdd9a03c4d4e"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Onion",
+      "path": "nutrition/onion.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Onion.png",
+      "sha1": "d43d03395a999cd167442120734831ce82611628"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Guppy",
+      "path": "nutrition/guppy.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Guppy.png",
+      "sha1": "f3e802c06e9ee66b8031cba617febbff8bd60426"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Freshwater Eel",
+      "path": "nutrition/freshwater-eel.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Freshwater_Eel.png",
+      "sha1": "039f2fe5d7538e489db5eb27236918a129b7aea8"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Octojelly",
+      "path": "nutrition/octojelly.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Octojelly.png",
+      "sha1": "ec5dce43bb0778868b0bcf60384dcfb66942db0f"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Coldfish",
+      "path": "nutrition/coldfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Coldfish.png",
+      "sha1": "4c69325617bdb44d7b7ac1677b3f7cca94aeea0b"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Honeycomb",
+      "path": "nutrition/honeycomb.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Honeycomb.png",
+      "sha1": "11357868f389188cdbb99c3993b5e85076df1010"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Dango Throwing Spear",
+      "path": "nutrition/dango-throwing-spear.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Dango_Throwing_Spear.png",
+      "sha1": "c1c851781b14456f71e0e2de56cfc55d12b7da3d"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Pomnapple",
+      "path": "nutrition/pomnapple.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Pomnapple.png",
+      "sha1": "ca99b2305428d6d3a7b4227502317eee7c9a3201"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Salmon",
+      "path": "nutrition/salmon.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Salmon.png",
+      "sha1": "894c512044e609ec5dcebe540f3ab175cc7f3f18"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Collieflower",
+      "path": "nutrition/collieflower.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Collieflower.png",
+      "sha1": "b32e2c4c9fd9382fccd7a7d36147cbac77436eba"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Donut",
+      "path": "nutrition/donut.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Donut.png",
+      "sha1": "88fc8c8749874cd17fb5b8d05cbd337fb05ce0c3"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Sniffillet",
+      "path": "nutrition/sniffillet.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sniffillet.png",
+      "sha1": "3d29bf6ca4f61cb85b52d7b8bd0fdef545387c68"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Coelacanth",
+      "path": "nutrition/coelacanth.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Coelacanth.png",
+      "sha1": "97313cb4d8daca439a1760abce9bd7c1b6ba1c3a"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Crayfish",
+      "path": "nutrition/crayfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Crayfish.png",
+      "sha1": "d93349b0d025c6eda5776eb92578b63d25df6f16"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Rainbow Trout",
+      "path": "nutrition/rainbow-trout.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Rainbow_Trout.png",
+      "sha1": "c76a7ccb20b3540914326b1bd4511adb8299ef2b"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Rainbow Trout (Sky)",
+      "path": "nutrition/rainbow-trout-sky.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Rainbow_Trout_%28Sky%29.png",
+      "sha1": "5b1a9f77c2794a65dec75d9d1485c21b2465b227"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Largemouth Bass",
+      "path": "nutrition/largemouth-bass.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Largemouth_Bass.png",
+      "sha1": "e38dc4d714b3a96ee1ec554486546994435181c1"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Corn",
+      "path": "nutrition/corn.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Corn.png",
+      "sha1": "7d6840a17d5f067fe26c72826fa7d013298aee56"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Potato",
+      "path": "nutrition/potato.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Potato.png",
+      "sha1": "e9fc622ebd74f8fbcda0f4344b406f825b194fae"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Carrots",
+      "path": "nutrition/carrots.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Carrots.png",
+      "sha1": "14f511df436b5ce5e1951aa44ee090c0b5a08c14"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Fried Eggplant",
+      "path": "nutrition/fried-eggplant.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Fried_Eggplant.png",
+      "sha1": "373470186e1a95c36a1987f82e6f745c3d84cdfd"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Blueberries",
+      "path": "nutrition/blueberries.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Blueberries.png",
+      "sha1": "f7ef4e190966bf4e2cf145482e5bc86ed3691af2"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Breadfish",
+      "path": "nutrition/breadfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Breadfish.png",
+      "sha1": "9e35f805295f0d87d1875e2e896d0b32a35aaee9"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Butterfish",
+      "path": "nutrition/butterfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Butterfish.png",
+      "sha1": "eda38ab189518f8e1835f4e713547a89028d9041"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Handfish",
+      "path": "nutrition/handfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Handfish.png",
+      "sha1": "9977edf88d497d20a58178f41cb5a4644d654b1a"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Popcorn",
+      "path": "nutrition/popcorn.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Popcorn.png",
+      "sha1": "88d81a9892484a4b90aacbf54f2e83545634207c"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Gleepfish",
+      "path": "nutrition/gleepfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Gleepfish.png",
+      "sha1": "99617b5c9a50d54064b01a88d6e3e1793008ae6e"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Prismatic Koi",
+      "path": "nutrition/prismatic-koi.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Prismatic_Koi.png",
+      "sha1": "cfe2d74e6c597b66c9a3975136bd207c02c47514"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Hot Choccoli",
+      "path": "nutrition/hot-choccoli.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Hot_Choccoli.png",
+      "sha1": "106dc4001035a5885a2fbbf1b97b87106ca63b52"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Slice of Toast",
+      "path": "nutrition/slice-of-toast.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Slice_of_Toast.png",
+      "sha1": "179555545aa1bb031ce6fea1ef8888974b6622fe"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Turnip",
+      "path": "nutrition/turnip.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Turnip.png",
+      "sha1": "f4a9e746d8f7419a644446cc4501a6329c27d320"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Smallfry Stew",
+      "path": "nutrition/smallfry-stew.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Smallfry_Stew.png",
+      "sha1": "d4824c14692d2dfe476c42c2b4c8fa3739401c2b"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Mashed Potatoes",
+      "path": "nutrition/mashed-potatoes.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Mashed_Potatoes.png",
+      "sha1": "bec3d3a659452c56c9340744a98fb7513da89a4a"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Toad in the Hole",
+      "path": "nutrition/toad-in-the-hole.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Toad_in_the_Hole.png",
+      "sha1": "2c6e49c4d9ced60cb81a58d8cb83ca4f56eb8b93"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Boneanna Bread",
+      "path": "nutrition/boneanna-bread.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Boneanna_Bread.png",
+      "sha1": "81c24a26bf0690df812a3604e1a86e00211681f6"
+    },
+    {
+      "tab": "nutrition",
+      "name": "PB&J Sandwich",
+      "path": "nutrition/pb-j-sandwich.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_PB%26J_Sandwich.png",
+      "sha1": "de0e086728d3cb28de9953f74a48e33c71dc6451"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Mozzarella Sticks",
+      "path": "nutrition/mozzarella-sticks.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Mozzarella_Sticks.png",
+      "sha1": "e3e8b81bdb325c5791c00c848277dcf1af3855bb"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Onion Rings",
+      "path": "nutrition/onion-rings.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Onion_Rings.png",
+      "sha1": "07de4c032eb7419c8b8a3e3cf103769e667270e8"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Caprese Salad",
+      "path": "nutrition/caprese-salad.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Caprese_Salad.png",
+      "sha1": "4ac4d2e10648f4bb9b478db96f4460112df2cc6e"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Turnip au Gratin",
+      "path": "nutrition/turnip-au-gratin.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Turnip_au_Gratin.png",
+      "sha1": "239f9eef70a9fb06835ceac6743ff04f6bf07df0"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Lungfish",
+      "path": "nutrition/lungfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Lungfish.png",
+      "sha1": "06aee80de05fab568f4cd2bbd25e6c968cdea6c5"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Craw's Dad",
+      "path": "nutrition/craws-dad.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Craw%27s_Dad.png",
+      "sha1": "23f60dd54486c87d5240760a4d02e369f0728f06"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Sizzling Shad",
+      "path": "nutrition/sizzling-shad.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sizzling_Shad.png",
+      "sha1": "7ec50ef6bb8764c544fab5f88ebc321c601977e6"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Eye of Horus Fish",
+      "path": "nutrition/eye-of-horus-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Eye_of_Horus_Fish.png",
+      "sha1": "054093c8967b9ed019c5944ab6142ae9b5b2a7cb"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Gothfish",
+      "path": "nutrition/gothfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Gothfish.png",
+      "sha1": "cd45cbe4c3b996c51ebef9f38baa8edc4f2e4a49"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Camel Fish",
+      "path": "nutrition/camel-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Camel_Fish.png",
+      "sha1": "151b2c287124f0388d119494bfb1e2ec265e1190"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Hot N Spicy Fish",
+      "path": "nutrition/hot-n-spicy-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Hot_N_Spicy_Fish.png",
+      "sha1": "8ca98a436d62dba207e208ee0618c79876164bc8"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Scorpion Fish",
+      "path": "nutrition/scorpion-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Scorpion_Fish.png",
+      "sha1": "fb3e2b1fad7ce7f1bd98b555da0acd81b8123c3a"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Pupfish",
+      "path": "nutrition/pupfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Pupfish.png",
+      "sha1": "37a271145b3131d39b250fbad909bdd8571acf7f"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Shooting Starfish",
+      "path": "nutrition/shooting-starfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Shooting_Starfish.png",
+      "sha1": "768949e77bb04c59542b9493143a7b7b1421127e"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Rice",
+      "path": "nutrition/rice.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Rice.png",
+      "sha1": "73f7486e73f368f09840b3e17f84bc47c5d961ea"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Pumpkin",
+      "path": "nutrition/pumpkin.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Pumpkin.png",
+      "sha1": "a9f78959b2c2f0e4df711ba14a3fe3214cac4980"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Apple",
+      "path": "nutrition/apple.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Apple.png",
+      "sha1": "b67f7dd847e4c19d6e13584f93f6c6871651d78f"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Arctic Cod",
+      "path": "nutrition/arctic-cod.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Arctic_Cod.png",
+      "sha1": "bf1ac7126efe584edbf9abce4ac4c80aaede6bcf"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Starry Cactus",
+      "path": "nutrition/starry-cactus.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Starry_Cactus.png",
+      "sha1": "a66786e4b6965dcbd9a87c5d8716cfa548a50053"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Flowery Cactus",
+      "path": "nutrition/flowery-cactus.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Flowery_Cactus.png",
+      "sha1": "98faf3703a65fa1b80ac1ed362d4a5ba8d403367"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Capelin",
+      "path": "nutrition/capelin.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Capelin.png",
+      "sha1": "2e4d24ec622ef232c76e2ad99c42385bc0ef603f"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Polar Prawn",
+      "path": "nutrition/polar-prawn.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Polar_Prawn.png",
+      "sha1": "11dacce7f561c1e0dc75655faee77ef914d94a47"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Hotdogtopus",
+      "path": "nutrition/hotdogtopus.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Hotdogtopus.png",
+      "sha1": "38c417b570bb460fb0010964141a196becf37d0c"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Ice Cream Sharkwich",
+      "path": "nutrition/ice-cream-sharkwich.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Ice_Cream_Sharkwich.png",
+      "sha1": "c5badf561695198336368a78479a912ced7159a3"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Strawberry Ice Cream Sharkwich",
+      "path": "nutrition/strawberry-ice-cream-sharkwich.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Strawberry_Ice_Cream_Sharkwich.png",
+      "sha1": "88b222f4dd8228ed60571b02b0933fa146e07c97"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Chocolate Ice Cream Sharkwich",
+      "path": "nutrition/chocolate-ice-cream-sharkwich.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Chocolate_Ice_Cream_Sharkwich.png",
+      "sha1": "095502a4e22a7e9c60789b6393d918f9e8b2d098"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Sabretooth Tigerfish",
+      "path": "nutrition/sabretooth-tigerfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sabretooth_Tigerfish.png",
+      "sha1": "2165ebd6848740b5b85be64573ad81da1709608a"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Mammothfish",
+      "path": "nutrition/mammothfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Mammothfish.png",
+      "sha1": "dd46eeef6516cb0ace358be308f9ab6e7cd09727"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Deepsea Fangly Fish",
+      "path": "nutrition/deepsea-fangly-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Deepsea_Fangly_Fish.png",
+      "sha1": "0e3c6d5b6c9a21d268f053d4122f003854c1b0c9"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Pawberry",
+      "path": "nutrition/pawberry.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Pawberry.png",
+      "sha1": "2fd9caa80d7cb3984a0772cad494cae625444ee0"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Watermelon",
+      "path": "nutrition/watermelon.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Watermelon.png",
+      "sha1": "8cbb12280ca6f398b50657889d3a125898575670"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Cranberries",
+      "path": "nutrition/cranberries.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cranberries.png",
+      "sha1": "8651318f29c130786746cb7be25f9874cf360889"
+    },
+    {
+      "tab": "nutrition",
+      "name": "White Pomnapple",
+      "path": "nutrition/white-pomnapple.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_White_Pomnapple.png",
+      "sha1": "a2abec873d0e59b73f32142c837e338d55e0cc8f"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Sour Peas",
+      "path": "nutrition/sour-peas.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sour_Peas.png",
+      "sha1": "92be933ade376b5e6eeb186e812fa784c4a7b818"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Cactus Juice",
+      "path": "nutrition/cactus-juice.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cactus_Juice.png",
+      "sha1": "e39834e7c2cc0a40214cf8ea419fb52209739e8a"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Prickly Pear",
+      "path": "nutrition/prickly-pear.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Prickly_Pear.png",
+      "sha1": "a23b68396fb0c1ce61d106c41d18da41e138fa45"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Amulet of Cheese",
+      "path": "nutrition/amulet-of-cheese.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Amulet_of_Cheese.png",
+      "sha1": "bb93168296848ccf881281c2377f788ccc59f00d"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Very Lost Fish",
+      "path": "nutrition/very-lost-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Very_Lost_Fish.png",
+      "sha1": "f64f36e486b55486f04dbf03b312d87204f10894"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Purple Collieflower",
+      "path": "nutrition/purple-collieflower.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Purple_Collieflower.png",
+      "sha1": "21e11c78faa9eb4b3160e7d7d0898436cf3425a8"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Mussel",
+      "path": "nutrition/mussel.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Mussel.png",
+      "sha1": "7d3dc554e0f445e87ee9a677dec5a9220d78ac5c"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Gummy Shark",
+      "path": "nutrition/gummy-shark.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Gummy_Shark.png",
+      "sha1": "60dade1874a7790a7c673b0fad6da33d06fa494a"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Lobster",
+      "path": "nutrition/lobster.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Lobster.png",
+      "sha1": "15c0967e43b407b937e79e78680d4c5729a3772b"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Musscle",
+      "path": "nutrition/musscle.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Musscle.png",
+      "sha1": "185b561881e40376815303b42ab633e0a480ae17"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Crimson Crawler",
+      "path": "nutrition/crimson-crawler.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Crimson_Crawler.png",
+      "sha1": "4ed73c810b9412c34037a12c383bdcc347f15ab7"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Comb Jelly",
+      "path": "nutrition/comb-jelly.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Comb_Jelly.png",
+      "sha1": "12d087136e6c4c5b22511d37c2e5468d516fece6"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Jelly Jellyfish",
+      "path": "nutrition/jelly-jellyfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Jelly_Jellyfish.png",
+      "sha1": "8336e913e4f8dcd1513426fccbf9187a10cc83e6"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Leafy Sheepdog",
+      "path": "nutrition/leafy-sheepdog.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Leafy_Sheepdog.png",
+      "sha1": "87e9e170f105659d2779dad4c2a23a4a8764b6b9"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Blue Lobster",
+      "path": "nutrition/blue-lobster.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Blue_Lobster.png",
+      "sha1": "c0e0d8c2ddec4d9742f62ccfef660c6046ed91b6"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Sea Angel",
+      "path": "nutrition/sea-angel.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sea_Angel.png",
+      "sha1": "bd853c7ded434cc5c4755f3f2416c45914e353b5"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Clam",
+      "path": "nutrition/clam.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Clam.png",
+      "sha1": "653b758433cf4e3221134e5b5d5de2e9bdba1775"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Cloudfish",
+      "path": "nutrition/cloudfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cloudfish.png",
+      "sha1": "5c097f4fbbe7af5e533d7dda2292a46e631b0caa"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Thundering Cloudfish",
+      "path": "nutrition/thundering-cloudfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Thundering_Cloudfish.png",
+      "sha1": "5485573c0e84d6b1f1cd7259f6eed5f744726e99"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Steamfish",
+      "path": "nutrition/steamfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Steamfish.png",
+      "sha1": "ccc5bc92ad245a995da134150ac38d5534481a8d"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Red Balloonfish",
+      "path": "nutrition/red-balloonfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Red_Balloonfish.png",
+      "sha1": "a7627664817a90439934b5cf14592f0c6b797a5f"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Plane-Mimicking Fish",
+      "path": "nutrition/plane-mimicking-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Plane-Mimicking_Fish.png",
+      "sha1": "f6b3a3306484f84972ca303b7f7779ad7521afcf"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Starwhale",
+      "path": "nutrition/starwhale.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Starwhale.png",
+      "sha1": "9e69ad923e388d37dece26f4865c30b181e71286"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Aurora Eel",
+      "path": "nutrition/aurora-eel.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Aurora_Eel.png",
+      "sha1": "159b92bad65bb5e21ae79e236f00d20e6906ea70"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Skyfish",
+      "path": "nutrition/skyfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Skyfish.png",
+      "sha1": "02766b2efb6a686f741a16fb873e07a4cca03a56"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Extraterrestrial Octopus",
+      "path": "nutrition/extraterrestrial-octopus.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Extraterrestrial_Octopus.png",
+      "sha1": "2b3676bba064d4792b57aa1b3a63ba5540f26fbb"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Ocean Fella",
+      "path": "nutrition/ocean-fella.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Ocean_Fella.png",
+      "sha1": "4eb2001afe8ab2ea9f7ce358de5ca1272d0da87f"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Bao Wow",
+      "path": "nutrition/bao-wow.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Bao_Wow.png",
+      "sha1": "60ffea442491d3d546b5ff5a4954d34a0ce54368"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Parfait",
+      "path": "nutrition/parfait.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Parfait.png",
+      "sha1": "1560e99b76d682190a8b795e910b892d80c3a938"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Doggy Treat",
+      "path": "nutrition/doggy-treat.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Doggy_Treat.png",
+      "sha1": "0ee553493952635fcf8b54442024cf605c35b077"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Gummy Worm",
+      "path": "nutrition/gummy-worm.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Gummy_Worm.png",
+      "sha1": "9dec88dbda6383f72bc0fdfb517773c2c426e95b"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Chaos Donut",
+      "path": "nutrition/chaos-donut.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Chaos_Donut.png",
+      "sha1": "531324c8a15cc6815a6af870568e01b5b2ef83e9"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Chocolate Chip Cookie",
+      "path": "nutrition/chocolate-chip-cookie.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Chocolate_Chip_Cookie.png",
+      "sha1": "126dfce5513ae1ff1fbc168f734df34d0ce956b3"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Pawprint Cookie",
+      "path": "nutrition/pawprint-cookie.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Pawprint_Cookie.png",
+      "sha1": "13378e7042483f5eca3b847ac63eaad76d3edda1"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Sugar Cookie",
+      "path": "nutrition/sugar-cookie.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sugar_Cookie.png",
+      "sha1": "07c9847e44de9cd02d0dbb4cf90254042f9feb5d"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Vanilla Cookies",
+      "path": "nutrition/vanilla-cookies.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Vanilla_Cookies.png",
+      "sha1": "1c6f7075fc3b600571f513470ede439e24726ee7"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Sizzling Spear",
+      "path": "nutrition/sizzling-spear.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sizzling_Spear.png",
+      "sha1": "70e21c8db520bf1a925dfebb72649a4e08b0e41f"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Hambone",
+      "path": "nutrition/hambone.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Hambone.png",
+      "sha1": "aad24459b60e6e82101fad6e50b2afbafeac95a1"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Steak",
+      "path": "nutrition/steak.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Steak.png",
+      "sha1": "177338b3178e8e4706708bd25f8221135ffaf99b"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Larged Fries",
+      "path": "nutrition/larged-fries.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Larged_Fries.png",
+      "sha1": "de1b5fe084822c248876a63966840b8a1cdad35f"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Golden Apple",
+      "path": "nutrition/golden-apple.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Golden_Apple.png",
+      "sha1": "5b58e028c7f67b2f95069469b5396077f558b835"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Oak Syrup",
+      "path": "nutrition/oak-syrup.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Oak_Syrup.png",
+      "sha1": "d8958e036610ff967f728772b5e9ccdd364163b1"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Salmon Nigiri",
+      "path": "nutrition/salmon-nigiri.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Salmon_Nigiri.png",
+      "sha1": "33fba5a50f72833c5af84fef79c39e883c7eaf34"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Maki",
+      "path": "nutrition/maki.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Maki.png",
+      "sha1": "30e34ac6e4ae28260c69ee449a60e419392220dd"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Cowboy Cactus",
+      "path": "nutrition/cowboy-cactus.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cowboy_Cactus.png",
+      "sha1": "5e2adc604ea5dc03abd1b03b73feb99996fff436"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Big Rice",
+      "path": "nutrition/big-rice.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Big_Rice.png",
+      "sha1": "29b4346d2a646f8c22245cf297541ce836b50c53"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Cact-o-lantern",
+      "path": "nutrition/cact-o-lantern.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cack-o-lantern.png",
+      "sha1": "8eca7e8654ff8c367f5d2dda188fa5fe94872883"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Doggummy",
+      "path": "nutrition/doggummy.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Doggummy.png",
+      "sha1": "9afe7ffc84c94a38141cc2aadd50c96cf7a8bb2e"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Swede",
+      "path": "nutrition/swede.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Swede.png",
+      "sha1": "062e85da36c183473232d3489e34b6cd1c2f079a"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Blueberry Pie",
+      "path": "nutrition/blueberry-pie.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Blueberry_Pie.png",
+      "sha1": "ba6a3dac670a196253101984c4f4b09c11249e4c"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Pumpkin Stew",
+      "path": "nutrition/pumpkin-stew.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Pumpkin_Stew.png",
+      "sha1": "ff07ef9428c5d22973dfa8bf907de40025b77d11"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Bone Apple Tea",
+      "path": "nutrition/bone-apple-tea.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Bone_Apple_Tea.png",
+      "sha1": "9c26f5abe872a49ff51ab0ffb27a1fdb5b14614a"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Candy Apple",
+      "path": "nutrition/candy-apple.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Candy_Apple.png",
+      "sha1": "01066bbb6b7efb9ac69f2fad33efa2c3aec780c5"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Abyss Jelly",
+      "path": "nutrition/abyss-jelly.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Abyss_Jelly.png",
+      "sha1": "55c89a874caee15b7cbbb117332bd357a699c885"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Boneannas Foster",
+      "path": "nutrition/boneannas-foster.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Boneannas_Foster.png",
+      "sha1": "053700349be00b833f8396555a40b75281bd0a7e"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Boneanna Smoothie",
+      "path": "nutrition/boneanna-smoothie.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Boneanna_Smoothie.png",
+      "sha1": "0d986d987bde1397aedf3377f1426828bb4edd9f"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Chicken Egg",
+      "path": "nutrition/chicken-egg.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Chicken_Egg.png",
+      "sha1": "b0f76bf960d3c53e4cc6f2d3e3a45c05fb9ddc40"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Mayonnaise",
+      "path": "nutrition/mayonnaise.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Mayonnaise.png",
+      "sha1": "fe513abe238ac4949db4fc27c047c5661c8e676e"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Trickster Donut",
+      "path": "nutrition/trickster-donut.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Trickster_Donut.png",
+      "sha1": "c49c8528f22fe064ed40d835061ec27b127af87d"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Cooked Steak",
+      "path": "nutrition/cooked-steak.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cooked_Steak.png",
+      "sha1": "393780276dfd3fe6d43a3a0fe095cae43c2c2249"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Doggplant",
+      "path": "nutrition/doggplant.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Doggplant.png",
+      "sha1": "9b78124ebb0b237f343baa6d687442940aed797e"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Egg Musubi",
+      "path": "nutrition/egg-musubi.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Egg_Musubi.png",
+      "sha1": "66731748b304f4a2a6dca210d496f60a75eddd36"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Festive Candy Apple",
+      "path": "nutrition/festive-candy-apple.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Festive_Candy_Apple.png",
+      "sha1": "603b7a145c2e0c63cd57b869e8901f45dd65cc3b"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Fish and Chips",
+      "path": "nutrition/fish-and-chips.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Fish_and_Chips.png",
+      "sha1": "ff9238e57a56284a92ad1220b2809835343afe2b"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Five Hardboiled Eggs",
+      "path": "nutrition/five-hardboiled-eggs.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Five_Hardboiled_Eggs.png",
+      "sha1": "cc638d62a1b1d5774b299850b0e279b7a1738148"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Wormhole Donut",
+      "path": "nutrition/wormhole-donut.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Wormhole_Donut.png",
+      "sha1": "acf7c3a8be53b362b945594fd63721caa7c304f2"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Grilled Lobster Tail",
+      "path": "nutrition/grilled-lobster-tail.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Grilled_Lobster_Tail.png",
+      "sha1": "25f0ef6b5930b880ee1cb32348fe2f358c749b8e"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Mushroom",
+      "path": "nutrition/mushroom.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Mushroom.png",
+      "sha1": "e776f9262d3e709d6a343dbd671c20e2cfb795ef"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Polar Prawn Temaki",
+      "path": "nutrition/polar-prawn-temaki.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Polar_Prawn_Temaki.png",
+      "sha1": "37e3bc5e634c3e20950360c9f3ecca1f59bc8dc6"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Summer Smoothie",
+      "path": "nutrition/summer-smoothie.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Summer_Smoothie.png",
+      "sha1": "fa856df90b59cfafc07f9f4bbdd46c16775f4371"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Pawberry Pixie Stick",
+      "path": "nutrition/pawberry-pixie-stick.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Pawberry_Pixie_Stick.png",
+      "sha1": "4c5d6587d63ce856e6b763d08e704a7dfd139ce5"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Sugar",
+      "path": "nutrition/sugar.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sugar.png",
+      "sha1": "e250031f5f4e9121155f5ae91b11f50228c53026"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Pupperoni Pizza",
+      "path": "nutrition/pupperoni-pizza.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Pupperoni_Pizza.png",
+      "sha1": "3c6c71190282fc54417bb93dbf86e9a635c4e9d1"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Dog Pop",
+      "path": "nutrition/dog-pop.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Dog_Pop.png",
+      "sha1": "e8e08dce663f1cc44c5dfd95d16fe39c423a2ba9"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Blue Pawpsicle",
+      "path": "nutrition/blue-pawpsicle.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Blue_Pawpsicle.png",
+      "sha1": "f780f725610a1dc897a309e2499a23eb0df4ea88"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Boneanna Pawpsicle",
+      "path": "nutrition/boneanna-pawpsicle.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Boneanna_Pawpsicle.png",
+      "sha1": "75ba409511625054f1dd55b7b467e72d0864402e"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Pawberry Pawpsicle",
+      "path": "nutrition/pawberry-pawpsicle.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Pawberry_Pawpsicle.png",
+      "sha1": "5ce77298a60f2c8fad55c0029d7c3eb29e38153a"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Horse Radish",
+      "path": "nutrition/horse-radish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Horse_Radish.png",
+      "sha1": "2d2115bb128104d434e3bd1352ea878f43aba13d"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Neapolitan Sharkdae",
+      "path": "nutrition/neapolitan-sharkdae.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Neapolitan_Sharkdae.png",
+      "sha1": "99048f580e5b4b9567682568d35eb3ba8a3529a3"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Toasted Breadhead",
+      "path": "nutrition/toasted-breadhead.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Toasted_Breadhead.png",
+      "sha1": "04ac887ba0ce14be19056d461249ec0fe0755f2f"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Gourd Egg",
+      "path": "nutrition/gourd-egg.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Gourd_Egg.png",
+      "sha1": "d7de9df5013ac7583968c763092a345acc5634d9"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Shawarma Knife",
+      "path": "nutrition/shawarma-knife.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Shawarma_Knife.png",
+      "sha1": "4d398c30d0dc9a6705af201ffbb342199e4b2b12"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Holy Cannoli",
+      "path": "nutrition/holy-cannoli.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Holy_Cannoli.png",
+      "sha1": "2952f15937f2e817acaca7915958734af7e58fef"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Cherry Earrings",
+      "path": "nutrition/cherry-earrings.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cherry_Earrings.png",
+      "sha1": "c9dfe4ba44c980f00663ed14183160647c2f96f4"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Chef Boy-R-Dog",
+      "path": "nutrition/chef-boy-r-dog.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Chef_Boy-R-Dog.png",
+      "sha1": "1a60daa00f3c15bdc0a9e4144af2a2dde75ecd39"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Breadhead",
+      "path": "nutrition/breadhead.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Breadhead.png",
+      "sha1": "0509ff997bd60980e6ac155b5e1e87d75ea8ad7c"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Brick of Seaweed",
+      "path": "nutrition/brick-of-seaweed.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Brick_of_Seaweed.png",
+      "sha1": "382ce7e33176f97601935b5b3224c3b0ed3d96a0"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Onigiri",
+      "path": "nutrition/onigiri.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Onigiri.png",
+      "sha1": "3e71cc0877dcb4afee1109a5807a5c75fcf34222"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Sweet N Sour Stirfry",
+      "path": "nutrition/sweet-n-sour-stirfry.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sweet_N_Sour_Stirfry.png",
+      "sha1": "6ac64b8bd404666d16f90e5b45bdac4c1758d972"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Water Melon",
+      "path": "nutrition/water-melon.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Water_Melon.png",
+      "sha1": "f52eb2065f62ea42378cf5eda7bcee8fda94f775"
+    },
+    {
+      "tab": "nutrition",
+      "name": "ME\u00c5TB\u00d6L (Meatbol)",
+      "path": "nutrition/me-tb-l-meatbol.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_ME%C3%85TB%C3%96L_%28Meatbol%29.png",
+      "sha1": "000c84bdf716081710a213871a9c367f1e1e2724"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Cheese Dress",
+      "path": "nutrition/cheese-dress.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cheese_Dress.png",
+      "sha1": "a55608b17e43d83aaa97775f59a73cbe5dc00fc6"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Sub Sandwich",
+      "path": "nutrition/sub-sandwich.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sub_Sandwich.png",
+      "sha1": "bc72c623387267cc4435e93d9cd7ca018c015073"
+    }
+  ]
+}

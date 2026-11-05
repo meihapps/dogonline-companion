@@ -1,7 +1,7 @@
 //! Browser (localStorage) persistence for the mutable progress data.
 //!
 //! The JSON files hold the immutable game data. Which fish are caught and which
-//! enemies are killed is stored here as a JSON array of names, and merged into
+//! enemies are killed (and so on) is stored here as a JSON array of names, and merged into
 //! `CoordinationData` / `BraveryData` at startup via `apply_progress`.
 
 use std::collections::HashSet;
@@ -9,6 +9,7 @@ use std::collections::HashSet;
 const CAUGHT_FISH_KEY: &str = "dogonline_companion.caught_fish";
 const DAILIES_KEY: &str = "dogonline_companion.dailies";
 const HARVESTED_ITEMS_KEY: &str = "dogonline_companion.harvested_items";
+const EATEN_FOODS_KEY: &str = "dogonline_companion.eaten_foods";
 const KILLED_ENEMIES_KEY: &str = "dogonline_companion.killed_enemies";
 
 /// Progress is stored by name, so names changed to match the wiki map (old, new) here to
@@ -79,6 +80,8 @@ pub enum Filter {
     ShowCaught,
     ShowKilled,
     ShowHarvested,
+    ShowEaten,
+    FoodType,
 }
 
 impl Filter {
@@ -93,6 +96,8 @@ impl Filter {
             Self::ShowCaught => "dogonline_companion.filter.show_caught",
             Self::ShowKilled => "dogonline_companion.filter.show_killed",
             Self::ShowHarvested => "dogonline_companion.filter.show_harvested",
+            Self::ShowEaten => "dogonline_companion.filter.show_eaten",
+            Self::FoodType => "dogonline_companion.filter.food_type",
         }
     }
 }
@@ -161,6 +166,14 @@ pub fn save_harvested_items(names: &HashSet<String>) {
     save_names(HARVESTED_ITEMS_KEY, names);
 }
 
+pub fn load_eaten_foods() -> HashSet<String> {
+    load_names(EATEN_FOODS_KEY)
+}
+
+pub fn save_eaten_foods(names: &HashSet<String>) {
+    save_names(EATEN_FOODS_KEY, names);
+}
+
 /// Manual colour-scheme override. `Device` follows the OS/browser setting.
 #[derive(Clone, Copy, PartialEq)]
 pub enum Theme {
@@ -199,6 +212,7 @@ pub enum Tab {
     Bravery,
     Coordination,
     Hardiness,
+    Nutrition,
     Dailies,
 }
 
@@ -208,6 +222,7 @@ impl Tab {
             Self::Bravery => "bravery",
             Self::Coordination => "coordination",
             Self::Hardiness => "hardiness",
+            Self::Nutrition => "nutrition",
             Self::Dailies => "dailies",
         }
     }
@@ -219,6 +234,7 @@ pub fn load_tab() -> Tab {
     match load_string(TAB_KEY).as_deref() {
         Some("coordination") => Tab::Coordination,
         Some("hardiness") => Tab::Hardiness,
+        Some("nutrition") => Tab::Nutrition,
         Some("dailies") => Tab::Dailies,
         _ => Tab::Bravery,
     }

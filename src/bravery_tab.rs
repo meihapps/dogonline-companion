@@ -1,6 +1,7 @@
 use crate::bravery::{BraveryData, Enemy};
 use crate::formatting::{format_enum, image_path};
 use crate::long_press::LongPress;
+use crate::progress_counts::{Progress, ProgressCounts};
 use crate::storage::{self, Filter};
 use leptos::prelude::*;
 
@@ -26,6 +27,16 @@ pub fn BraveryTab(data: RwSignal<BraveryData>) -> impl IntoView {
         storage::save_filter_bool(Filter::ShowKilled, show_killed.get());
     });
 
+    let progress = Signal::derive(move || {
+        data.with(|data| {
+            Progress::of(
+                data.enemies
+                    .iter()
+                    .map(|enemy| (enemy.killed, enemy.bravery)),
+            )
+        })
+    });
+
     view! {
         <section class="tab-content">
             <h2>"Bravery"</h2>
@@ -42,6 +53,14 @@ pub fn BraveryTab(data: RwSignal<BraveryData>) -> impl IntoView {
                 />
                 " Show killed"
             </label>
+
+            <ProgressCounts
+                progress=progress
+                show_done=show_killed
+                items="Enemies"
+                done_label="killed"
+                stat="Bravery"
+            />
 
             <div class="item-grid">
                 {move || {

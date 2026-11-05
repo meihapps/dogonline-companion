@@ -1,6 +1,8 @@
 use crate::coordination::{Bait, CoordinationData, Fish};
+use crate::filter_select::FilterSelect;
 use crate::formatting::{format_enum, format_list, image_path};
 use crate::long_press::LongPress;
+use crate::progress_counts::{Progress, ProgressCounts};
 use crate::storage::{self, Filter};
 use leptos::prelude::*;
 
@@ -78,44 +80,6 @@ fn matches_filters(
 }
 
 #[component]
-fn FilterSelect(
-    label: &'static str,
-    value: ReadSignal<String>,
-    on_change: WriteSignal<String>,
-    options: Vec<(&'static str, &'static str)>,
-    all_label: &'static str,
-) -> impl IntoView {
-    view! {
-        <label>
-            {label}
-
-            <select
-                prop:value=move || value.get()
-                on:change=move |ev| {
-                    on_change.set(event_target_value(&ev));
-                }
-            >
-                <option value="" selected=move || value.get().is_empty()>{all_label}</option>
-
-                {options
-                    .into_iter()
-                    .map(|(option_value, option_label)| {
-                        view! {
-                            <option
-                                value=option_value
-                                selected=move || value.get() == option_value
-                            >
-                                {option_label}
-                            </option>
-                        }
-                    })
-                    .collect_view()}
-            </select>
-        </label>
-    }
-}
-
-#[component]
 fn CoordinationFilters(
     selected_location: ReadSignal<String>,
     set_selected_location: WriteSignal<String>,
@@ -129,7 +93,7 @@ fn CoordinationFilters(
     set_selected_hook_bait: WriteSignal<String>,
 ) -> impl IntoView {
     view! {
-        <div class="coordination-filters">
+        <div class="filters">
             <FilterSelect
                 label="Location"
                 value=selected_location
@@ -278,7 +242,7 @@ fn UncaughtCounts(
         <div class="uncaught-section">
             <p class="uncaught-title">"Uncaught fish per area (with current filters)"</p>
 
-            <div class="uncaught-counts">
+            <div class="counts">
             {move || {
                 let location = selected_location.get();
                 let time = selected_time.get();
@@ -311,9 +275,9 @@ fn UncaughtCounts(
                                 .count();
 
                             view! {
-                                <div class="uncaught-count">
-                                    <span class="uncaught-count-label">{*label}</span>
-                                    <span class="uncaught-count-value">{count}</span>
+                                <div class="count">
+                                    <span class="count-label">{*label}</span>
+                                    <span class="count-value">{count}</span>
                                 </div>
                             }
                         })
@@ -446,6 +410,7 @@ fn FishModal(fish: Fish, on_close: Callback<()>) -> impl IntoView {
 }
 
 #[component]
+#[allow(clippy::too_many_lines)]
 pub fn CoordinationTab(data: RwSignal<CoordinationData>) -> impl IntoView {
     let (selected_fish, set_selected_fish) = signal(None::<Fish>);
 
@@ -481,6 +446,34 @@ pub fn CoordinationTab(data: RwSignal<CoordinationData>) -> impl IntoView {
         storage::save_filter_string(Filter::HookBait, &selected_hook_bait.get());
         storage::save_filter_bool(Filter::GoldenGrub, golden_grub.get());
         storage::save_filter_bool(Filter::ShowCaught, show_caught.get());
+    });
+
+    let progress = Signal::derive(move || {
+        let location = selected_location.get();
+        let time = selected_time.get();
+        let weather = selected_weather.get();
+        let standard_bait = selected_standard_bait.get();
+        let hook_bait = selected_hook_bait.get();
+        let golden_grub = golden_grub.get();
+
+        data.with(|data| {
+            Progress::of(
+                data.fish
+                    .iter()
+                    .filter(|fish| {
+                        matches_filters(
+                            fish,
+                            &location,
+                            &time,
+                            &weather,
+                            &standard_bait,
+                            &hook_bait,
+                            golden_grub,
+                        )
+                    })
+                    .map(|fish| (fish.caught, fish.coordination)),
+            )
+        })
     });
 
     let close_modal = Callback::new(move |()| {
@@ -527,6 +520,14 @@ pub fn CoordinationTab(data: RwSignal<CoordinationData>) -> impl IntoView {
                 />
                 " Show caught"
             </label>
+
+            <ProgressCounts
+                progress=progress
+                show_done=show_caught
+                items="Fish"
+                done_label="caught"
+                stat="Coordination"
+            />
 
             <UncaughtCounts
                 data=data

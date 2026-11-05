@@ -5,6 +5,8 @@ use crate::coordination_tab::CoordinationTab;
 use crate::dailies_tab::{self, DailiesTab};
 use crate::hardiness::HardinessData;
 use crate::hardiness_tab::HardinessTab;
+use crate::nutrition::NutritionData;
+use crate::nutrition_tab::NutritionTab;
 use crate::storage::{self, Tab, Theme};
 use leptos::prelude::*;
 
@@ -19,11 +21,13 @@ pub fn App(
     bravery_data: BraveryData,
     coordination_data: CoordinationData,
     hardiness_data: HardinessData,
+    nutrition_data: NutritionData,
 ) -> impl IntoView {
     // The data lives here (not in the tabs) so toggled progress survives switching tabs.
     let bravery_data = RwSignal::new(bravery_data);
     let coordination_data = RwSignal::new(coordination_data);
     let hardiness_data = RwSignal::new(hardiness_data);
+    let nutrition_data = RwSignal::new(nutrition_data);
     let dailies = RwSignal::new(storage::load_dailies(&dailies_tab::reset_day()));
     dailies_tab::start_reset_timer(dailies);
     let (selected_tab, set_selected_tab) = signal(storage::load_tab());
@@ -153,6 +157,21 @@ pub fn App(
                         <button
                             class="tab-button"
                             class:active=move || {
+                                selected_tab.get() == Tab::Nutrition
+                            }
+                            aria-pressed=move || {
+                                selected_tab.get() == Tab::Nutrition
+                            }
+                            on:click=move |_| {
+                                set_selected_tab.set(Tab::Nutrition);
+                            }
+                        >
+                            "Nutrition"
+                        </button>
+
+                        <button
+                            class="tab-button"
+                            class:active=move || {
                                 selected_tab.get() == Tab::Dailies
                             }
                             aria-pressed=move || {
@@ -177,6 +196,10 @@ pub fn App(
 
                         Tab::Hardiness => view! {
                             <HardinessTab data=hardiness_data />
+                        }.into_any(),
+
+                        Tab::Nutrition => view! {
+                            <NutritionTab data=nutrition_data />
                         }.into_any(),
 
                         Tab::Dailies => view! {

@@ -319,7 +319,7 @@ button {
 
 /* Coordination Filters */
 
-.coordination-filters {
+.filters {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -328,7 +328,7 @@ button {
   max-width: 1000px;
 }
 
-.coordination-filters label {
+.filters label {
   display: flex;
   flex: 1 1 180px;
   flex-direction: column;
@@ -339,7 +339,7 @@ button {
   color: var(--text-muted);
 }
 
-.coordination-filters select {
+.filters select {
   width: 100%;
   min-height: 44px;
   padding: 8px 12px;
@@ -352,17 +352,17 @@ button {
   cursor: var(--cursor-hover);
 }
 
-.coordination-filters select:hover {
+.filters select:hover {
   border-color: var(--accent-border);
 }
 
-.coordination-filters select:focus-visible {
+.filters select:focus-visible {
   outline: 2px solid var(--accent-border);
   outline-offset: 2px;
 }
 
-.coordination-filters select option,
-.coordination-filters select optgroup {
+.filters select option,
+.filters select optgroup {
   background-color: var(--surface-bg);
   color: var(--text);
 }
@@ -392,7 +392,7 @@ button {
   color: var(--text-muted);
 }
 
-.uncaught-counts {
+.counts {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -401,7 +401,7 @@ button {
   max-width: 1000px;
 }
 
-.uncaught-count {
+.count {
   display: flex;
   flex: 0 1 180px;
   flex-direction: column;
@@ -414,7 +414,7 @@ button {
   color: var(--text-muted);
 }
 
-.uncaught-count-value {
+.count-value {
   color: var(--text);
   font-size: 1.5em;
 }
@@ -653,25 +653,25 @@ button.item-card {
     padding: 8px;
   }
 
-  .coordination-filters {
+  .filters {
     gap: 12px;
     margin-bottom: 20px;
   }
 
-  .coordination-filters label {
+  .filters label {
     flex-basis: calc(50% - 6px);
     max-width: none;
     font-size: 20px;
   }
 
-  .coordination-filters select {
+  .filters select {
     padding: 8px;
     font-size: 18px;
   }
 }
 
 @media (max-width: 350px) {
-  .coordination-filters label {
+  .filters label {
     flex-basis: 100%;
   }
 }
