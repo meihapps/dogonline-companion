@@ -1,0 +1,76 @@
+name: Wiki check
+
+# Compares the app's data against dogonline.wiki once a day, keeping one issue labelled
+# `wiki-drift` open with the report while anything differs.
+on:
+  schedule:
+    - cron: "23 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check
+        id: check
+        run: |
+          status=0
+          python3 -I scripts/check_wiki_data.py > report.txt || status=$?
+          cat report.txt
+          # 0 = matches, 1 = differences; anything else means the check itself failed.
+          if [ "$status" -ne 0 ] && [ "$status" -ne 1 ]; then
+            echo "::error::wiki check failed (exit $status)"
+            exit "$status"
+          fi
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+
+      - name: Update issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          STATUS: ${{ steps.check.outputs.status }}
+        run: |
+          set -euo pipefail
+          run_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          issue=$(gh issue list --label wiki-drift --state open --limit 1 --json number --jq '.[0].number // empty')
+
+          if [ "$STATUS" = 0 ]; then
+            if [ -n "$issue" ]; then
+              gh issue close "$issue" --comment "Everything matches the wiki again ([run]($run_url))."
+            fi
+            exit 0
+          fi
+
+          {
+            echo "The app's data differs from [the wiki](https://dogonline.wiki). Latest report:"
+            echo
+            echo '```text'
+            cat report.txt
+            echo '```'
+            echo
+            echo "From [this run]($run_url). This issue is updated daily and closes itself once everything matches."
+          } > body.md
+
+          if [ -z "$issue" ]; then
+            gh label create wiki-drift --color FBCA04 \
+              --description "App data differs from the wiki" 2>/dev/null || true
+            gh issue create --title "App data differs from the wiki" --label wiki-drift --body-file body.md
+            exit 0
+          fi
+
+          # Only the report counts as a change, not the run link, so an unchanged report
+          # doesn't notify anyone.
+          gh issue view "$issue" --json body --jq .body | tr -d '\r' \
+            | awk '/^```text$/ { inside = 1; next } /^```$/ { inside = 0 } inside' > old.txt
+          if cmp -s old.txt report.txt; then
+            echo "report unchanged"
+          else
+            gh issue edit "$issue" --body-file body.md
+            gh issue comment "$issue" --body "The report changed ([run]($run_url))."
+          fi

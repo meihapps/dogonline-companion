@@ -13,8 +13,9 @@ Prints only the differences, one line each:
     ? the wiki has the item, but not this value: a gap in the wiki rather than the app.
       These are counted on one line per field; pass --gaps to list them.
 
-and exits 1 if there were any. The wiki is the source of truth, so a difference means the
-app is out of date (or the wiki has a gap worth knowing about).
+and exits 1 if there were any (`?` lines alone don't count), 0 if not, and 3 if the check
+itself failed (the wiki couldn't be reached, say). The wiki is the source of truth, so a
+difference means the app is out of date (or the wiki has a gap worth knowing about).
 
 Foods with 0 nutrition are left out, since the app doesn't track them.
 
@@ -31,6 +32,7 @@ import json
 import re
 import sys
 import time
+import traceback
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -448,4 +450,9 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except Exception:
+        # Not 1, so a failed check can't be mistaken for finding differences.
+        traceback.print_exc()
+        sys.exit(3)

@@ -31,6 +31,8 @@ python3 -I scripts/check_wiki_data.py [--tab nutrition] [--gaps] [--json]
 
 it prints only the differences (`+` only on the wiki, `-` only in the app, `~` a value differs) and exits 1 if there are any. `?` lines count items the wiki has no value for; `--gaps` lists them.
 
+it also runs daily on github actions (`.github/workflows/wiki-check.yml`), which keeps an issue labelled `wiki-drift` open with the report while anything differs, and closes it once everything matches.
+
 ## attribution
 
 the enemy, fish, item and food images in `assets/wiki` come from the [dog online wiki](https://dogonline.wiki) and its contributors, and are used under [cc by-sa 4.0](https://creativecommons.org/licenses/by-sa/4.0/) (full text in `assets/wiki/LICENSE`). `assets/wiki/manifest.json` links to the wiki page for each image.
