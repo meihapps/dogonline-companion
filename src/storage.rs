@@ -19,7 +19,7 @@ const RENAMED_ENEMIES: [(&str, &str); 3] = [
     ("Cheese", "Cheese (Enemy)"),
     ("Grow'd Up Pieder", "Growed-Up Pieder"),
 ];
-const RENAMED_ITEMS: [(&str, &str); 1] = [("Gold Secretegg", "Golden Secretegg")];
+const RENAMED_ITEMS: [(&str, &str); 1] = [("Golden Secretegg", "Gold Secretegg")];
 
 fn local_storage() -> Option<web_sys::Storage> {
     web_sys::window()?.local_storage().ok().flatten()

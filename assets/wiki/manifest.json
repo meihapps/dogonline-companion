@@ -1432,8 +1432,8 @@
     },
     {
       "tab": "hardiness",
-      "name": "Golden Secretegg",
-      "path": "hardiness/golden-secretegg.png",
+      "name": "Gold Secretegg",
+      "path": "hardiness/gold-secretegg.png",
       "source": "https://dogonline.wiki/wiki/File:Item_Gold_Secretegg.png",
       "sha1": "493ff088bf5618fb928df74fd5b3ab972be783b4"
     },

@@ -313,7 +313,7 @@ pub fn generate_hardiness_data() -> HardinessData {
             HardinessItem {
                 name: "Gummy Worm".into(),
                 item_type: ItemType::Bug,
-                hardiness: 1,
+                hardiness: 3,
                 harvested: false,
             },
             HardinessItem {
@@ -437,7 +437,7 @@ pub fn generate_hardiness_data() -> HardinessData {
                 harvested: false,
             },
             HardinessItem {
-                name: "Golden Secretegg".into(),
+                name: "Gold Secretegg".into(),
                 item_type: ItemType::Egg,
                 hardiness: 3,
                 harvested: false,
