@@ -2815,6 +2815,13 @@
       "path": "nutrition/sub-sandwich.png",
       "source": "https://dogonline.wiki/wiki/File:Item_Sub_Sandwich.png",
       "sha1": "bc72c623387267cc4435e93d9cd7ca018c015073"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Acorn",
+      "path": "nutrition/acorn.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Acorn.png",
+      "sha1": "b688da5a37518de4ee1207ff931cfe8a737bc8fd"
     }
   ]
 }
