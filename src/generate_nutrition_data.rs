@@ -1168,12 +1168,6 @@ pub fn generate_nutrition_data() -> NutritionData {
                 nutrition: 3,
                 eaten: false,
             },
-            Food {
-                name: "Acorn".into(),
-                kind: None,
-                nutrition: 1,
-                eaten: false,
-            },
         ],
     }
 }

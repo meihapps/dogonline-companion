@@ -1446,6 +1446,13 @@
     },
     {
       "tab": "hardiness",
+      "name": "Gourd Egg",
+      "path": "hardiness/gourd-egg.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Gourd_Egg.png",
+      "sha1": "d7de9df5013ac7583968c763092a345acc5634d9"
+    },
+    {
+      "tab": "hardiness",
       "name": "Strange Egg",
       "path": "hardiness/strange-egg.png",
       "source": "https://dogonline.wiki/wiki/File:Item_Strange_Egg.png",
@@ -2815,13 +2822,6 @@
       "path": "nutrition/sub-sandwich.png",
       "source": "https://dogonline.wiki/wiki/File:Item_Sub_Sandwich.png",
       "sha1": "bc72c623387267cc4435e93d9cd7ca018c015073"
-    },
-    {
-      "tab": "nutrition",
-      "name": "Acorn",
-      "path": "nutrition/acorn.png",
-      "source": "https://dogonline.wiki/wiki/File:Item_Acorn.png",
-      "sha1": "b688da5a37518de4ee1207ff931cfe8a737bc8fd"
     }
   ]
 }
