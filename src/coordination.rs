@@ -28,11 +28,12 @@ impl CoordinationData {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Fish {
     pub name: String,
+    /// Empty (and `bait` is `None`) where the wiki doesn't say yet.
     pub location: Vec<FishingSpot>,
     pub time: Vec<TimeOfDay>,
     pub weather: Vec<Weather>,
-    pub bait: Bait,
-    pub coordination: u8,
+    pub bait: Option<Bait>,
+    pub coordination: Option<u8>,
     /// Mutable progress. Never part of the JSON data; filled in from browser storage.
     #[serde(skip)]
     pub caught: bool,
@@ -45,6 +46,7 @@ pub enum FishingSpot {
     IceFishingHole,
     OceanFishingCruiser,
     FlyFishingShip,
+    DogwoodsFishingHole,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -73,4 +75,7 @@ pub enum Bait {
     BalloonHook,
     WickedSkymetalHook,
     SkyTackle,
+    PremuimAnimalFeed,
+    SuperPremuimAnimalFeed,
+    SuperUltraPremiumAnimalFeed,
 }

@@ -27,25 +27,32 @@ fn toggle_eaten(data: RwSignal<NutritionData>, index: usize) {
 }
 
 #[component]
+#[allow(clippy::too_many_lines)]
 pub fn NutritionTab(data: RwSignal<NutritionData>) -> impl IntoView {
     let (selected_type, set_selected_type) =
         signal(storage::load_filter_string(Filter::FoodType, ""));
     let (show_eaten, set_show_eaten) = signal(storage::load_filter_bool(Filter::ShowEaten, true));
+    let (show_zero, set_show_zero) =
+        signal(storage::load_filter_bool(Filter::ShowZeroNutrition, true));
 
     // Remember the filters between visits.
     Effect::new(move |_| {
         storage::save_filter_string(Filter::FoodType, &selected_type.get());
         storage::save_filter_bool(Filter::ShowEaten, show_eaten.get());
+        storage::save_filter_bool(Filter::ShowZeroNutrition, show_zero.get());
     });
 
     let progress = Signal::derive(move || {
         let selected_type = selected_type.get();
+        let show_zero = show_zero.get();
 
         data.with(|data| {
             Progress::of(
                 data.foods
                     .iter()
-                    .filter(|food| matches_type(food, &selected_type))
+                    .filter(|food| {
+                        matches_type(food, &selected_type) && (show_zero || food.nutrition > 0)
+                    })
                     .map(|food| (food.eaten, food.nutrition)),
             )
         })
@@ -84,6 +91,17 @@ pub fn NutritionTab(data: RwSignal<NutritionData>) -> impl IntoView {
                 " Show eaten"
             </label>
 
+            <label class="show-caught-filter">
+                <input
+                    type="checkbox"
+                    prop:checked=move || show_zero.get()
+                    on:change=move |ev| {
+                        set_show_zero.set(event_target_checked(&ev));
+                    }
+                />
+                " Show 0 nutrition"
+            </label>
+
             <ProgressCounts
                 progress=progress
                 show_done=show_eaten
@@ -96,6 +114,7 @@ pub fn NutritionTab(data: RwSignal<NutritionData>) -> impl IntoView {
                 {move || {
                     let selected_type = selected_type.get();
                     let show_eaten = show_eaten.get();
+                    let show_zero = show_zero.get();
 
                     data.get()
                         .foods
@@ -103,7 +122,9 @@ pub fn NutritionTab(data: RwSignal<NutritionData>) -> impl IntoView {
                         // Enumerate before filtering so each card keeps its index in the full list.
                         .enumerate()
                         .filter(|(_, food)| {
-                            matches_type(food, &selected_type) && (show_eaten || !food.eaten)
+                            matches_type(food, &selected_type)
+                                && (show_eaten || !food.eaten)
+                                && (show_zero || food.nutrition > 0)
                         })
                         .map(|(index, food)| {
                             let long_press = LongPress::new(move || toggle_eaten(data, index));

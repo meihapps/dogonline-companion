@@ -40,6 +40,9 @@ pub fn format_list<T: std::fmt::Debug>(items: &[T]) -> String {
     items.iter().map(format_enum).collect::<Vec<_>>().join(", ")
 }
 
+/// Images the wiki only has as a GIF (`<tab>/<slug>`); every other image is a PNG.
+const GIF_IMAGES: [&str; 1] = ["nutrition/golden-bone"];
+
 /// Where the image for `name` is served from. The file names are slugs of the item names,
 /// written by `scripts/fetch_wiki_assets.py`.
 pub fn image_path(tab: &str, name: &str) -> String {
@@ -53,7 +56,14 @@ pub fn image_path(tab: &str, name: &str) -> String {
         }
     }
 
-    format!("wiki/{tab}/{}.png", slug.trim_end_matches('-'))
+    let path = format!("{tab}/{}", slug.trim_end_matches('-'));
+    let extension = if GIF_IMAGES.contains(&path.as_str()) {
+        "gif"
+    } else {
+        "png"
+    };
+
+    format!("wiki/{path}.{extension}")
 }
 
 #[cfg(test)]

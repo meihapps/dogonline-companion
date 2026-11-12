@@ -17,8 +17,6 @@ and exits 1 if there were any (`?` lines alone don't count), 0 if not, and 3 if 
 itself failed (the wiki couldn't be reached, say). The wiki is the source of truth, so a
 difference means the app is out of date (or the wiki has a gap worth knowing about).
 
-Foods with 0 nutrition are left out, since the app doesn't track them.
-
 Food, crop/bug/gem and fish data comes from the wiki's Bucket tables (the same data its
 tables are generated from). Enemies have no Bucket table, so their bravery is read from the
 table on the Bravery page. That table doesn't list HP or damage type, so those aren't
@@ -131,10 +129,10 @@ def name_from_image(image: str) -> str:
 
 
 def wiki_list(value: str, all_values: list[str]) -> set[str]:
-    """`Morning, Afternoon` -> {Morning, Afternoon}; `All` -> every value."""
+    """`Morning, Afternoon` -> {Morning, Afternoon}; `All` -> every value; `?` -> none."""
     if value.strip().lower() == "all":
         return set(all_values)
-    return {normalise(part) for part in value.split(",") if part.strip()}
+    return {normalise(part) for part in value.split(",") if part.strip() not in ("", "?")}
 
 
 def is_set(row: dict, field: str) -> bool:
@@ -162,8 +160,12 @@ def string_field(record: str, name: str) -> str:
     return re.search(r'"([^"]*)"', field(record, name)).group(1)
 
 
-def int_field(record: str, name: str) -> int:
-    return int(field(record, name))
+def int_field(record: str, name: str) -> int | None:
+    """`5` -> 5, `Some(5)` -> 5, `None` -> None."""
+    value = field(record, name)
+    if value == "None":
+        return None
+    return int(re.fullmatch(r"(?:Some\()?(\d+)\)?", value).group(1))
 
 
 def enum_field(record: str, name: str) -> str | None:
@@ -308,7 +310,7 @@ def wiki_nutrition() -> dict[str, dict]:
         for row in bucket(
             "items",
             ["name", "food_type", "nutrition"],
-            ".where('nutrition', '>', 0)",
+            ".where('nutrition', '!=', bucket.Null())",
         )
     }
 

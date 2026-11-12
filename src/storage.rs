@@ -20,6 +20,8 @@ const RENAMED_ENEMIES: [(&str, &str); 3] = [
     ("Grow'd Up Pieder", "Growed-Up Pieder"),
 ];
 const RENAMED_ITEMS: [(&str, &str); 1] = [("Golden Secretegg", "Gold Secretegg")];
+const RENAMED_FISH: [(&str, &str); 1] = [("Rainbow Trout (Sky)", "Double Rainbow Trout")];
+const RENAMED_FOODS: [(&str, &str); 1] = [("Rainbow Trout (Sky)", "Double Rainbow Trout")];
 
 fn local_storage() -> Option<web_sys::Storage> {
     web_sys::window()?.local_storage().ok().flatten()
@@ -76,11 +78,13 @@ pub enum Filter {
     Weather,
     StandardBait,
     HookBait,
+    FeedBait,
     GoldenGrub,
     ShowCaught,
     ShowKilled,
     ShowHarvested,
     ShowEaten,
+    ShowZeroNutrition,
     FoodType,
 }
 
@@ -92,11 +96,13 @@ impl Filter {
             Self::Weather => "dogonline_companion.filter.weather",
             Self::StandardBait => "dogonline_companion.filter.standard_bait",
             Self::HookBait => "dogonline_companion.filter.hook_bait",
+            Self::FeedBait => "dogonline_companion.filter.feed_bait",
             Self::GoldenGrub => "dogonline_companion.filter.golden_grub",
             Self::ShowCaught => "dogonline_companion.filter.show_caught",
             Self::ShowKilled => "dogonline_companion.filter.show_killed",
             Self::ShowHarvested => "dogonline_companion.filter.show_harvested",
             Self::ShowEaten => "dogonline_companion.filter.show_eaten",
+            Self::ShowZeroNutrition => "dogonline_companion.filter.show_zero_nutrition",
             Self::FoodType => "dogonline_companion.filter.food_type",
         }
     }
@@ -119,7 +125,7 @@ pub fn save_filter_bool(filter: Filter, value: bool) {
 }
 
 pub fn load_caught_fish() -> HashSet<String> {
-    load_names(CAUGHT_FISH_KEY)
+    apply_renames(load_names(CAUGHT_FISH_KEY), &RENAMED_FISH)
 }
 
 pub fn save_caught_fish(names: &HashSet<String>) {
@@ -167,7 +173,7 @@ pub fn save_harvested_items(names: &HashSet<String>) {
 }
 
 pub fn load_eaten_foods() -> HashSet<String> {
-    load_names(EATEN_FOODS_KEY)
+    apply_renames(load_names(EATEN_FOODS_KEY), &RENAMED_FOODS)
 }
 
 pub fn save_eaten_foods(names: &HashSet<String>) {
