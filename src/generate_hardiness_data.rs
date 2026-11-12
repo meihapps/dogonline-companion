@@ -221,6 +221,12 @@ pub fn generate_hardiness_data() -> HardinessData {
                 harvested: false,
             },
             HardinessItem {
+                name: "Giant Kernel".into(),
+                item_type: ItemType::Crop,
+                hardiness: 3,
+                harvested: false,
+            },
+            HardinessItem {
                 name: "Agate".into(),
                 item_type: ItemType::Gem,
                 hardiness: 1,
@@ -313,7 +319,7 @@ pub fn generate_hardiness_data() -> HardinessData {
             HardinessItem {
                 name: "Gummy Worm".into(),
                 item_type: ItemType::Bug,
-                hardiness: 3,
+                hardiness: 1,
                 harvested: false,
             },
             HardinessItem {

@@ -887,6 +887,12 @@ pub fn generate_nutrition_data() -> NutritionData {
                 eaten: false,
             },
             Food {
+                name: "Giant Kernel".into(),
+                kind: None,
+                nutrition: 4,
+                eaten: false,
+            },
+            Food {
                 name: "Cact-o-lantern".into(),
                 kind: None,
                 nutrition: 1,

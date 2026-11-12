@@ -1600,6 +1600,13 @@
     },
     {
       "tab": "hardiness",
+      "name": "Giant Kernel",
+      "path": "hardiness/giant-kernel.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Giant_Kernel.png",
+      "sha1": "a637bd0a9f6b2bad98fd3b0d05d7912b41885185"
+    },
+    {
+      "tab": "hardiness",
       "name": "Agate",
       "path": "hardiness/agate.png",
       "source": "https://dogonline.wiki/wiki/File:Item_Agate.png",
@@ -2913,6 +2920,13 @@
       "path": "nutrition/big-rice.png",
       "source": "https://dogonline.wiki/wiki/File:Item_Big_Rice.png",
       "sha1": "29b4346d2a646f8c22245cf297541ce836b50c53"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Giant Kernel",
+      "path": "nutrition/giant-kernel.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Giant_Kernel.png",
+      "sha1": "a637bd0a9f6b2bad98fd3b0d05d7912b41885185"
     },
     {
       "tab": "nutrition",
