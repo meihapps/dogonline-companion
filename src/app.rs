@@ -2,6 +2,8 @@ use crate::bravery::BraveryData;
 use crate::bravery_tab::BraveryTab;
 use crate::coordination::CoordinationData;
 use crate::coordination_tab::CoordinationTab;
+use crate::creativity::CreativityData;
+use crate::creativity_tab::CreativityTab;
 use crate::dailies_tab::{self, DailiesTab};
 use crate::hardiness::HardinessData;
 use crate::hardiness_tab::HardinessTab;
@@ -20,12 +22,14 @@ const MOON_SVG: &str = include_str!("../assets/moon.svg");
 pub fn App(
     bravery_data: BraveryData,
     coordination_data: CoordinationData,
+    creativity_data: CreativityData,
     hardiness_data: HardinessData,
     nutrition_data: NutritionData,
 ) -> impl IntoView {
     // The data lives here (not in the tabs) so toggled progress survives switching tabs.
     let bravery_data = RwSignal::new(bravery_data);
     let coordination_data = RwSignal::new(coordination_data);
+    let creativity_data = RwSignal::new(creativity_data);
     let hardiness_data = RwSignal::new(hardiness_data);
     let nutrition_data = RwSignal::new(nutrition_data);
     let dailies = RwSignal::new(storage::load_dailies(&dailies_tab::reset_day()));
@@ -112,21 +116,6 @@ pub fn App(
                         <button
                             class="tab-button"
                             class:active=move || {
-                                selected_tab.get() == Tab::Bravery
-                            }
-                            aria-pressed=move || {
-                                selected_tab.get() == Tab::Bravery
-                            }
-                            on:click=move |_| {
-                                set_selected_tab.set(Tab::Bravery);
-                            }
-                        >
-                            "Bravery"
-                        </button>
-
-                        <button
-                            class="tab-button"
-                            class:active=move || {
                                 selected_tab.get() == Tab::Coordination
                             }
                             aria-pressed=move || {
@@ -142,16 +131,16 @@ pub fn App(
                         <button
                             class="tab-button"
                             class:active=move || {
-                                selected_tab.get() == Tab::Hardiness
+                                selected_tab.get() == Tab::Creativity
                             }
                             aria-pressed=move || {
-                                selected_tab.get() == Tab::Hardiness
+                                selected_tab.get() == Tab::Creativity
                             }
                             on:click=move |_| {
-                                set_selected_tab.set(Tab::Hardiness);
+                                set_selected_tab.set(Tab::Creativity);
                             }
                         >
-                            "Hardiness"
+                            "Creativity"
                         </button>
 
                         <button
@@ -172,6 +161,36 @@ pub fn App(
                         <button
                             class="tab-button"
                             class:active=move || {
+                                selected_tab.get() == Tab::Bravery
+                            }
+                            aria-pressed=move || {
+                                selected_tab.get() == Tab::Bravery
+                            }
+                            on:click=move |_| {
+                                set_selected_tab.set(Tab::Bravery);
+                            }
+                        >
+                            "Bravery"
+                        </button>
+
+                        <button
+                            class="tab-button"
+                            class:active=move || {
+                                selected_tab.get() == Tab::Hardiness
+                            }
+                            aria-pressed=move || {
+                                selected_tab.get() == Tab::Hardiness
+                            }
+                            on:click=move |_| {
+                                set_selected_tab.set(Tab::Hardiness);
+                            }
+                        >
+                            "Hardiness"
+                        </button>
+
+                        <button
+                            class="tab-button"
+                            class:active=move || {
                                 selected_tab.get() == Tab::Dailies
                             }
                             aria-pressed=move || {
@@ -186,20 +205,24 @@ pub fn App(
                     </nav>
 
                     {move || match selected_tab.get() {
-                        Tab::Bravery => view! {
-                            <BraveryTab data=bravery_data />
-                        }.into_any(),
-
                         Tab::Coordination => view! {
                             <CoordinationTab data=coordination_data />
                         }.into_any(),
 
-                        Tab::Hardiness => view! {
-                            <HardinessTab data=hardiness_data />
+                        Tab::Creativity => view! {
+                            <CreativityTab data=creativity_data />
                         }.into_any(),
 
                         Tab::Nutrition => view! {
                             <NutritionTab data=nutrition_data />
+                        }.into_any(),
+
+                        Tab::Bravery => view! {
+                            <BraveryTab data=bravery_data />
+                        }.into_any(),
+
+                        Tab::Hardiness => view! {
+                            <HardinessTab data=hardiness_data />
                         }.into_any(),
 
                         Tab::Dailies => view! {

@@ -17,7 +17,7 @@ and exits 1 if there were any (`?` lines alone don't count), 0 if not, and 3 if 
 itself failed (the wiki couldn't be reached, say). The wiki is the source of truth, so a
 difference means the app is out of date (or the wiki has a gap worth knowing about).
 
-Food, crop/bug/gem and fish data comes from the wiki's Bucket tables (the same data its
+Food, book, crop/bug/gem and fish data comes from the wiki's Bucket tables (the same data its
 tables are generated from). Enemies have no Bucket table, so their bravery is read from the
 table on the Bravery page. That table doesn't list HP or damage type, so those aren't
 checked.
@@ -260,6 +260,22 @@ def wiki_coordination() -> dict[str, dict]:
     return fish
 
 
+def app_creativity() -> dict[str, dict]:
+    return {
+        string_field(r, "name"): {"creativity": int_field(r, "creativity")}
+        for r in rust_records("generate_creativity_data.rs", "Book")
+    }
+
+
+def wiki_creativity() -> dict[str, dict]:
+    """Books are items marked as books or with a creativity value."""
+    return {
+        row["name"]: {"creativity": row.get("creativity")}
+        for where in (".where('is_book', true)", ".where('creativity', '!=', bucket.Null())")
+        for row in bucket("items", ["name", "creativity"], where)
+    }
+
+
 def app_hardiness() -> dict[str, dict]:
     return {
         string_field(r, "name"): {
@@ -319,6 +335,7 @@ def wiki_nutrition() -> dict[str, dict]:
 TABS = {
     "bravery": (app_bravery, wiki_bravery, set()),
     "coordination": (app_coordination, wiki_coordination, set()),
+    "creativity": (app_creativity, wiki_creativity, set()),
     "hardiness": (app_hardiness, wiki_hardiness, {"type"}),
     "nutrition": (app_nutrition, wiki_nutrition, set()),
 }

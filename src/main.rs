@@ -3,6 +3,8 @@ mod bravery;
 mod bravery_tab;
 mod coordination;
 mod coordination_tab;
+mod creativity;
+mod creativity_tab;
 mod dailies_tab;
 mod filter_select;
 mod formatting;
@@ -17,12 +19,14 @@ mod storage;
 use app::App;
 use bravery::BraveryData;
 use coordination::CoordinationData;
+use creativity::CreativityData;
 use hardiness::HardinessData;
 use leptos::prelude::*;
 use nutrition::NutritionData;
 
 const BRAVERY_DATA: &str = include_str!(concat!(env!("OUT_DIR"), "/bravery_data.json"));
 const COORDINATION_DATA: &str = include_str!(concat!(env!("OUT_DIR"), "/coordination_data.json"));
+const CREATIVITY_DATA: &str = include_str!(concat!(env!("OUT_DIR"), "/creativity_data.json"));
 const HARDINESS_DATA: &str = include_str!(concat!(env!("OUT_DIR"), "/hardiness_data.json"));
 const NUTRITION_DATA: &str = include_str!(concat!(env!("OUT_DIR"), "/nutrition_data.json"));
 
@@ -32,6 +36,8 @@ fn main() {
         serde_json::from_str::<BraveryData>(BRAVERY_DATA).expect("invalid bravery_data.json");
     let mut coordination_data = serde_json::from_str::<CoordinationData>(COORDINATION_DATA)
         .expect("invalid coordination_data.json");
+    let mut creativity_data = serde_json::from_str::<CreativityData>(CREATIVITY_DATA)
+        .expect("invalid creativity_data.json");
 
     let mut hardiness_data =
         serde_json::from_str::<HardinessData>(HARDINESS_DATA).expect("invalid hardiness_data.json");
@@ -41,6 +47,7 @@ fn main() {
     // ...and the mutable progress comes from browser storage.
     bravery_data.apply_progress(&storage::load_killed_enemies());
     coordination_data.apply_progress(&storage::load_caught_fish());
+    creativity_data.apply_progress(&storage::load_read_books());
     hardiness_data.apply_progress(&storage::load_harvested_items());
     nutrition_data.apply_progress(&storage::load_eaten_foods());
 
@@ -49,6 +56,7 @@ fn main() {
             <App
                 bravery_data=bravery_data
                 coordination_data=coordination_data
+                creativity_data=creativity_data
                 hardiness_data=hardiness_data
                 nutrition_data=nutrition_data
             />
@@ -73,6 +81,11 @@ mod tests {
         data.fish.into_iter().map(|fish| fish.name).collect()
     }
 
+    fn creativity_names() -> Vec<String> {
+        let data: CreativityData = serde_json::from_str(CREATIVITY_DATA).unwrap();
+        data.books.into_iter().map(|book| book.name).collect()
+    }
+
     fn hardiness_names() -> Vec<String> {
         let data: HardinessData = serde_json::from_str(HARDINESS_DATA).unwrap();
         data.items.into_iter().map(|item| item.name).collect()
@@ -83,10 +96,11 @@ mod tests {
         data.foods.into_iter().map(|food| food.name).collect()
     }
 
-    fn all_tabs() -> [(&'static str, Vec<String>); 4] {
+    fn all_tabs() -> [(&'static str, Vec<String>); 5] {
         [
             ("bravery", bravery_names()),
             ("coordination", coordination_names()),
+            ("creativity", creativity_names()),
             ("hardiness", hardiness_names()),
             ("nutrition", nutrition_names()),
         ]

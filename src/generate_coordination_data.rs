@@ -147,7 +147,7 @@ pub fn generate_coordination_data() -> CoordinationData {
             Fish {
                 name: "Freshwater Eel".to_string(),
                 location: vec![FishingSpot::OldFishingHole],
-                time: vec![TimeOfDay::Night],
+                time: vec![TimeOfDay::Morning, TimeOfDay::Night],
                 weather: vec![
                     Weather::ClearSkies,
                     Weather::Rainy,
@@ -1327,12 +1327,21 @@ pub fn generate_coordination_data() -> CoordinationData {
                 caught: false,
             },
             Fish {
+                name: "Panda Fish".to_string(),
+                location: vec![FishingSpot::DogwoodsFishingHole],
+                time: vec![],
+                weather: vec![],
+                bait: Some(Bait::SuperUltraPremiumAnimalFeed),
+                coordination: None,
+                caught: false,
+            },
+            Fish {
                 name: "Aerofish".to_string(),
                 location: vec![],
                 time: vec![],
                 weather: vec![],
                 bait: None,
-                coordination: None,
+                coordination: Some(2),
                 caught: false,
             },
             Fish {
@@ -1341,7 +1350,7 @@ pub fn generate_coordination_data() -> CoordinationData {
                 time: vec![],
                 weather: vec![],
                 bait: None,
-                coordination: None,
+                coordination: Some(1),
                 caught: false,
             },
             Fish {

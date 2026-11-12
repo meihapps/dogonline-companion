@@ -1054,6 +1054,13 @@
     },
     {
       "tab": "coordination",
+      "name": "Panda Fish",
+      "path": "coordination/panda-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Panda_Fish.png",
+      "sha1": "0f5899ae58384df7b9cd1d4985e014bff1a609ca"
+    },
+    {
+      "tab": "coordination",
       "name": "Aerofish",
       "path": "coordination/aerofish.png",
       "source": "https://dogonline.wiki/wiki/File:Item_Aerofish.png",
@@ -1072,6 +1079,272 @@
       "path": "coordination/nautilus.png",
       "source": "https://dogonline.wiki/wiki/File:Item_Nautilus.png",
       "sha1": "ace7d3c07000d61a4be5aaa9d8c46ae539cfea39"
+    },
+    {
+      "tab": "creativity",
+      "name": "Dr. Cactus's Desert Survival Guide",
+      "path": "creativity/dr-cactuss-desert-survival-guide.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Dr._Cactus%27s_Desert_Survival_Guide.png",
+      "sha1": "9eca0440ea09eead4a760a68152ba51efe23092d"
+    },
+    {
+      "tab": "creativity",
+      "name": "How to Become Much Fluffier",
+      "path": "creativity/how-to-become-much-fluffier.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_How_to_Become_Much_Fluffier.png",
+      "sha1": "01ab1da3e47303ab5b57217db0792e2e1815a2a6"
+    },
+    {
+      "tab": "creativity",
+      "name": "Sopping Wet Book",
+      "path": "creativity/sopping-wet-book.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sopping_Wet_Book.png",
+      "sha1": "3b699ce6a927181545f4aaea013a8786224ec6de"
+    },
+    {
+      "tab": "creativity",
+      "name": "VIP Ocean Cruiser Ticket",
+      "path": "creativity/vip-ocean-cruiser-ticket.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_VIP_Ocean_Cruiser_Ticket.png",
+      "sha1": "6230f5dcb6eb122534c170792ca4786e88a45b6b"
+    },
+    {
+      "tab": "creativity",
+      "name": "Airship Ticket",
+      "path": "creativity/airship-ticket.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Airship_Ticket.png",
+      "sha1": "53bb7b6110b621e3703e085a007f9149473ebd06"
+    },
+    {
+      "tab": "creativity",
+      "name": "Farmer's Almanac",
+      "path": "creativity/farmers-almanac.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Farmer%27s_Almanac.png",
+      "sha1": "fc7ceec16736d11a454ebe23fba8c1db95c173f2"
+    },
+    {
+      "tab": "creativity",
+      "name": "Magical Story Book",
+      "path": "creativity/magical-story-book.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Magical_Story_Book.png",
+      "sha1": "be5ee218ad503e63bcac22390b256ac2fc2d887c"
+    },
+    {
+      "tab": "creativity",
+      "name": "Wizard Book",
+      "path": "creativity/wizard-book.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Wizard_Book.png",
+      "sha1": "97d9cb8f0fd2caa6bf08634ffafbd3e3133c9094"
+    },
+    {
+      "tab": "creativity",
+      "name": "Tales from The Lonely Tower",
+      "path": "creativity/tales-from-the-lonely-tower.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Tales_from_The_Lonely_Tower.png",
+      "sha1": "8e4402b30e6dfceb7f6c1b9d22413ece380bd1dd"
+    },
+    {
+      "tab": "creativity",
+      "name": "Tales from The Lonely Tower II",
+      "path": "creativity/tales-from-the-lonely-tower-ii.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Tales_from_The_Lonely_Tower_II.png",
+      "sha1": "fafdf1c5691ba1fdfbfc916046d93613d4b0582e"
+    },
+    {
+      "tab": "creativity",
+      "name": "Booboo Book",
+      "path": "creativity/booboo-book.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Booboo_Book.png",
+      "sha1": "975aed191f53f809e1169bcadde1d177c58bedad"
+    },
+    {
+      "tab": "creativity",
+      "name": "Look Book",
+      "path": "creativity/look-book.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Look_Book.png",
+      "sha1": "50da8e228306b70f9e46f576e8e9c5c92f5d3fb8"
+    },
+    {
+      "tab": "creativity",
+      "name": "Gachapon Machine Blueprint",
+      "path": "creativity/gachapon-machine-blueprint.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Gachapon_Machine_Blueprint.png",
+      "sha1": "6def56e3a4a3c9d7b6693fceaac77cdf857255c4"
+    },
+    {
+      "tab": "creativity",
+      "name": "Tattered Treasure Map",
+      "path": "creativity/tattered-treasure-map.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Tattered_Treasure_Map.png",
+      "sha1": "31edfeeaffcc4353e126875f9b337575d344950c"
+    },
+    {
+      "tab": "creativity",
+      "name": "Ghostly Treasure Map",
+      "path": "creativity/ghostly-treasure-map.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Ghostly_Treasure_Map.png",
+      "sha1": "4a894a39c0a615481b25b8f37850b708484305b2"
+    },
+    {
+      "tab": "creativity",
+      "name": "Deadly Doom Book",
+      "path": "creativity/deadly-doom-book.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Deadly_Doom_Book.png",
+      "sha1": "aa725407fb96a925c3a677b6176d040e74f9426a"
+    },
+    {
+      "tab": "creativity",
+      "name": "Sneaky Scroll",
+      "path": "creativity/sneaky-scroll.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sneaky_Scroll.png",
+      "sha1": "c7fc4a1d31b215a4630f882ac6cf30a7d014e103"
+    },
+    {
+      "tab": "creativity",
+      "name": "Deep Fryer Desires",
+      "path": "creativity/deep-fryer-desires.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Deep_Fryer_Desires.png",
+      "sha1": "9325fd3e1034effbb4e087528cf260074edc0297"
+    },
+    {
+      "tab": "creativity",
+      "name": "Farm Fresh Feasts",
+      "path": "creativity/farm-fresh-feasts.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Farm_Fresh_Feasts.png",
+      "sha1": "76fd4dbd94245f8dbac0862a568e6c70f4459404"
+    },
+    {
+      "tab": "creativity",
+      "name": "Sushi Book",
+      "path": "creativity/sushi-book.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sushi_Book.png",
+      "sha1": "f15eace5531fb55a3b8ee78e95bb7ba2dfb27e38"
+    },
+    {
+      "tab": "creativity",
+      "name": "The Big Book",
+      "path": "creativity/the-big-book.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_The_Big_Book.png",
+      "sha1": "8123f38dcf3af055998985e4eaf85f3462939191"
+    },
+    {
+      "tab": "creativity",
+      "name": "Funny DVD",
+      "path": "creativity/funny-dvd.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Funny_DVD.png",
+      "sha1": "a350f2b5696a55004414635b26086981340ce4bd"
+    },
+    {
+      "tab": "creativity",
+      "name": "Angry Book",
+      "path": "creativity/angry-book.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Angry_Book.png",
+      "sha1": "ce616a92d73505dd73f0ceef7263a578cbdc4dfe"
+    },
+    {
+      "tab": "creativity",
+      "name": "Dentist Book",
+      "path": "creativity/dentist-book.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Dentist_Book.png",
+      "sha1": "1e7af64c978cf3bb6bd40fbe7a42b6895f8b7eb4"
+    },
+    {
+      "tab": "creativity",
+      "name": "Necro Book",
+      "path": "creativity/necro-book.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Necro_Book.png",
+      "sha1": "6d8c69b70a297c0057d1db49d7bf6bdc87d73e07"
+    },
+    {
+      "tab": "creativity",
+      "name": "Dog Braille for Beginners",
+      "path": "creativity/dog-braille-for-beginners.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Dog_Braille_for_Beginners.png",
+      "sha1": "902276ca992c200fd00909126bce955a8f564d6d"
+    },
+    {
+      "tab": "creativity",
+      "name": "The Word of DOG",
+      "path": "creativity/the-word-of-dog.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_The_Word_of_DOG.png",
+      "sha1": "cf2d460fc6a7f83e23da0c5bf63d162523eea780"
+    },
+    {
+      "tab": "creativity",
+      "name": "DOGSHA Handbook",
+      "path": "creativity/dogsha-handbook.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_DOGSHA_Handbook.png",
+      "sha1": "049d47048555f6d141419642f49a93d309f06201"
+    },
+    {
+      "tab": "creativity",
+      "name": "The Tome of Messages",
+      "path": "creativity/the-tome-of-messages.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_The_Tome_of_Messages.png",
+      "sha1": "d02f3427784ae5fd08ae878c59dc9ffca63ed922"
+    },
+    {
+      "tab": "creativity",
+      "name": "The Alchemist's Handbook",
+      "path": "creativity/the-alchemists-handbook.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_The_Alchemist%27s_Handbook.png",
+      "sha1": "b2da8462b210de8a0de504a1d0aaaa4ecfe6620e"
+    },
+    {
+      "tab": "creativity",
+      "name": "The Navidogson Record",
+      "path": "creativity/the-navidogson-record.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_The_Navidogson_Record.png",
+      "sha1": "e460f5c65caddfd67c1b68134cdc646785d5637a"
+    },
+    {
+      "tab": "creativity",
+      "name": "The Ochre Lord",
+      "path": "creativity/the-ochre-lord.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_The_Ochre_Lord.png",
+      "sha1": "18757b100ccbc602ce3273412507f299080a7d5f"
+    },
+    {
+      "tab": "creativity",
+      "name": "The Necrodogicon",
+      "path": "creativity/the-necrodogicon.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_The_Necrodogicon.png",
+      "sha1": "64e7485a0c2f47acc4299fa0fd2bb615a24bb85a"
+    },
+    {
+      "tab": "creativity",
+      "name": "Baker's Book",
+      "path": "creativity/bakers-book.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Baker%27s_Book.png",
+      "sha1": "94eaf030afd17df76dea4cbe139f0aa829043aa2"
+    },
+    {
+      "tab": "creativity",
+      "name": "The Roe of Knowledge",
+      "path": "creativity/the-roe-of-knowledge.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_The_Roe_of_Knowledge.png",
+      "sha1": "1765c9e7c9c3a45314b3552a70dc9c947c4d305f"
+    },
+    {
+      "tab": "creativity",
+      "name": "Scaled Journal",
+      "path": "creativity/scaled-journal.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Scaled_Journal.png",
+      "sha1": "468cb19cb1ea303b6af5fe4f3feb285589358cca"
+    },
+    {
+      "tab": "creativity",
+      "name": "Anarchist's Cookbook",
+      "path": "creativity/anarchists-cookbook.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Anarchist%27s_Cookbook.png",
+      "sha1": "b11a078fc6af3baf7b08bd624c461302a72ae483"
+    },
+    {
+      "tab": "creativity",
+      "name": "Master Fisherman's Notes",
+      "path": "creativity/master-fishermans-notes.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Master_Fisherman%27s_Notes.png",
+      "sha1": "9d94adc51dad0c0ee183a8e3006b9a369c22e9e6"
     },
     {
       "tab": "hardiness",

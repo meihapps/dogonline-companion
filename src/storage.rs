@@ -11,6 +11,7 @@ const DAILIES_KEY: &str = "dogonline_companion.dailies";
 const HARVESTED_ITEMS_KEY: &str = "dogonline_companion.harvested_items";
 const EATEN_FOODS_KEY: &str = "dogonline_companion.eaten_foods";
 const KILLED_ENEMIES_KEY: &str = "dogonline_companion.killed_enemies";
+const READ_BOOKS_KEY: &str = "dogonline_companion.read_books";
 
 /// Progress is stored by name, so names changed to match the wiki map (old, new) here to
 /// keep what people had already marked.
@@ -84,6 +85,7 @@ pub enum Filter {
     ShowKilled,
     ShowHarvested,
     ShowEaten,
+    ShowRead,
     ShowZeroNutrition,
     FoodType,
 }
@@ -102,6 +104,7 @@ impl Filter {
             Self::ShowKilled => "dogonline_companion.filter.show_killed",
             Self::ShowHarvested => "dogonline_companion.filter.show_harvested",
             Self::ShowEaten => "dogonline_companion.filter.show_eaten",
+            Self::ShowRead => "dogonline_companion.filter.show_read",
             Self::ShowZeroNutrition => "dogonline_companion.filter.show_zero_nutrition",
             Self::FoodType => "dogonline_companion.filter.food_type",
         }
@@ -180,6 +183,14 @@ pub fn save_eaten_foods(names: &HashSet<String>) {
     save_names(EATEN_FOODS_KEY, names);
 }
 
+pub fn load_read_books() -> HashSet<String> {
+    load_names(READ_BOOKS_KEY)
+}
+
+pub fn save_read_books(names: &HashSet<String>) {
+    save_names(READ_BOOKS_KEY, names);
+}
+
 /// Manual colour-scheme override. `Device` follows the OS/browser setting.
 #[derive(Clone, Copy, PartialEq)]
 pub enum Theme {
@@ -215,20 +226,22 @@ pub fn save_theme(theme: Theme) {
 /// The page that was open last, reopened on the next visit.
 #[derive(Clone, Copy, PartialEq)]
 pub enum Tab {
-    Bravery,
     Coordination,
-    Hardiness,
+    Creativity,
     Nutrition,
+    Bravery,
+    Hardiness,
     Dailies,
 }
 
 impl Tab {
     fn as_str(self) -> &'static str {
         match self {
-            Self::Bravery => "bravery",
             Self::Coordination => "coordination",
-            Self::Hardiness => "hardiness",
+            Self::Creativity => "creativity",
             Self::Nutrition => "nutrition",
+            Self::Bravery => "bravery",
+            Self::Hardiness => "hardiness",
             Self::Dailies => "dailies",
         }
     }
@@ -238,11 +251,12 @@ const TAB_KEY: &str = "dogonline_companion.tab";
 
 pub fn load_tab() -> Tab {
     match load_string(TAB_KEY).as_deref() {
-        Some("coordination") => Tab::Coordination,
-        Some("hardiness") => Tab::Hardiness,
+        Some("creativity") => Tab::Creativity,
         Some("nutrition") => Tab::Nutrition,
+        Some("bravery") => Tab::Bravery,
+        Some("hardiness") => Tab::Hardiness,
         Some("dailies") => Tab::Dailies,
-        _ => Tab::Bravery,
+        _ => Tab::Coordination,
     }
 }
 

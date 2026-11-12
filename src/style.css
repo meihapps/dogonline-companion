@@ -228,8 +228,9 @@ button {
 
 .tabs {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 24px;
+  gap: 0 24px;
   margin: 16px 0 24px;
   border-bottom: 2px solid var(--surface-border);
 }
@@ -646,7 +647,7 @@ button.item-card {
   }
 
   .tabs {
-    gap: 12px;
+    gap: 0 12px;
   }
 
   .tab-button {

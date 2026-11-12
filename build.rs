@@ -7,10 +7,15 @@ mod bravery;
 #[allow(dead_code)]
 #[path = "src/coordination.rs"]
 mod coordination;
+#[allow(dead_code)]
+#[path = "src/creativity.rs"]
+mod creativity;
 #[path = "src/generate_bravery_data.rs"]
 mod generate_bravery_data;
 #[path = "src/generate_coordination_data.rs"]
 mod generate_coordination_data;
+#[path = "src/generate_creativity_data.rs"]
+mod generate_creativity_data;
 #[path = "src/generate_hardiness_data.rs"]
 mod generate_hardiness_data;
 #[path = "src/generate_nutrition_data.rs"]
@@ -37,10 +42,12 @@ fn main() {
     for file in [
         "bravery",
         "coordination",
+        "creativity",
         "hardiness",
         "nutrition",
         "generate_bravery_data",
         "generate_coordination_data",
+        "generate_creativity_data",
         "generate_hardiness_data",
         "generate_nutrition_data",
     ] {
@@ -54,6 +61,10 @@ fn main() {
     write_json(
         "coordination_data.json",
         &generate_coordination_data::generate_coordination_data(),
+    );
+    write_json(
+        "creativity_data.json",
+        &generate_creativity_data::generate_creativity_data(),
     );
     write_json(
         "hardiness_data.json",

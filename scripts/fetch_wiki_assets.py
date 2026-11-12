@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Downloads the enemy, fish, hardiness item and food images from https://dogonline.wiki.
+"""Downloads the enemy, fish, book, hardiness item and food images from https://dogonline.wiki.
 
 Item names come from src/generate_*_data.rs. Run from anywhere with:
 
@@ -51,6 +51,7 @@ MAX_ATTEMPTS = 5
 TABS = {
     "bravery": ("generate_bravery_data.rs", "Enemy_"),
     "coordination": ("generate_coordination_data.rs", "Item_"),
+    "creativity": ("generate_creativity_data.rs", "Item_"),
     "hardiness": ("generate_hardiness_data.rs", "Item_"),
     "nutrition": ("generate_nutrition_data.rs", "Item_"),
 }
