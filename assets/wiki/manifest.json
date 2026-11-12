@@ -1053,6 +1053,27 @@
       "sha1": "ac45137822bfde77d1177134844b21f318ebc587"
     },
     {
+      "tab": "coordination",
+      "name": "Aerofish",
+      "path": "coordination/aerofish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Aerofish.png",
+      "sha1": "cba4f5949f02156bb68302e8382ba40aa771569c"
+    },
+    {
+      "tab": "coordination",
+      "name": "Bay Gull",
+      "path": "coordination/bay-gull.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Bay_Gull.png",
+      "sha1": "e0f14c67f93cdf88143f91856c4f392a055deca5"
+    },
+    {
+      "tab": "coordination",
+      "name": "Nautilus",
+      "path": "coordination/nautilus.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Nautilus.png",
+      "sha1": "ace7d3c07000d61a4be5aaa9d8c46ae539cfea39"
+    },
+    {
       "tab": "hardiness",
       "name": "Acorn",
       "path": "hardiness/acorn.png",
@@ -3088,6 +3109,13 @@
       "path": "nutrition/licorice-eel.png",
       "source": "https://dogonline.wiki/wiki/File:Item_Licorice_Eel.png",
       "sha1": "d1b818319e422124d846eb3d125c35d0bb8ca85c"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Nautilus",
+      "path": "nutrition/nautilus.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Nautilus.png",
+      "sha1": "ace7d3c07000d61a4be5aaa9d8c46ae539cfea39"
     },
     {
       "tab": "nutrition",

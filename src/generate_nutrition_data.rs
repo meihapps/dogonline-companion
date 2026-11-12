@@ -1289,6 +1289,12 @@ pub fn generate_nutrition_data() -> NutritionData {
                 eaten: false,
             },
             Food {
+                name: "Nautilus".into(),
+                kind: None,
+                nutrition: 1,
+                eaten: false,
+            },
+            Food {
                 name: "Papa Peeper's Protein Powder".into(),
                 kind: None,
                 nutrition: 3,

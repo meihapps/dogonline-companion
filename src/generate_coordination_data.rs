@@ -1326,6 +1326,33 @@ pub fn generate_coordination_data() -> CoordinationData {
                 coordination: Some(3),
                 caught: false,
             },
+            Fish {
+                name: "Aerofish".to_string(),
+                location: vec![],
+                time: vec![],
+                weather: vec![],
+                bait: None,
+                coordination: None,
+                caught: false,
+            },
+            Fish {
+                name: "Bay Gull".to_string(),
+                location: vec![],
+                time: vec![],
+                weather: vec![],
+                bait: None,
+                coordination: None,
+                caught: false,
+            },
+            Fish {
+                name: "Nautilus".to_string(),
+                location: vec![],
+                time: vec![],
+                weather: vec![],
+                bait: None,
+                coordination: None,
+                caught: false,
+            },
         ],
     }
 }
