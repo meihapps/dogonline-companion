@@ -402,6 +402,11 @@ button {
   max-width: 1000px;
 }
 
+/* Overall level, between the header and the tabs */
+.counts.level {
+  margin: 16px auto 0;
+}
+
 .count {
   display: flex;
   flex: 0 1 180px;

@@ -9,6 +9,7 @@ use crate::hardiness::HardinessData;
 use crate::hardiness_tab::HardinessTab;
 use crate::nutrition::NutritionData;
 use crate::nutrition_tab::NutritionTab;
+use crate::progress_counts::Progress;
 use crate::storage::{self, Tab, Theme};
 use leptos::prelude::*;
 
@@ -36,6 +37,44 @@ pub fn App(
     dailies_tab::start_reset_timer(dailies);
     let (selected_tab, set_selected_tab) = signal(storage::load_tab());
     let theme = RwSignal::new(storage::load_theme());
+
+    // Level is the sum of every stat, so it counts all entries regardless of tab filters.
+    let level = Signal::derive(move || {
+        let stats = [
+            coordination_data.with(|data| {
+                Progress::of(
+                    data.fish
+                        .iter()
+                        .map(|fish| (fish.caught, fish.coordination.unwrap_or(0))),
+                )
+            }),
+            creativity_data.with(|data| {
+                Progress::of(data.books.iter().map(|book| (book.read, book.creativity)))
+            }),
+            nutrition_data.with(|data| {
+                Progress::of(data.foods.iter().map(|food| (food.eaten, food.nutrition)))
+            }),
+            bravery_data.with(|data| {
+                Progress::of(
+                    data.enemies
+                        .iter()
+                        .map(|enemy| (enemy.killed, enemy.bravery)),
+                )
+            }),
+            hardiness_data.with(|data| {
+                Progress::of(
+                    data.items
+                        .iter()
+                        .map(|item| (item.harvested, item.hardiness)),
+                )
+            }),
+        ];
+
+        let current: u32 = stats.iter().map(|stat| stat.done_points).sum();
+        let max: u32 = stats.iter().map(|stat| stat.total_points).sum();
+
+        format!("{current}/{max}")
+    });
 
     // Remember the open page between visits.
     Effect::new(move |_| {
@@ -111,6 +150,13 @@ pub fn App(
                             </a>
                         </div>
                     </header>
+
+                    <div class="counts level">
+                        <div class="count">
+                            <span class="count-label">"Level"</span>
+                            <span class="count-value">{level}</span>
+                        </div>
+                    </div>
 
                     <nav class="tabs" aria-label="Tracker tabs">
                         <button
