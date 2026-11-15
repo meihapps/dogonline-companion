@@ -17,8 +17,8 @@ and exits 1 if there were any (`?` lines alone don't count), 0 if not, and 3 if 
 itself failed (the wiki couldn't be reached, say). The wiki is the source of truth, so a
 difference means the app is out of date (or the wiki has a gap worth knowing about).
 
-Food, book, crop/bug/gem and fish data comes from the wiki's Bucket tables (the same data its
-tables are generated from). Enemies have no Bucket table, so their bravery is read from the
+Food, book, crop/bug/gem, fish and bait data comes from the wiki's Bucket tables (the same
+data its tables are generated from). Enemies have no Bucket table, so their bravery is read from the
 table on the Bravery page. That table doesn't list HP or damage type, so those aren't
 checked.
 
@@ -52,6 +52,8 @@ BUCKET_LIMIT = 5000
 # once those are split into words (lowercased before lookup).
 ALIASES = {
     "old fishin' hole": "Old Fishing Hole",
+    # The app shows the hyphen, but an enum variant name can't have one.
+    "sour-powdered hook": "Sour Powdered Hook",
 }
 
 # Wiki food types the app treats as no type at all.
@@ -129,8 +131,9 @@ def name_from_image(image: str) -> str:
 
 
 def wiki_list(value: str, all_values: list[str]) -> set[str]:
-    """`Morning, Afternoon` -> {Morning, Afternoon}; `All` -> every value; `?` -> none."""
-    if value.strip().lower() == "all":
+    """`Morning, Afternoon` -> {Morning, Afternoon}; `All` or `Any` -> every value;
+    `?` -> none."""
+    if value.strip().lower() in ("all", "any"):
         return set(all_values)
     return {normalise(part) for part in value.split(",") if part.strip() not in ("", "?")}
 
@@ -218,7 +221,7 @@ def app_coordination() -> dict[str, dict]:
     return {
         string_field(r, "name"): {
             "coordination": int_field(r, "coordination"),
-            "bait": {enum_field(r, "bait")},
+            "bait": {enum_field(r, "bait")} - {None},
             "location": enum_list_field(r, "location"),
             "time": enum_list_field(r, "time"),
             "weather": enum_list_field(r, "weather"),
@@ -258,6 +261,35 @@ def wiki_coordination() -> dict[str, dict]:
         entry["weather"] |= wiki_list(row.get("weather", ""), weathers)
 
     return fish
+
+
+def app_bait() -> dict[str, dict]:
+    """The coordination each bait needs, from the match in `Bait::required_coordination`."""
+    source = (ROOT / "src" / "coordination.rs").read_text()
+    body = re.search(r"fn required_coordination\(self\).*?\{(.*?)\n    \}", source, re.DOTALL)
+    baits = {}
+
+    for variants, value in re.findall(r"((?:Self::\w+\s*\|?\s*)+)=>\s*(\d+)", body.group(1)):
+        for variant in re.findall(r"Self::(\w+)", variants):
+            baits[words(variant)] = {"required_coordination": int(value)}
+
+    return baits
+
+
+def wiki_bait() -> dict[str, dict]:
+    """Only the baits the app knows: the wiki has more that no fish is listed as needing.
+    Cages are rods rather than bait on the wiki, so those are looked up too. No requirement
+    listed counts as 0, as it does in the app."""
+    app = app_bait()
+    baits = {}
+
+    for where in (".where('is_bait', true)", ".where('is_rod', true)"):
+        for row in bucket("items", ["name", "required_coordination"], where):
+            name = normalise(row["name"])
+            if name in app:
+                baits[name] = {"required_coordination": row.get("required_coordination") or 0}
+
+    return baits
 
 
 def app_creativity() -> dict[str, dict]:
@@ -335,6 +367,7 @@ def wiki_nutrition() -> dict[str, dict]:
 TABS = {
     "bravery": (app_bravery, wiki_bravery, set()),
     "coordination": (app_coordination, wiki_coordination, set()),
+    "bait": (app_bait, wiki_bait, set()),
     "creativity": (app_creativity, wiki_creativity, set()),
     "hardiness": (app_hardiness, wiki_hardiness, {"type"}),
     "nutrition": (app_nutrition, wiki_nutrition, set()),

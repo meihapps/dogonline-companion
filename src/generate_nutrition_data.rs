@@ -1176,7 +1176,7 @@ pub fn generate_nutrition_data() -> NutritionData {
             },
             Food {
                 name: "A Single Sausage".into(),
-                kind: None,
+                kind: Some(FoodType::Meat),
                 nutrition: 1,
                 eaten: false,
             },
@@ -1205,7 +1205,25 @@ pub fn generate_nutrition_data() -> NutritionData {
                 eaten: false,
             },
             Food {
+                name: "Black Cat Fish".into(),
+                kind: None,
+                nutrition: 1,
+                eaten: false,
+            },
+            Food {
+                name: "Blue Eel".into(),
+                kind: Some(FoodType::Fish),
+                nutrition: 1,
+                eaten: false,
+            },
+            Food {
                 name: "Boneanna Taffy".into(),
+                kind: None,
+                nutrition: 1,
+                eaten: false,
+            },
+            Food {
+                name: "Candy Basketball Fish".into(),
                 kind: None,
                 nutrition: 1,
                 eaten: false,
@@ -1241,6 +1259,18 @@ pub fn generate_nutrition_data() -> NutritionData {
                 eaten: false,
             },
             Food {
+                name: "Donut Crab".into(),
+                kind: None,
+                nutrition: 1,
+                eaten: false,
+            },
+            Food {
+                name: "Eelclair".into(),
+                kind: None,
+                nutrition: 3,
+                eaten: false,
+            },
+            Food {
                 name: "Full-Size Chocolate Bar-racuda".into(),
                 kind: None,
                 nutrition: 3,
@@ -1248,6 +1278,12 @@ pub fn generate_nutrition_data() -> NutritionData {
             },
             Food {
                 name: "Funfetti Cake".into(),
+                kind: None,
+                nutrition: 1,
+                eaten: false,
+            },
+            Food {
+                name: "Ghost Shark".into(),
                 kind: None,
                 nutrition: 1,
                 eaten: false,
@@ -1277,6 +1313,12 @@ pub fn generate_nutrition_data() -> NutritionData {
                 eaten: false,
             },
             Food {
+                name: "Hockey Fish".into(),
+                kind: None,
+                nutrition: 1,
+                eaten: false,
+            },
+            Food {
                 name: "Hot Fries".into(),
                 kind: None,
                 nutrition: 1,
@@ -1289,7 +1331,19 @@ pub fn generate_nutrition_data() -> NutritionData {
                 eaten: false,
             },
             Food {
+                name: "Lemondor".into(),
+                kind: None,
+                nutrition: 3,
+                eaten: false,
+            },
+            Food {
                 name: "Licorice Eel".into(),
+                kind: None,
+                nutrition: 1,
+                eaten: false,
+            },
+            Food {
+                name: "Mosaic Fish".into(),
                 kind: None,
                 nutrition: 1,
                 eaten: false,
@@ -1301,9 +1355,27 @@ pub fn generate_nutrition_data() -> NutritionData {
                 eaten: false,
             },
             Food {
+                name: "Orb Fish".into(),
+                kind: None,
+                nutrition: 1,
+                eaten: false,
+            },
+            Food {
                 name: "Papa Peeper's Protein Powder".into(),
                 kind: None,
                 nutrition: 3,
+                eaten: false,
+            },
+            Food {
+                name: "Pawlive".into(),
+                kind: None,
+                nutrition: 1,
+                eaten: false,
+            },
+            Food {
+                name: "Pineapple Fish".into(),
+                kind: None,
+                nutrition: 1,
                 eaten: false,
             },
             Food {
@@ -1313,9 +1385,21 @@ pub fn generate_nutrition_data() -> NutritionData {
                 eaten: false,
             },
             Food {
+                name: "Pumpkin Pie".into(),
+                kind: None,
+                nutrition: 2,
+                eaten: false,
+            },
+            Food {
                 name: "S'morlin".into(),
                 kind: None,
                 nutrition: 3,
+                eaten: false,
+            },
+            Food {
+                name: "Salt Rock".into(),
+                kind: None,
+                nutrition: 1,
                 eaten: false,
             },
             Food {
@@ -1337,9 +1421,33 @@ pub fn generate_nutrition_data() -> NutritionData {
                 eaten: false,
             },
             Food {
+                name: "Smoked Salmon".into(),
+                kind: Some(FoodType::Fish),
+                nutrition: 1,
+                eaten: false,
+            },
+            Food {
                 name: "Sour-Powdered Hook".into(),
                 kind: None,
                 nutrition: 1,
+                eaten: false,
+            },
+            Food {
+                name: "Stumpy Lumpfish".into(),
+                kind: None,
+                nutrition: 1,
+                eaten: false,
+            },
+            Food {
+                name: "Sweetiecake Lure".into(),
+                kind: None,
+                nutrition: 1,
+                eaten: false,
+            },
+            Food {
+                name: "Taiyaki".into(),
+                kind: None,
+                nutrition: 3,
                 eaten: false,
             },
             Food {
@@ -1355,6 +1463,12 @@ pub fn generate_nutrition_data() -> NutritionData {
                 eaten: false,
             },
             Food {
+                name: "Three-Headed Salmon".into(),
+                kind: None,
+                nutrition: 3,
+                eaten: false,
+            },
+            Food {
                 name: "Threese".into(),
                 kind: None,
                 nutrition: 3,
@@ -1364,6 +1478,12 @@ pub fn generate_nutrition_data() -> NutritionData {
                 name: "Waffle Cone Shard".into(),
                 kind: None,
                 nutrition: 1,
+                eaten: false,
+            },
+            Food {
+                name: "Water Rhino".into(),
+                kind: Some(FoodType::Meat),
+                nutrition: 3,
                 eaten: false,
             },
             Food {
@@ -1380,6 +1500,12 @@ pub fn generate_nutrition_data() -> NutritionData {
             },
             Food {
                 name: "Apl".into(),
+                kind: None,
+                nutrition: 0,
+                eaten: false,
+            },
+            Food {
+                name: "Barraskewer Tail".into(),
                 kind: None,
                 nutrition: 0,
                 eaten: false,
@@ -1565,7 +1691,7 @@ pub fn generate_nutrition_data() -> NutritionData {
                 eaten: false,
             },
             Food {
-                name: "Pie on my Face".into(),
+                name: "Pie on My Face".into(),
                 kind: None,
                 nutrition: 0,
                 eaten: false,
@@ -1650,6 +1776,12 @@ pub fn generate_nutrition_data() -> NutritionData {
             },
             Food {
                 name: "Watermelon Earrings".into(),
+                kind: None,
+                nutrition: 0,
+                eaten: false,
+            },
+            Food {
+                name: "Woofer's Unoriginal".into(),
                 kind: None,
                 nutrition: 0,
                 eaten: false,

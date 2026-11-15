@@ -227,6 +227,12 @@ pub fn generate_hardiness_data() -> HardinessData {
                 harvested: false,
             },
             HardinessItem {
+                name: "Lemondor".into(),
+                item_type: ItemType::Crop,
+                hardiness: 2,
+                harvested: false,
+            },
+            HardinessItem {
                 name: "Agate".into(),
                 item_type: ItemType::Gem,
                 hardiness: 1,

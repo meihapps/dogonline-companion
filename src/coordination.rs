@@ -47,6 +47,7 @@ pub enum FishingSpot {
     OceanFishingCruiser,
     FlyFishingShip,
     DogwoodsFishingHole,
+    HauntedShip,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -65,17 +66,50 @@ pub enum Weather {
     Snowy,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+// Named as on the wiki, Bombastic Bait included.
+#[allow(clippy::enum_variant_names)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub enum Bait {
     BucketOfWorms,
     MoundOfMinnows,
     CupOfCrickets,
     PouchOfPrawns,
     GoldenGrub,
+    BucketOfRadioactiveWorms,
+    BombasticBait,
     BalloonHook,
     WickedSkymetalHook,
     SkyTackle,
     PremuimAnimalFeed,
     SuperPremuimAnimalFeed,
     SuperUltraPremiumAnimalFeed,
+    CandyCornGrub,
+    GummyChum,
+    SourPowderedHook,
+    // Cages are rods rather than bait on the wiki, but are listed as the bait to use.
+    Cage,
+    PumpkinCage,
+}
+
+impl Bait {
+    /// The coordination needed to use it, from the wiki (none listed counts as 0).
+    pub fn required_coordination(self) -> u32 {
+        match self {
+            Self::BucketOfWorms | Self::Cage => 0,
+            Self::MoundOfMinnows => 3,
+            Self::CupOfCrickets | Self::PumpkinCage => 10,
+            Self::CandyCornGrub => 15,
+            Self::BalloonHook
+            | Self::PremuimAnimalFeed
+            | Self::SuperPremuimAnimalFeed
+            | Self::SuperUltraPremiumAnimalFeed => 20,
+            Self::PouchOfPrawns => 25,
+            Self::GummyChum => 30,
+            Self::WickedSkymetalHook => 40,
+            Self::BucketOfRadioactiveWorms => 50,
+            Self::SkyTackle | Self::SourPowderedHook => 60,
+            Self::GoldenGrub => 70,
+            Self::BombasticBait => 100,
+        }
+    }
 }

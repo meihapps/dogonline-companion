@@ -40,8 +40,11 @@ LICENSE = "CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)"
 ATTRIBUTION = "Dog Online Wiki contributors (https://dogonline.wiki)"
 
 # item name -> wiki file, for images whose name doesn't match the page title and that
-# aren't picked up as the page image either.
-IMAGE_EXCEPTIONS: dict[str, str] = {}
+# aren't picked up as the page image either, or that don't have the tab's prefix.
+IMAGE_EXCEPTIONS: dict[str, str] = {
+    # The wiki redirects Item_Barraskewer_Tail.png here.
+    "Barraskewer Tail": "Barraskewer_Tail.png",
+}
 
 BATCH_SIZE = 50
 REQUEST_DELAY_SECONDS = 1.0
@@ -216,7 +219,8 @@ def resolve_images(entries: list[dict]) -> list[str]:
         if image is None:
             problems.append(f"{entry['name']}: none of {candidates} exist on the wiki")
             continue
-        if not file_info[image][0].startswith(prefix):
+        exception = IMAGE_EXCEPTIONS.get(entry["name"])
+        if not file_info[image][0].startswith(prefix) and file_info[image][0] != exception:
             problems.append(f"{entry['name']}: {image!r} doesn't start with {prefix!r}")
             continue
 

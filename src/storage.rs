@@ -22,7 +22,10 @@ const RENAMED_ENEMIES: [(&str, &str); 3] = [
 ];
 const RENAMED_ITEMS: [(&str, &str); 1] = [("Golden Secretegg", "Gold Secretegg")];
 const RENAMED_FISH: [(&str, &str); 1] = [("Rainbow Trout (Sky)", "Double Rainbow Trout")];
-const RENAMED_FOODS: [(&str, &str); 1] = [("Rainbow Trout (Sky)", "Double Rainbow Trout")];
+const RENAMED_FOODS: [(&str, &str); 2] = [
+    ("Rainbow Trout (Sky)", "Double Rainbow Trout"),
+    ("Pie on my Face", "Pie on My Face"),
+];
 
 fn local_storage() -> Option<web_sys::Storage> {
     web_sys::window()?.local_storage().ok().flatten()
@@ -80,7 +83,15 @@ pub enum Filter {
     StandardBait,
     HookBait,
     FeedBait,
+    CandyBait,
     GoldenGrub,
+    RadioactiveWorms,
+    BombasticBait,
+    Cage,
+    PumpkinCage,
+    BaitsOpen,
+    BaitsByLocation,
+    BaitsByCoordination,
     ShowCaught,
     ShowKilled,
     ShowHarvested,
@@ -99,7 +110,15 @@ impl Filter {
             Self::StandardBait => "dogonline_companion.filter.standard_bait",
             Self::HookBait => "dogonline_companion.filter.hook_bait",
             Self::FeedBait => "dogonline_companion.filter.feed_bait",
+            Self::CandyBait => "dogonline_companion.filter.candy_bait",
             Self::GoldenGrub => "dogonline_companion.filter.golden_grub",
+            Self::RadioactiveWorms => "dogonline_companion.filter.radioactive_worms",
+            Self::BombasticBait => "dogonline_companion.filter.bombastic_bait",
+            Self::Cage => "dogonline_companion.filter.cage",
+            Self::PumpkinCage => "dogonline_companion.filter.pumpkin_cage",
+            Self::BaitsOpen => "dogonline_companion.filter.baits_open",
+            Self::BaitsByLocation => "dogonline_companion.filter.baits_by_location",
+            Self::BaitsByCoordination => "dogonline_companion.filter.baits_by_coordination",
             Self::ShowCaught => "dogonline_companion.filter.show_caught",
             Self::ShowKilled => "dogonline_companion.filter.show_killed",
             Self::ShowHarvested => "dogonline_companion.filter.show_harvested",
