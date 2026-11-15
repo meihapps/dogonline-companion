@@ -172,8 +172,7 @@ pub fn load_dailies(today: &str) -> HashSet<String> {
     serde_json::from_str::<(String, HashSet<String>)>(&raw)
         .ok()
         .filter(|(day, _)| day == today)
-        .map(|(_, done)| done)
-        .unwrap_or_default()
+        .map_or_default(|(_, done)| done)
 }
 
 pub fn save_dailies(today: &str, done: &HashSet<String>) {
