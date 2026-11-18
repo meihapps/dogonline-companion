@@ -43,4 +43,5 @@ pub enum FoodType {
     Fruit,
     Meat,
     Other,
+    Vegetable,
 }

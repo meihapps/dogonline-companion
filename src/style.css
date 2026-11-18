@@ -670,6 +670,19 @@ button.item-card {
   font-size: 20px;
 }
 
+.catches {
+  list-style: none;
+  margin: .5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: .5rem;
+}
+
+.enemy-stats .catch-when {
+  font-size: 16px;
+  opacity: .8;
+}
+
 .modal-footer {
   display: flex;
   justify-content: center;

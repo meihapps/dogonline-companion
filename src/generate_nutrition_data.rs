@@ -300,7 +300,7 @@ pub fn generate_nutrition_data() -> NutritionData {
             },
             Food {
                 name: "Corn".into(),
-                kind: None,
+                kind: Some(FoodType::Vegetable),
                 nutrition: 1,
                 eaten: false,
             },
@@ -600,7 +600,7 @@ pub fn generate_nutrition_data() -> NutritionData {
             },
             Food {
                 name: "Cranberries".into(),
-                kind: None,
+                kind: Some(FoodType::Fruit),
                 nutrition: 1,
                 eaten: false,
             },
@@ -1223,6 +1223,12 @@ pub fn generate_nutrition_data() -> NutritionData {
                 eaten: false,
             },
             Food {
+                name: "Borkette".into(),
+                kind: None,
+                nutrition: 2,
+                eaten: false,
+            },
+            Food {
                 name: "Candy Basketball Fish".into(),
                 kind: None,
                 nutrition: 1,
@@ -1439,6 +1445,12 @@ pub fn generate_nutrition_data() -> NutritionData {
                 eaten: false,
             },
             Food {
+                name: "Sunsetfish".into(),
+                kind: None,
+                nutrition: 1,
+                eaten: false,
+            },
+            Food {
                 name: "Sweetiecake Lure".into(),
                 kind: None,
                 nutrition: 1,
@@ -1488,6 +1500,12 @@ pub fn generate_nutrition_data() -> NutritionData {
             },
             Food {
                 name: "Wax Bottlenose Dolphin".into(),
+                kind: None,
+                nutrition: 1,
+                eaten: false,
+            },
+            Food {
+                name: "Winged Fish".into(),
                 kind: None,
                 nutrition: 1,
                 eaten: false,

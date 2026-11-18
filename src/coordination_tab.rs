@@ -1,6 +1,6 @@
-use crate::coordination::{Bait, CoordinationData, Fish};
+use crate::coordination::{Bait, Catch, CoordinationData, Fish, TimeOfDay, Weather};
 use crate::filter_select::FilterSelect;
-use crate::formatting::{format_list, image_path};
+use crate::formatting::{format_enum, format_list, image_path};
 use crate::long_press::LongPress;
 use crate::progress_counts::{Progress, ProgressCounts};
 use crate::storage::{self, Filter};
@@ -60,7 +60,7 @@ const BAIT_LINES: [BaitLine; 4] = [
 
 /// Baits (and cages) with a pool of fish of their own, which no other bait catches. Each
 /// is toggled on its own rather than being part of a line.
-const OWN_POOL_BAITS: [(Bait, Filter, &str); 5] = [
+const OWN_POOL_BAITS: [(Bait, Filter, &str); 8] = [
     (Bait::GoldenGrub, Filter::GoldenGrub, "Golden Grub"),
     (
         Bait::BucketOfRadioactiveWorms,
@@ -71,6 +71,17 @@ const OWN_POOL_BAITS: [(Bait, Filter, &str); 5] = [
     (Bait::BombasticBait, Filter::BombasticBait, "Bombastic Bait"),
     (Bait::Cage, Filter::Cage, "Cage"),
     (Bait::PumpkinCage, Filter::PumpkinCage, "Pumpkin Cage"),
+    (
+        Bait::SweetiecakeLure,
+        Filter::SweetiecakeLure,
+        "Sweetiecake Lure",
+    ),
+    (Bait::BakersBait, Filter::BakersBait, "Baker's Bait"),
+    (
+        Bait::DeepseaExplorerPod,
+        Filter::DeepseaExplorerPod,
+        "Deepsea Explorer Pod",
+    ),
 ];
 
 /// The value a bait is stored and selected as, e.g. `"BucketOfWorms"`.
@@ -156,37 +167,30 @@ fn line_is_used(line: &BaitLine, used: &[Bait]) -> bool {
     line.baits.iter().any(|(bait, _)| used.contains(bait))
 }
 
-fn at_location(fish: &Fish, location: &str) -> bool {
-    location.is_empty()
-        || fish
-            .location
-            .iter()
-            .any(|spot| format!("{spot:?}") == location)
+fn at_location(catch: &Catch, location: &str) -> bool {
+    location.is_empty() || format!("{:?}", catch.location) == location
 }
 
 /// Every bait some fish at `location` (anywhere, if empty) is caught with.
 fn baits_used_at(fish: &[Fish], location: &str) -> Vec<Bait> {
     let mut used: Vec<Bait> = fish
         .iter()
-        .filter(|fish| at_location(fish, location))
-        .filter_map(|fish| fish.bait)
+        .flat_map(|fish| &fish.catches)
+        .filter(|catch| at_location(catch, location))
+        .map(|catch| catch.bait)
         .collect();
     used.sort_by_key(|bait| bait_key(*bait));
     used.dedup();
     used
 }
 
-/// A fish matches if any of the selected baits can catch it.
-/// With nothing selected there is no bait filter, so every fish matches. So does a fish
-/// whose bait isn't known yet, rather than hiding it.
-fn matches_bait(fish: &Fish, baits: &BaitFilter) -> bool {
+/// Whether any of the selected baits can catch a fish caught with `bait`.
+/// With nothing selected there is no bait filter, so every bait matches.
+fn matches_bait(bait: Bait, baits: &BaitFilter) -> bool {
     if baits.lines.iter().all(String::is_empty) && baits.own_pool.is_empty() {
         return true;
     }
 
-    let Some(bait) = fish.bait else {
-        return true;
-    };
     let Some((fish_line, fish_tier)) = bait_tier(bait) else {
         return baits.own_pool.contains(&bait) && usable(bait, baits.max_coordination);
     };
@@ -212,6 +216,33 @@ fn tier_of(line: &BaitLine, selected: &str) -> Option<usize> {
         .position(|(bait, _)| bait_key(*bait) == selected)
 }
 
+/// Whether this one way of catching the fish fits every filter at once.
+fn catch_matches(
+    catch: &Catch,
+    location: &str,
+    time: &str,
+    weather: &str,
+    baits: &BaitFilter,
+) -> bool {
+    // An unknown time or weather (an empty list) matches any filter, rather than hiding
+    // the fish.
+    let time_matches = time.is_empty()
+        || catch.time.is_empty()
+        || catch.time.iter().any(|t| format!("{t:?}") == time);
+
+    let weather_matches = weather.is_empty()
+        || catch.weather.is_empty()
+        || catch.weather.iter().any(|w| format!("{w:?}") == weather);
+
+    at_location(catch, location)
+        && time_matches
+        && weather_matches
+        && matches_bait(catch.bait, baits)
+}
+
+/// A fish matches if any one way of catching it fits all the filters.
+/// A fish with no known way to catch it matches any filter but a location, so it isn't
+/// counted in every area.
 fn matches_filters(
     fish: &Fish,
     location: &str,
@@ -219,17 +250,13 @@ fn matches_filters(
     weather: &str,
     baits: &BaitFilter,
 ) -> bool {
-    // An unknown time or weather (an empty list) matches any filter, rather than hiding
-    // the fish. An unknown location doesn't, so it isn't counted in every area.
-    let time_matches = time.is_empty()
-        || fish.time.is_empty()
-        || fish.time.iter().any(|t| format!("{t:?}") == time);
+    if fish.catches.is_empty() {
+        return location.is_empty();
+    }
 
-    let weather_matches = weather.is_empty()
-        || fish.weather.is_empty()
-        || fish.weather.iter().any(|w| format!("{w:?}") == weather);
-
-    at_location(fish, location) && time_matches && weather_matches && matches_bait(fish, baits)
+    fish.catches
+        .iter()
+        .any(|catch| catch_matches(catch, location, time, weather, baits))
 }
 
 #[component]
@@ -539,11 +566,39 @@ fn format_coordination(coordination: Option<u8>) -> String {
     coordination.map_or_else(|| "?".to_string(), |c| c.to_string())
 }
 
-fn or_unknown(list: String) -> String {
-    if list.is_empty() {
-        "Unknown".to_string()
-    } else {
-        list
+/// `items`, or `all` if it's every value and `unknown` if it's none.
+fn describe_list<T: std::fmt::Debug>(
+    items: &[T],
+    every: usize,
+    all: &str,
+    unknown: &str,
+) -> String {
+    match items.len() {
+        0 => unknown.to_string(),
+        len if len == every => all.to_string(),
+        _ => format_list(items),
+    }
+}
+
+const TIMES_OF_DAY: usize = 4;
+const WEATHERS: usize = 4;
+
+/// One way to catch a fish, for the fish modal.
+#[component]
+fn CatchDetails(catch: Catch) -> impl IntoView {
+    let time = describe_list::<TimeOfDay>(&catch.time, TIMES_OF_DAY, "Any time", "Time unknown");
+    let weather =
+        describe_list::<Weather>(&catch.weather, WEATHERS, "Any weather", "Weather unknown");
+
+    view! {
+        <li class="catch">
+            <p>
+                <strong>{bait_label(catch.bait)}</strong>
+                " at "
+                {format_enum(&catch.location)}
+            </p>
+            <p class="catch-when">{format!("{time} · {weather}")}</p>
+        </li>
     }
 }
 
@@ -586,25 +641,28 @@ fn FishModal(fish: Fish, on_close: Callback<()>) -> impl IntoView {
                             {format!("+{}", format_coordination(fish.coordination))}
                         </p>
 
-                        <p>
-                            <strong>"Location: "</strong>
-                            {or_unknown(format_list(&fish.location))}
-                        </p>
-
-                        <p>
-                            <strong>"Time: "</strong>
-                            {or_unknown(format_list(&fish.time))}
-                        </p>
-
-                        <p>
-                            <strong>"Weather: "</strong>
-                            {or_unknown(format_list(&fish.weather))}
-                        </p>
-
-                        <p>
-                            <strong>"Bait: "</strong>
-                            {fish.bait.map_or("Unknown", bait_label)}
-                        </p>
+                        // Every way to catch it, whatever the filters.
+                        {if fish.catches.is_empty() {
+                            view! {
+                                <p>
+                                    <strong>"How to catch: "</strong>
+                                    "Unknown"
+                                </p>
+                            }
+                            .into_any()
+                        } else {
+                            view! {
+                                <ul class="catches">
+                                    {fish
+                                        .catches
+                                        .iter()
+                                        .cloned()
+                                        .map(|catch| view! { <CatchDetails catch=catch /> })
+                                        .collect_view()}
+                                </ul>
+                            }
+                            .into_any()
+                        }}
                     </div>
                 </div>
             </div>
@@ -827,14 +885,21 @@ pub fn CoordinationTab(data: RwSignal<CoordinationData>) -> impl IntoView {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::coordination::FishingSpot;
 
-    fn fish_with_bait(bait: Bait) -> Fish {
+    fn catch(location: FishingSpot, bait: Bait, time: &[TimeOfDay], weather: &[Weather]) -> Catch {
+        Catch {
+            location,
+            bait,
+            time: time.to_vec(),
+            weather: weather.to_vec(),
+        }
+    }
+
+    fn fish(catches: Vec<Catch>) -> Fish {
         Fish {
             name: "Test Fish".to_string(),
-            location: Vec::new(),
-            time: Vec::new(),
-            weather: Vec::new(),
-            bait: Some(bait),
+            catches,
             coordination: Some(1),
             caught: false,
         }
@@ -850,10 +915,10 @@ mod tests {
 
     #[test]
     fn better_bait_also_catches_lower_tier_fish() {
-        let fish = fish_with_bait(Bait::MoundOfMinnows);
+        let bait = Bait::MoundOfMinnows;
 
-        assert!(matches_bait(&fish, &baits("CupOfCrickets", "", "", &[])));
-        assert!(!matches_bait(&fish, &baits("BucketOfWorms", "", "", &[])));
+        assert!(matches_bait(bait, &baits("CupOfCrickets", "", "", &[])));
+        assert!(!matches_bait(bait, &baits("BucketOfWorms", "", "", &[])));
     }
 
     #[test]
@@ -864,49 +929,37 @@ mod tests {
         };
 
         assert!(matches_bait(
-            &fish_with_bait(Bait::CandyCornGrub),
+            Bait::CandyCornGrub,
             &candy("SourPowderedHook")
         ));
-        assert!(!matches_bait(
-            &fish_with_bait(Bait::SourPowderedHook),
-            &candy("GummyChum")
-        ));
+        assert!(!matches_bait(Bait::SourPowderedHook, &candy("GummyChum")));
     }
 
     #[test]
     fn own_pool_baits_only_catch_their_own_fish() {
         let golden_grub = baits("", "", "", &[Bait::GoldenGrub]);
 
-        assert!(!matches_bait(
-            &fish_with_bait(Bait::BucketOfWorms),
-            &golden_grub
-        ));
-        assert!(matches_bait(
-            &fish_with_bait(Bait::GoldenGrub),
-            &golden_grub
-        ));
-        assert!(!matches_bait(&fish_with_bait(Bait::Cage), &golden_grub));
+        assert!(!matches_bait(Bait::BucketOfWorms, &golden_grub));
+        assert!(matches_bait(Bait::GoldenGrub, &golden_grub));
+        assert!(!matches_bait(Bait::Cage, &golden_grub));
     }
 
     #[test]
     fn standard_bait_does_not_catch_own_pool_fish() {
         let standard = baits("PouchOfPrawns", "", "", &[]);
 
-        assert!(!matches_bait(&fish_with_bait(Bait::GoldenGrub), &standard));
-        assert!(!matches_bait(
-            &fish_with_bait(Bait::BucketOfRadioactiveWorms),
-            &standard
-        ));
+        assert!(!matches_bait(Bait::GoldenGrub, &standard));
+        assert!(!matches_bait(Bait::BucketOfRadioactiveWorms, &standard));
     }
 
     #[test]
     fn bait_lines_are_separate() {
         assert!(!matches_bait(
-            &fish_with_bait(Bait::BucketOfWorms),
+            Bait::BucketOfWorms,
             &baits("", "SkyTackle", "", &[])
         ));
         assert!(!matches_bait(
-            &fish_with_bait(Bait::BalloonHook),
+            Bait::BalloonHook,
             &baits("PouchOfPrawns", "", "", &[])
         ));
     }
@@ -914,7 +967,7 @@ mod tests {
     #[test]
     fn any_selected_bait_can_catch_the_fish() {
         let filter = baits("BucketOfWorms", "BalloonHook", "", &[Bait::GoldenGrub]);
-        let selected = |bait| matches_bait(&fish_with_bait(bait), &filter);
+        let selected = |bait| matches_bait(bait, &filter);
 
         assert!(selected(Bait::BucketOfWorms));
         assert!(selected(Bait::BalloonHook));
@@ -924,22 +977,74 @@ mod tests {
     }
 
     #[test]
-    fn unknown_bait_matches_any_bait() {
-        let fish = Fish {
-            bait: None,
-            ..fish_with_bait(Bait::BucketOfWorms)
+    fn fish_with_no_known_catch_matches_anything_but_a_location() {
+        let fish = fish(Vec::new());
+        let any = |baits: &BaitFilter| matches_filters(&fish, "", "Night", "Rainy", baits);
+
+        assert!(any(&baits("BucketOfWorms", "", "", &[])));
+        assert!(any(&baits("", "", "", &[Bait::GoldenGrub])));
+        assert!(!matches_filters(
+            &fish,
+            "OldFishingHole",
+            "",
+            "",
+            &BaitFilter::default()
+        ));
+    }
+
+    #[test]
+    fn one_catch_has_to_fit_every_filter() {
+        // Like the Clam: a Cage at night in the rain, or Cup of Crickets at night.
+        let clam = fish(vec![
+            catch(
+                FishingSpot::OceanFishingCruiser,
+                Bait::Cage,
+                &[TimeOfDay::Night],
+                &[Weather::Rainy],
+            ),
+            catch(
+                FishingSpot::OceanFishingCruiser,
+                Bait::CupOfCrickets,
+                &[TimeOfDay::Night],
+                &[],
+            ),
+        ]);
+        let cage_only = baits("", "", "", &[Bait::Cage]);
+        let at = |time, weather, baits: &BaitFilter| {
+            matches_filters(&clam, "OceanFishingCruiser", time, weather, baits)
         };
 
-        assert!(matches_bait(&fish, &baits("BucketOfWorms", "", "", &[])));
-        assert!(matches_bait(&fish, &baits("", "", "", &[Bait::GoldenGrub])));
+        assert!(at("Night", "Rainy", &cage_only));
+        assert!(!at("Night", "Snowy", &cage_only));
+        // Cup of Crickets' weather isn't known, so it isn't ruled out.
+        assert!(at("Night", "Snowy", &baits("CupOfCrickets", "", "", &[])));
+        assert!(!at("Morning", "", &BaitFilter::default()));
+        assert!(!matches_filters(
+            &clam,
+            "OldFishingHole",
+            "",
+            "",
+            &BaitFilter::default()
+        ));
+    }
+
+    #[test]
+    fn baits_used_at_a_location_only_count_catches_there() {
+        let fish = [fish(vec![
+            catch(FishingSpot::OldFishingHole, Bait::Cage, &[], &[]),
+            catch(FishingSpot::DesertOasis, Bait::GoldenGrub, &[], &[]),
+        ])];
+
+        assert_eq!(baits_used_at(&fish, "DesertOasis"), [Bait::GoldenGrub]);
+        assert_eq!(baits_used_at(&fish, "").len(), 2);
     }
 
     #[test]
     fn no_bait_selected_matches_every_fish() {
         let none = BaitFilter::default();
 
-        assert!(matches_bait(&fish_with_bait(Bait::GoldenGrub), &none));
-        assert!(matches_bait(&fish_with_bait(Bait::SkyTackle), &none));
+        assert!(matches_bait(Bait::GoldenGrub, &none));
+        assert!(matches_bait(Bait::SkyTackle, &none));
     }
 
     #[test]
@@ -947,7 +1052,7 @@ mod tests {
         // A standard bait is picked, but nothing here is caught with one.
         let filter = baits("BucketOfWorms", "", "", &[]).limited_to(&[Bait::CandyCornGrub]);
 
-        assert!(matches_bait(&fish_with_bait(Bait::CandyCornGrub), &filter));
+        assert!(matches_bait(Bait::CandyCornGrub, &filter));
     }
 
     #[test]
@@ -958,10 +1063,10 @@ mod tests {
         };
 
         // Mound of Minnows needs 3, so it still catches its fish.
-        assert!(matches_bait(&fish_with_bait(Bait::MoundOfMinnows), &filter));
+        assert!(matches_bait(Bait::MoundOfMinnows, &filter));
         // Cup of Crickets needs 10, and Pouch of Prawns 25.
-        assert!(!matches_bait(&fish_with_bait(Bait::CupOfCrickets), &filter));
-        assert!(!matches_bait(&fish_with_bait(Bait::GoldenGrub), &filter));
+        assert!(!matches_bait(Bait::CupOfCrickets, &filter));
+        assert!(!matches_bait(Bait::GoldenGrub, &filter));
     }
 
     #[test]
@@ -984,10 +1089,8 @@ mod tests {
         // Otherwise a new bait would be treated as one with its own pool.
         let data: CoordinationData = serde_json::from_str(crate::COORDINATION_DATA).unwrap();
 
-        for fish in data.fish {
-            if let Some(bait) = fish.bait {
-                assert_ne!(bait_label(bait), "Unknown", "{bait:?}");
-            }
+        for catch in data.fish.iter().flat_map(|fish| &fish.catches) {
+            assert_ne!(bait_label(catch.bait), "Unknown", "{:?}", catch.bait);
         }
     }
 }

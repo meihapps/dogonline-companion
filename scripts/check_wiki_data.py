@@ -52,8 +52,9 @@ BUCKET_LIMIT = 5000
 # once those are split into words (lowercased before lookup).
 ALIASES = {
     "old fishin' hole": "Old Fishing Hole",
-    # The app shows the hyphen, but an enum variant name can't have one.
+    # The app shows the hyphen and apostrophe, but an enum variant name can't have them.
     "sour-powdered hook": "Sour Powdered Hook",
+    "baker's bait": "Bakers Bait",
 }
 
 # Wiki food types the app treats as no type at all.
@@ -132,10 +133,19 @@ def name_from_image(image: str) -> str:
 
 def wiki_list(value: str, all_values: list[str]) -> set[str]:
     """`Morning, Afternoon` -> {Morning, Afternoon}; `All` or `Any` -> every value;
-    `?` -> none."""
-    if value.strip().lower() in ("all", "any"):
+    `?` or anything else ending in one (`All?`) -> none, as it isn't known yet.
+
+    Values are matched to `all_values` ignoring case (`Clear skies`); one that isn't among
+    them is kept as it is, so it shows up as a difference."""
+    value = value.strip()
+    if value.endswith("?"):
+        return set()
+    if value.lower() in ("all", "any"):
         return set(all_values)
-    return {normalise(part) for part in value.split(",") if part.strip() not in ("", "?")}
+
+    by_lower = {known.lower(): known for known in all_values}
+    parts = (normalise(part) for part in value.split(",") if part.strip())
+    return {by_lower.get(part.lower(), part) for part in parts}
 
 
 def is_set(row: dict, field: str) -> bool:
@@ -183,6 +193,12 @@ def enum_list_field(record: str, name: str) -> set[str]:
     return {words(variant) for variant in re.findall(r"::(\w+)", values)}
 
 
+def fish_records() -> list[str]:
+    """The body of every `Fish { ... }` literal, nested `Catch { ... }`s included."""
+    source = (ROOT / "src" / "generate_coordination_data.rs").read_text()
+    return re.split(r"\bFish \{", source)[1:]
+
+
 def enum_variants(file_name: str, enum: str) -> list[str]:
     source = (ROOT / "src" / file_name).read_text()
     body = re.search(rf"pub enum {enum} \{{([^}}]*)\}}", source).group(1)
@@ -217,36 +233,59 @@ def wiki_bravery() -> dict[str, dict]:
     return enemies
 
 
+def describe_catch(
+    location: str, bait: str, time: set[str], weather: set[str], times: list[str], weathers: list[str]
+) -> str:
+    """One way to catch a fish, as a line to compare, e.g.
+    `Old Fishing Hole, Cage (Night; Clear Skies, Snowy)`."""
+
+    def listed(values: set[str], known: list[str], every: str) -> str:
+        if not values:
+            return "?"
+        if values == set(known):
+            return every
+        # In the enum's order, then anything the app doesn't know of.
+        return ", ".join([v for v in known if v in values] + sorted(values - set(known)))
+
+    return (
+        f"{location}, {bait} "
+        f"({listed(time, times, 'any time')}; {listed(weather, weathers, 'any weather')})"
+    )
+
+
 def app_coordination() -> dict[str, dict]:
+    times = enum_variants("coordination.rs", "TimeOfDay")
+    weathers = enum_variants("coordination.rs", "Weather")
+
+    def catches(record: str) -> set[str]:
+        return {
+            describe_catch(
+                enum_field(c, "location"),
+                enum_field(c, "bait"),
+                enum_list_field(c, "time"),
+                enum_list_field(c, "weather"),
+                times,
+                weathers,
+            )
+            for c in re.findall(r"\bCatch \{([^{}]*)\}", record)
+        }
+
     return {
         string_field(r, "name"): {
             "coordination": int_field(r, "coordination"),
-            "bait": {enum_field(r, "bait")} - {None},
-            "location": enum_list_field(r, "location"),
-            "time": enum_list_field(r, "time"),
-            "weather": enum_list_field(r, "weather"),
+            "catches": catches(r),
         }
-        for r in rust_records("generate_coordination_data.rs", "Fish")
+        for r in fish_records()
     }
 
 
 def wiki_coordination() -> dict[str, dict]:
-    """Fish are items marked as fish or with a coordination value; where to catch them is
-    in `fishing`.
-
-    The app keeps one list of times and weathers per fish, so a fish caught in several
-    places gets the union of them.
-    """
+    """Fish are items marked as fish or with a coordination value; the ways to catch them
+    are the rows of `fishing`, one per location and bait."""
     times = enum_variants("coordination.rs", "TimeOfDay")
     weathers = enum_variants("coordination.rs", "Weather")
     fish = {
-        row["name"]: {
-            "coordination": row.get("coordination"),
-            "bait": set(),
-            "location": set(),
-            "time": set(),
-            "weather": set(),
-        }
+        row["name"]: {"coordination": row.get("coordination"), "catches": set()}
         for where in (".where('is_fish', true)", ".where('coordination', '!=', bucket.Null())")
         for row in bucket("items", ["name", "coordination"], where)
     }
@@ -255,10 +294,16 @@ def wiki_coordination() -> dict[str, dict]:
         entry = fish.get(name_from_image(row["fish"]))
         if entry is None:
             continue  # not a fish (Water Bucket, Gold Boot, ...)
-        entry["bait"].add(normalise(name_from_image(row["bait"])))
-        entry["location"].add(normalise(row["page_name"]))
-        entry["time"] |= wiki_list(row.get("timeofday", ""), times)
-        entry["weather"] |= wiki_list(row.get("weather", ""), weathers)
+        entry["catches"].add(
+            describe_catch(
+                normalise(row["page_name"]),
+                normalise(name_from_image(row["bait"])),
+                wiki_list(row.get("timeofday", ""), times),
+                wiki_list(row.get("weather", ""), weathers),
+                times,
+                weathers,
+            )
+        )
 
     return fish
 

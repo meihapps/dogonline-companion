@@ -76,6 +76,7 @@ pub fn NutritionTab(data: RwSignal<NutritionData>) -> impl IntoView {
                         ("Fruit", "Fruit"),
                         ("Meat", "Meat"),
                         ("Other", "Other"),
+                        ("Vegetable", "Vegetable"),
                     ]
                 />
             </div>

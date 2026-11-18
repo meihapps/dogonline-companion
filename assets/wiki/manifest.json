@@ -1214,6 +1214,13 @@
       "sha1": "968a9efcdd8a905bd182169de7c8c4b9911cbf33"
     },
     {
+      "tab": "coordination",
+      "name": "Pineapple Fish",
+      "path": "coordination/pineapple-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Pineapple_Fish.png",
+      "sha1": "fc72db0c6c4c1a7811b47580af67342440d4889b"
+    },
+    {
       "tab": "creativity",
       "name": "Dr. Cactus's Desert Survival Guide",
       "path": "creativity/dr-cactuss-desert-survival-guide.png",
@@ -1744,6 +1751,13 @@
       "path": "hardiness/lemondor.png",
       "source": "https://dogonline.wiki/wiki/File:Item_Lemondor.png",
       "sha1": "b0007396f5886b5b39580aba7044f4e190a70f4e"
+    },
+    {
+      "tab": "hardiness",
+      "name": "Lemon 'Nade",
+      "path": "hardiness/lemon-nade.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Lemon_%27Nade.png",
+      "sha1": "ca146f3a5204920b0491fd5e4882b10d0b1a1a0b"
     },
     {
       "tab": "hardiness",
@@ -3455,6 +3469,13 @@
     },
     {
       "tab": "nutrition",
+      "name": "Borkette",
+      "path": "nutrition/borkette.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Borkette.png",
+      "sha1": "a5f79b16821b26f57cc45d6a5b17ad8441ebdfb5"
+    },
+    {
+      "tab": "nutrition",
       "name": "Candy Basketball Fish",
       "path": "nutrition/candy-basketball-fish.png",
       "source": "https://dogonline.wiki/wiki/File:Item_Candy_Basketball_Fish.png",
@@ -3707,6 +3728,13 @@
     },
     {
       "tab": "nutrition",
+      "name": "Sunsetfish",
+      "path": "nutrition/sunsetfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sunsetfish.png",
+      "sha1": "dd66a433c4fa506f08e8ce8c94f737f56cd05079"
+    },
+    {
+      "tab": "nutrition",
       "name": "Sweetiecake Lure",
       "path": "nutrition/sweetiecake-lure.png",
       "source": "https://dogonline.wiki/wiki/File:Item_Sweetiecake_Lure.png",
@@ -3767,6 +3795,13 @@
       "path": "nutrition/wax-bottlenose-dolphin.png",
       "source": "https://dogonline.wiki/wiki/File:Item_Wax_Bottlenose_Dolphin.png",
       "sha1": "91f95e399bc2fb6da2d02fd1977fd8de35002e93"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Winged Fish",
+      "path": "nutrition/winged-fish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Winged_Fish.png",
+      "sha1": "dc5b34e06f08f2f45ad409a9a568712275cc58ea"
     },
     {
       "tab": "nutrition",

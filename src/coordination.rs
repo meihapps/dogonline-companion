@@ -28,18 +28,27 @@ impl CoordinationData {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Fish {
     pub name: String,
-    /// Empty (and `bait` is `None`) where the wiki doesn't say yet.
-    pub location: Vec<FishingSpot>,
-    pub time: Vec<TimeOfDay>,
-    pub weather: Vec<Weather>,
-    pub bait: Option<Bait>,
+    /// Each way to catch it, one per row of the wiki's fishing tables. Empty where the wiki
+    /// doesn't say yet.
+    pub catches: Vec<Catch>,
     pub coordination: Option<u8>,
     /// Mutable progress. Never part of the JSON data; filled in from browser storage.
     #[serde(skip)]
     pub caught: bool,
 }
 
+/// One way to catch a fish: where, with what, and when.
 #[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Catch {
+    pub location: FishingSpot,
+    pub bait: Bait,
+    /// Empty where the wiki doesn't say yet.
+    pub time: Vec<TimeOfDay>,
+    /// Empty where the wiki doesn't say yet.
+    pub weather: Vec<Weather>,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub enum FishingSpot {
     OldFishingHole,
     DesertOasis,
@@ -86,9 +95,12 @@ pub enum Bait {
     CandyCornGrub,
     GummyChum,
     SourPowderedHook,
+    SweetiecakeLure,
+    BakersBait,
     // Cages are rods rather than bait on the wiki, but are listed as the bait to use.
     Cage,
     PumpkinCage,
+    DeepseaExplorerPod,
 }
 
 impl Bait {
@@ -106,7 +118,10 @@ impl Bait {
             Self::PouchOfPrawns => 25,
             Self::GummyChum => 30,
             Self::WickedSkymetalHook => 40,
-            Self::BucketOfRadioactiveWorms => 50,
+            Self::BucketOfRadioactiveWorms
+            | Self::SweetiecakeLure
+            | Self::BakersBait
+            | Self::DeepseaExplorerPod => 50,
             Self::SkyTackle | Self::SourPowderedHook => 60,
             Self::GoldenGrub => 70,
             Self::BombasticBait => 100,
