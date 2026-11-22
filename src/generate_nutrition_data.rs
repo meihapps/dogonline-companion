@@ -444,7 +444,7 @@ pub fn generate_nutrition_data() -> NutritionData {
             },
             Food {
                 name: "Craw's Dad".into(),
-                kind: Some(FoodType::Meat),
+                kind: Some(FoodType::Seafood),
                 nutrition: 3,
                 eaten: false,
             },
@@ -780,7 +780,7 @@ pub fn generate_nutrition_data() -> NutritionData {
             },
             Food {
                 name: "Parfait".into(),
-                kind: None,
+                kind: Some(FoodType::Dairy),
                 nutrition: 3,
                 eaten: false,
             },
@@ -1602,7 +1602,7 @@ pub fn generate_nutrition_data() -> NutritionData {
             },
             Food {
                 name: "Crispy Bacon Battleaxe".into(),
-                kind: None,
+                kind: Some(FoodType::Meat),
                 nutrition: 0,
                 eaten: false,
             },
@@ -1752,7 +1752,7 @@ pub fn generate_nutrition_data() -> NutritionData {
             },
             Food {
                 name: "Soda".into(),
-                kind: None,
+                kind: Some(FoodType::Liquid),
                 nutrition: 0,
                 eaten: false,
             },
@@ -1814,6 +1814,24 @@ pub fn generate_nutrition_data() -> NutritionData {
                 name: "Yum Egg".into(),
                 kind: None,
                 nutrition: 0,
+                eaten: false,
+            },
+            Food {
+                name: "Cone Crab".into(),
+                kind: None,
+                nutrition: 1,
+                eaten: false,
+            },
+            Food {
+                name: "Deep Fried Hook".into(),
+                kind: None,
+                nutrition: 1,
+                eaten: false,
+            },
+            Food {
+                name: "Mallet Eel".into(),
+                kind: None,
+                nutrition: 1,
                 eaten: false,
             },
         ],

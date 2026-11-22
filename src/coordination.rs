@@ -101,13 +101,15 @@ pub enum Bait {
     Cage,
     PumpkinCage,
     DeepseaExplorerPod,
+    NailWorms,
+    DeepFriedHook,
 }
 
 impl Bait {
     /// The coordination needed to use it, from the wiki (none listed counts as 0).
     pub fn required_coordination(self) -> u32 {
         match self {
-            Self::BucketOfWorms | Self::Cage => 0,
+            Self::BucketOfWorms | Self::Cage | Self::DeepseaExplorerPod => 0,
             Self::MoundOfMinnows => 3,
             Self::CupOfCrickets | Self::PumpkinCage => 10,
             Self::CandyCornGrub => 15,
@@ -121,7 +123,8 @@ impl Bait {
             Self::BucketOfRadioactiveWorms
             | Self::SweetiecakeLure
             | Self::BakersBait
-            | Self::DeepseaExplorerPod => 50,
+            | Self::NailWorms
+            | Self::DeepFriedHook => 50,
             Self::SkyTackle | Self::SourPowderedHook => 60,
             Self::GoldenGrub => 70,
             Self::BombasticBait => 100,

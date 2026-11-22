@@ -41,7 +41,9 @@ pub enum FoodType {
     Dairy,
     Fish,
     Fruit,
+    Liquid,
     Meat,
     Other,
+    Seafood,
     Vegetable,
 }

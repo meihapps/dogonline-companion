@@ -1221,6 +1221,20 @@
       "sha1": "fc72db0c6c4c1a7811b47580af67342440d4889b"
     },
     {
+      "tab": "coordination",
+      "name": "Cone Crab",
+      "path": "coordination/cone-crab.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cone_Crab.png",
+      "sha1": "9f762299931b33175fd4501fc93b7cbfb7aafe23"
+    },
+    {
+      "tab": "coordination",
+      "name": "Mallet Eel",
+      "path": "coordination/mallet-eel.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Mallet_Eel.png",
+      "sha1": "f471d8bfb8e4d356442cbb5ff50613554803cd1c"
+    },
+    {
       "tab": "creativity",
       "name": "Dr. Cactus's Desert Survival Guide",
       "path": "creativity/dr-cactuss-desert-survival-guide.png",
@@ -4159,6 +4173,27 @@
       "path": "nutrition/yum-egg.png",
       "source": "https://dogonline.wiki/wiki/File:Item_Yum_Egg.png",
       "sha1": "0a50d5f79d7f2a1b807d4c4d97aa1f546c8416b4"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Cone Crab",
+      "path": "nutrition/cone-crab.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Cone_Crab.png",
+      "sha1": "9f762299931b33175fd4501fc93b7cbfb7aafe23"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Deep Fried Hook",
+      "path": "nutrition/deep-fried-hook.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Deep_Fried_Hook.png",
+      "sha1": "0f049ba33164602875e82dccc4f2b4e82ba49779"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Mallet Eel",
+      "path": "nutrition/mallet-eel.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Mallet_Eel.png",
+      "sha1": "f471d8bfb8e4d356442cbb5ff50613554803cd1c"
     }
   ]
 }

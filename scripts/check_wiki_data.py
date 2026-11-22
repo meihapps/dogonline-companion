@@ -58,7 +58,7 @@ ALIASES = {
 }
 
 # Wiki food types the app treats as no type at all.
-NO_FOOD_TYPE = {"?", "Liquid"}
+NO_FOOD_TYPE = {"?"}
 
 
 def request(url: str) -> bytes:

@@ -60,7 +60,7 @@ const BAIT_LINES: [BaitLine; 4] = [
 
 /// Baits (and cages) with a pool of fish of their own, which no other bait catches. Each
 /// is toggled on its own rather than being part of a line.
-const OWN_POOL_BAITS: [(Bait, Filter, &str); 8] = [
+const OWN_POOL_BAITS: [(Bait, Filter, &str); 10] = [
     (Bait::GoldenGrub, Filter::GoldenGrub, "Golden Grub"),
     (
         Bait::BucketOfRadioactiveWorms,
@@ -81,6 +81,12 @@ const OWN_POOL_BAITS: [(Bait, Filter, &str); 8] = [
         Bait::DeepseaExplorerPod,
         Filter::DeepseaExplorerPod,
         "Deepsea Explorer Pod",
+    ),
+    (Bait::NailWorms, Filter::NailWorms, "Nail Worms"),
+    (
+        Bait::DeepFriedHook,
+        Filter::DeepFriedHook,
+        "Deep Fried Hook",
     ),
 ];
 
