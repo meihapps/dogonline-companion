@@ -1235,6 +1235,13 @@
       "sha1": "f471d8bfb8e4d356442cbb5ff50613554803cd1c"
     },
     {
+      "tab": "coordination",
+      "name": "Sunsetfish",
+      "path": "coordination/sunsetfish.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Sunsetfish.png",
+      "sha1": "dd66a433c4fa506f08e8ce8c94f737f56cd05079"
+    },
+    {
       "tab": "creativity",
       "name": "Dr. Cactus's Desert Survival Guide",
       "path": "creativity/dr-cactuss-desert-survival-guide.png",
@@ -2559,7 +2566,7 @@
     },
     {
       "tab": "nutrition",
-      "name": "Turnip au Gratin",
+      "name": "Turnip Au Gratin",
       "path": "nutrition/turnip-au-gratin.png",
       "source": "https://dogonline.wiki/wiki/File:Item_Turnip_au_Gratin.png",
       "sha1": "239f9eef70a9fb06835ceac6743ff04f6bf07df0"
@@ -4194,6 +4201,13 @@
       "path": "nutrition/mallet-eel.png",
       "source": "https://dogonline.wiki/wiki/File:Item_Mallet_Eel.png",
       "sha1": "f471d8bfb8e4d356442cbb5ff50613554803cd1c"
+    },
+    {
+      "tab": "nutrition",
+      "name": "Dropped Ice Cream",
+      "path": "nutrition/dropped-ice-cream.png",
+      "source": "https://dogonline.wiki/wiki/File:Item_Dropped_Ice_Cream.png",
+      "sha1": "aa9aa3794556da11941b696c89735f0d03985aac"
     }
   ]
 }

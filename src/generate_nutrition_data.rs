@@ -240,7 +240,7 @@ pub fn generate_nutrition_data() -> NutritionData {
             },
             Food {
                 name: "Pomnapple".into(),
-                kind: None,
+                kind: Some(FoodType::Fruit),
                 nutrition: 2,
                 eaten: false,
             },
@@ -431,7 +431,7 @@ pub fn generate_nutrition_data() -> NutritionData {
                 eaten: false,
             },
             Food {
-                name: "Turnip au Gratin".into(),
+                name: "Turnip Au Gratin".into(),
                 kind: None,
                 nutrition: 3,
                 eaten: false,
@@ -1832,6 +1832,12 @@ pub fn generate_nutrition_data() -> NutritionData {
                 name: "Mallet Eel".into(),
                 kind: None,
                 nutrition: 1,
+                eaten: false,
+            },
+            Food {
+                name: "Dropped Ice Cream".into(),
+                kind: None,
+                nutrition: 0,
                 eaten: false,
             },
         ],

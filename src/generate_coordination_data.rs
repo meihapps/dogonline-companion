@@ -90,7 +90,7 @@ pub fn generate_coordination_data() -> CoordinationData {
                 catches: vec![Catch {
                     location: FishingSpot::OldFishingHole,
                     bait: Bait::BucketOfWorms,
-                    time: vec![TimeOfDay::Afternoon, TimeOfDay::Evening, TimeOfDay::Night],
+                    time: vec![TimeOfDay::Evening, TimeOfDay::Night],
                     weather: vec![
                         Weather::ClearSkies,
                         Weather::Rainy,
@@ -312,7 +312,7 @@ pub fn generate_coordination_data() -> CoordinationData {
                 name: "Handfish".to_string(),
                 catches: vec![Catch {
                     location: FishingSpot::OldFishingHole,
-                    bait: Bait::MoundOfMinnows,
+                    bait: Bait::BucketOfWorms,
                     time: vec![TimeOfDay::Morning, TimeOfDay::Afternoon, TimeOfDay::Night],
                     weather: vec![
                         Weather::ClearSkies,
@@ -546,7 +546,7 @@ pub fn generate_coordination_data() -> CoordinationData {
                 catches: vec![Catch {
                     location: FishingSpot::DesertOasis,
                     bait: Bait::MoundOfMinnows,
-                    time: vec![TimeOfDay::Afternoon, TimeOfDay::Evening],
+                    time: vec![TimeOfDay::Morning, TimeOfDay::Afternoon, TimeOfDay::Evening],
                     weather: vec![
                         Weather::ClearSkies,
                         Weather::Rainy,
@@ -672,7 +672,7 @@ pub fn generate_coordination_data() -> CoordinationData {
                 name: "Sunfish".to_string(),
                 catches: vec![Catch {
                     location: FishingSpot::DesertOasis,
-                    bait: Bait::PouchOfPrawns,
+                    bait: Bait::CupOfCrickets,
                     time: vec![TimeOfDay::Morning, TimeOfDay::Afternoon],
                     weather: vec![
                         Weather::ClearSkies,
@@ -686,17 +686,30 @@ pub fn generate_coordination_data() -> CoordinationData {
             },
             Fish {
                 name: "Moonfish".to_string(),
-                catches: vec![Catch {
-                    location: FishingSpot::DesertOasis,
-                    bait: Bait::PouchOfPrawns,
-                    time: vec![TimeOfDay::Night],
-                    weather: vec![
-                        Weather::ClearSkies,
-                        Weather::Rainy,
-                        Weather::Stormy,
-                        Weather::Snowy,
-                    ],
-                }],
+                catches: vec![
+                    Catch {
+                        location: FishingSpot::DesertOasis,
+                        bait: Bait::PouchOfPrawns,
+                        time: vec![TimeOfDay::Night],
+                        weather: vec![
+                            Weather::ClearSkies,
+                            Weather::Rainy,
+                            Weather::Stormy,
+                            Weather::Snowy,
+                        ],
+                    },
+                    Catch {
+                        location: FishingSpot::DesertOasis,
+                        bait: Bait::BucketOfWorms,
+                        time: vec![TimeOfDay::Night],
+                        weather: vec![
+                            Weather::ClearSkies,
+                            Weather::Rainy,
+                            Weather::Stormy,
+                            Weather::Snowy,
+                        ],
+                    },
+                ],
                 coordination: Some(3),
                 caught: false,
             },
@@ -743,6 +756,22 @@ pub fn generate_coordination_data() -> CoordinationData {
                     Catch {
                         location: FishingSpot::IceFishingHole,
                         bait: Bait::Cage,
+                        time: vec![
+                            TimeOfDay::Morning,
+                            TimeOfDay::Afternoon,
+                            TimeOfDay::Evening,
+                            TimeOfDay::Night,
+                        ],
+                        weather: vec![
+                            Weather::ClearSkies,
+                            Weather::Rainy,
+                            Weather::Stormy,
+                            Weather::Snowy,
+                        ],
+                    },
+                    Catch {
+                        location: FishingSpot::IceFishingHole,
+                        bait: Bait::PumpkinCage,
                         time: vec![
                             TimeOfDay::Morning,
                             TimeOfDay::Afternoon,
@@ -846,22 +875,30 @@ pub fn generate_coordination_data() -> CoordinationData {
             },
             Fish {
                 name: "Mammothfish".to_string(),
-                catches: vec![Catch {
-                    location: FishingSpot::IceFishingHole,
-                    bait: Bait::CupOfCrickets,
-                    time: vec![
-                        TimeOfDay::Morning,
-                        TimeOfDay::Afternoon,
-                        TimeOfDay::Evening,
-                        TimeOfDay::Night,
-                    ],
-                    weather: vec![
-                        Weather::ClearSkies,
-                        Weather::Rainy,
-                        Weather::Stormy,
-                        Weather::Snowy,
-                    ],
-                }],
+                catches: vec![
+                    Catch {
+                        location: FishingSpot::IceFishingHole,
+                        bait: Bait::PouchOfPrawns,
+                        time: vec![TimeOfDay::Morning, TimeOfDay::Afternoon, TimeOfDay::Evening],
+                        weather: vec![
+                            Weather::ClearSkies,
+                            Weather::Rainy,
+                            Weather::Stormy,
+                            Weather::Snowy,
+                        ],
+                    },
+                    Catch {
+                        location: FishingSpot::IceFishingHole,
+                        bait: Bait::PouchOfPrawns,
+                        time: vec![TimeOfDay::Morning, TimeOfDay::Afternoon, TimeOfDay::Evening],
+                        weather: vec![
+                            Weather::ClearSkies,
+                            Weather::Rainy,
+                            Weather::Stormy,
+                            Weather::Snowy,
+                        ],
+                    },
+                ],
                 coordination: Some(3),
                 caught: false,
             },
@@ -962,22 +999,40 @@ pub fn generate_coordination_data() -> CoordinationData {
             },
             Fish {
                 name: "Water Rhino".to_string(),
-                catches: vec![Catch {
-                    location: FishingSpot::IceFishingHole,
-                    bait: Bait::Cage,
-                    time: vec![
-                        TimeOfDay::Morning,
-                        TimeOfDay::Afternoon,
-                        TimeOfDay::Evening,
-                        TimeOfDay::Night,
-                    ],
-                    weather: vec![
-                        Weather::ClearSkies,
-                        Weather::Rainy,
-                        Weather::Stormy,
-                        Weather::Snowy,
-                    ],
-                }],
+                catches: vec![
+                    Catch {
+                        location: FishingSpot::IceFishingHole,
+                        bait: Bait::Cage,
+                        time: vec![
+                            TimeOfDay::Morning,
+                            TimeOfDay::Afternoon,
+                            TimeOfDay::Evening,
+                            TimeOfDay::Night,
+                        ],
+                        weather: vec![
+                            Weather::ClearSkies,
+                            Weather::Rainy,
+                            Weather::Stormy,
+                            Weather::Snowy,
+                        ],
+                    },
+                    Catch {
+                        location: FishingSpot::IceFishingHole,
+                        bait: Bait::PumpkinCage,
+                        time: vec![
+                            TimeOfDay::Morning,
+                            TimeOfDay::Afternoon,
+                            TimeOfDay::Evening,
+                            TimeOfDay::Night,
+                        ],
+                        weather: vec![
+                            Weather::ClearSkies,
+                            Weather::Rainy,
+                            Weather::Stormy,
+                            Weather::Snowy,
+                        ],
+                    },
+                ],
                 coordination: Some(3),
                 caught: false,
             },
@@ -1008,12 +1063,38 @@ pub fn generate_coordination_data() -> CoordinationData {
                     Catch {
                         location: FishingSpot::OceanFishingCruiser,
                         bait: Bait::Cage,
-                        time: vec![TimeOfDay::Night],
-                        weather: vec![Weather::Rainy],
+                        time: vec![
+                            TimeOfDay::Morning,
+                            TimeOfDay::Afternoon,
+                            TimeOfDay::Evening,
+                            TimeOfDay::Night,
+                        ],
+                        weather: vec![
+                            Weather::ClearSkies,
+                            Weather::Rainy,
+                            Weather::Stormy,
+                            Weather::Snowy,
+                        ],
                     },
                     Catch {
                         location: FishingSpot::OceanFishingCruiser,
                         bait: Bait::BucketOfWorms,
+                        time: vec![
+                            TimeOfDay::Morning,
+                            TimeOfDay::Afternoon,
+                            TimeOfDay::Evening,
+                            TimeOfDay::Night,
+                        ],
+                        weather: vec![
+                            Weather::ClearSkies,
+                            Weather::Rainy,
+                            Weather::Stormy,
+                            Weather::Snowy,
+                        ],
+                    },
+                    Catch {
+                        location: FishingSpot::OceanFishingCruiser,
+                        bait: Bait::PumpkinCage,
                         time: vec![
                             TimeOfDay::Morning,
                             TimeOfDay::Afternoon,
@@ -1037,8 +1118,18 @@ pub fn generate_coordination_data() -> CoordinationData {
                     Catch {
                         location: FishingSpot::OceanFishingCruiser,
                         bait: Bait::Cage,
-                        time: vec![TimeOfDay::Morning],
-                        weather: vec![Weather::ClearSkies],
+                        time: vec![
+                            TimeOfDay::Morning,
+                            TimeOfDay::Afternoon,
+                            TimeOfDay::Evening,
+                            TimeOfDay::Night,
+                        ],
+                        weather: vec![
+                            Weather::ClearSkies,
+                            Weather::Rainy,
+                            Weather::Stormy,
+                            Weather::Snowy,
+                        ],
                     },
                     Catch {
                         location: FishingSpot::OceanFishingCruiser,
@@ -1046,28 +1137,15 @@ pub fn generate_coordination_data() -> CoordinationData {
                         time: vec![TimeOfDay::Morning, TimeOfDay::Afternoon],
                         weather: vec![Weather::ClearSkies],
                     },
-                ],
-                coordination: Some(1),
-                caught: false,
-            },
-            Fish {
-                name: "Deepsea Fangly Fish".to_string(),
-                catches: vec![
                     Catch {
                         location: FishingSpot::OceanFishingCruiser,
-                        bait: Bait::DeepseaExplorerPod,
+                        bait: Bait::PumpkinCage,
                         time: vec![
                             TimeOfDay::Morning,
                             TimeOfDay::Afternoon,
                             TimeOfDay::Evening,
                             TimeOfDay::Night,
                         ],
-                        weather: vec![Weather::ClearSkies, Weather::Rainy, Weather::Stormy],
-                    },
-                    Catch {
-                        location: FishingSpot::OceanFishingCruiser,
-                        bait: Bait::MoundOfMinnows,
-                        time: vec![TimeOfDay::Night],
                         weather: vec![
                             Weather::ClearSkies,
                             Weather::Rainy,
@@ -1076,6 +1154,27 @@ pub fn generate_coordination_data() -> CoordinationData {
                         ],
                     },
                 ],
+                coordination: Some(1),
+                caught: false,
+            },
+            Fish {
+                name: "Deepsea Fangly Fish".to_string(),
+                catches: vec![Catch {
+                    location: FishingSpot::OceanFishingCruiser,
+                    bait: Bait::DeepseaExplorerPod,
+                    time: vec![
+                        TimeOfDay::Morning,
+                        TimeOfDay::Afternoon,
+                        TimeOfDay::Evening,
+                        TimeOfDay::Night,
+                    ],
+                    weather: vec![
+                        Weather::ClearSkies,
+                        Weather::Rainy,
+                        Weather::Stormy,
+                        Weather::Snowy,
+                    ],
+                }],
                 coordination: Some(2),
                 caught: false,
             },
@@ -1155,22 +1254,40 @@ pub fn generate_coordination_data() -> CoordinationData {
             },
             Fish {
                 name: "Lobster".to_string(),
-                catches: vec![Catch {
-                    location: FishingSpot::OceanFishingCruiser,
-                    bait: Bait::Cage,
-                    time: vec![
-                        TimeOfDay::Morning,
-                        TimeOfDay::Afternoon,
-                        TimeOfDay::Evening,
-                        TimeOfDay::Night,
-                    ],
-                    weather: vec![
-                        Weather::ClearSkies,
-                        Weather::Rainy,
-                        Weather::Stormy,
-                        Weather::Snowy,
-                    ],
-                }],
+                catches: vec![
+                    Catch {
+                        location: FishingSpot::OceanFishingCruiser,
+                        bait: Bait::Cage,
+                        time: vec![
+                            TimeOfDay::Morning,
+                            TimeOfDay::Afternoon,
+                            TimeOfDay::Evening,
+                            TimeOfDay::Night,
+                        ],
+                        weather: vec![
+                            Weather::ClearSkies,
+                            Weather::Rainy,
+                            Weather::Stormy,
+                            Weather::Snowy,
+                        ],
+                    },
+                    Catch {
+                        location: FishingSpot::OceanFishingCruiser,
+                        bait: Bait::PumpkinCage,
+                        time: vec![
+                            TimeOfDay::Morning,
+                            TimeOfDay::Afternoon,
+                            TimeOfDay::Evening,
+                            TimeOfDay::Night,
+                        ],
+                        weather: vec![
+                            Weather::ClearSkies,
+                            Weather::Rainy,
+                            Weather::Stormy,
+                            Weather::Snowy,
+                        ],
+                    },
+                ],
                 coordination: Some(1),
                 caught: false,
             },
@@ -1180,13 +1297,39 @@ pub fn generate_coordination_data() -> CoordinationData {
                     Catch {
                         location: FishingSpot::OceanFishingCruiser,
                         bait: Bait::Cage,
-                        time: vec![TimeOfDay::Afternoon, TimeOfDay::Night],
-                        weather: vec![Weather::Rainy],
+                        time: vec![
+                            TimeOfDay::Morning,
+                            TimeOfDay::Afternoon,
+                            TimeOfDay::Evening,
+                            TimeOfDay::Night,
+                        ],
+                        weather: vec![
+                            Weather::ClearSkies,
+                            Weather::Rainy,
+                            Weather::Stormy,
+                            Weather::Snowy,
+                        ],
                     },
                     Catch {
                         location: FishingSpot::OceanFishingCruiser,
                         bait: Bait::CupOfCrickets,
                         time: vec![TimeOfDay::Night],
+                        weather: vec![
+                            Weather::ClearSkies,
+                            Weather::Rainy,
+                            Weather::Stormy,
+                            Weather::Snowy,
+                        ],
+                    },
+                    Catch {
+                        location: FishingSpot::OceanFishingCruiser,
+                        bait: Bait::PumpkinCage,
+                        time: vec![
+                            TimeOfDay::Morning,
+                            TimeOfDay::Afternoon,
+                            TimeOfDay::Evening,
+                            TimeOfDay::Night,
+                        ],
                         weather: vec![
                             Weather::ClearSkies,
                             Weather::Rainy,
@@ -1224,8 +1367,13 @@ pub fn generate_coordination_data() -> CoordinationData {
                 catches: vec![Catch {
                     location: FishingSpot::OceanFishingCruiser,
                     bait: Bait::Cage,
-                    time: vec![TimeOfDay::Night],
-                    weather: vec![Weather::ClearSkies, Weather::Rainy, Weather::Snowy],
+                    time: vec![TimeOfDay::Morning, TimeOfDay::Afternoon, TimeOfDay::Night],
+                    weather: vec![
+                        Weather::ClearSkies,
+                        Weather::Rainy,
+                        Weather::Stormy,
+                        Weather::Snowy,
+                    ],
                 }],
                 coordination: Some(1),
                 caught: false,
@@ -1358,7 +1506,7 @@ pub fn generate_coordination_data() -> CoordinationData {
                     location: FishingSpot::FlyFishingShip,
                     bait: Bait::BalloonHook,
                     time: vec![TimeOfDay::Morning, TimeOfDay::Afternoon],
-                    weather: vec![Weather::ClearSkies, Weather::Rainy],
+                    weather: vec![Weather::ClearSkies, Weather::Rainy, Weather::Stormy],
                 }],
                 coordination: Some(1),
                 caught: false,
@@ -1384,7 +1532,12 @@ pub fn generate_coordination_data() -> CoordinationData {
                 catches: vec![Catch {
                     location: FishingSpot::FlyFishingShip,
                     bait: Bait::WickedSkymetalHook,
-                    time: vec![TimeOfDay::Morning, TimeOfDay::Afternoon, TimeOfDay::Evening],
+                    time: vec![
+                        TimeOfDay::Morning,
+                        TimeOfDay::Afternoon,
+                        TimeOfDay::Evening,
+                        TimeOfDay::Night,
+                    ],
                     weather: vec![
                         Weather::ClearSkies,
                         Weather::Rainy,
@@ -1401,7 +1554,7 @@ pub fn generate_coordination_data() -> CoordinationData {
                     location: FishingSpot::FlyFishingShip,
                     bait: Bait::WickedSkymetalHook,
                     time: vec![TimeOfDay::Morning, TimeOfDay::Afternoon],
-                    weather: vec![Weather::Rainy, Weather::Snowy],
+                    weather: vec![Weather::Rainy, Weather::Stormy, Weather::Snowy],
                 }],
                 coordination: Some(1),
                 caught: false,
@@ -1554,7 +1707,7 @@ pub fn generate_coordination_data() -> CoordinationData {
                 name: "Coelecan't".to_string(),
                 catches: vec![Catch {
                     location: FishingSpot::OldFishingHole,
-                    bait: Bait::MoundOfMinnows,
+                    bait: Bait::BucketOfWorms,
                     time: vec![TimeOfDay::Morning, TimeOfDay::Evening, TimeOfDay::Night],
                     weather: vec![Weather::Rainy, Weather::Stormy, Weather::Snowy],
                 }],
@@ -1757,12 +1910,7 @@ pub fn generate_coordination_data() -> CoordinationData {
                 catches: vec![Catch {
                     location: FishingSpot::HauntedShip,
                     bait: Bait::PumpkinCage,
-                    time: vec![
-                        TimeOfDay::Morning,
-                        TimeOfDay::Afternoon,
-                        TimeOfDay::Evening,
-                        TimeOfDay::Night,
-                    ],
+                    time: vec![TimeOfDay::Night],
                     weather: vec![
                         Weather::ClearSkies,
                         Weather::Rainy,
@@ -1852,7 +2000,12 @@ pub fn generate_coordination_data() -> CoordinationData {
                 catches: vec![Catch {
                     location: FishingSpot::DogwoodsFishingHole,
                     bait: Bait::PremuimAnimalFeed,
-                    time: vec![TimeOfDay::Morning, TimeOfDay::Afternoon, TimeOfDay::Night],
+                    time: vec![
+                        TimeOfDay::Morning,
+                        TimeOfDay::Afternoon,
+                        TimeOfDay::Evening,
+                        TimeOfDay::Night,
+                    ],
                     weather: vec![
                         Weather::ClearSkies,
                         Weather::Rainy,
@@ -1868,7 +2021,12 @@ pub fn generate_coordination_data() -> CoordinationData {
                 catches: vec![Catch {
                     location: FishingSpot::DogwoodsFishingHole,
                     bait: Bait::SuperPremuimAnimalFeed,
-                    time: vec![TimeOfDay::Morning, TimeOfDay::Afternoon, TimeOfDay::Night],
+                    time: vec![
+                        TimeOfDay::Morning,
+                        TimeOfDay::Afternoon,
+                        TimeOfDay::Evening,
+                        TimeOfDay::Night,
+                    ],
                     weather: vec![
                         Weather::ClearSkies,
                         Weather::Rainy,
@@ -1884,7 +2042,12 @@ pub fn generate_coordination_data() -> CoordinationData {
                 catches: vec![Catch {
                     location: FishingSpot::DogwoodsFishingHole,
                     bait: Bait::PremuimAnimalFeed,
-                    time: vec![TimeOfDay::Morning, TimeOfDay::Afternoon, TimeOfDay::Night],
+                    time: vec![
+                        TimeOfDay::Morning,
+                        TimeOfDay::Afternoon,
+                        TimeOfDay::Evening,
+                        TimeOfDay::Night,
+                    ],
                     weather: vec![
                         Weather::ClearSkies,
                         Weather::Rainy,
@@ -1900,7 +2063,12 @@ pub fn generate_coordination_data() -> CoordinationData {
                 catches: vec![Catch {
                     location: FishingSpot::DogwoodsFishingHole,
                     bait: Bait::PremuimAnimalFeed,
-                    time: vec![TimeOfDay::Morning, TimeOfDay::Afternoon, TimeOfDay::Night],
+                    time: vec![
+                        TimeOfDay::Morning,
+                        TimeOfDay::Afternoon,
+                        TimeOfDay::Evening,
+                        TimeOfDay::Night,
+                    ],
                     weather: vec![
                         Weather::ClearSkies,
                         Weather::Rainy,
@@ -1937,8 +2105,18 @@ pub fn generate_coordination_data() -> CoordinationData {
                 catches: vec![Catch {
                     location: FishingSpot::DogwoodsFishingHole,
                     bait: Bait::SuperPremuimAnimalFeed,
-                    time: vec![TimeOfDay::Morning, TimeOfDay::Afternoon, TimeOfDay::Night],
-                    weather: vec![Weather::ClearSkies, Weather::Rainy, Weather::Snowy],
+                    time: vec![
+                        TimeOfDay::Morning,
+                        TimeOfDay::Afternoon,
+                        TimeOfDay::Evening,
+                        TimeOfDay::Night,
+                    ],
+                    weather: vec![
+                        Weather::ClearSkies,
+                        Weather::Rainy,
+                        Weather::Stormy,
+                        Weather::Snowy,
+                    ],
                 }],
                 coordination: Some(2),
                 caught: false,
@@ -1964,7 +2142,12 @@ pub fn generate_coordination_data() -> CoordinationData {
                 catches: vec![Catch {
                     location: FishingSpot::DogwoodsFishingHole,
                     bait: Bait::SuperUltraPremiumAnimalFeed,
-                    time: vec![TimeOfDay::Morning, TimeOfDay::Evening, TimeOfDay::Night],
+                    time: vec![
+                        TimeOfDay::Morning,
+                        TimeOfDay::Afternoon,
+                        TimeOfDay::Evening,
+                        TimeOfDay::Night,
+                    ],
                     weather: vec![
                         Weather::ClearSkies,
                         Weather::Rainy,
@@ -2002,7 +2185,12 @@ pub fn generate_coordination_data() -> CoordinationData {
                     location: FishingSpot::FlyFishingShip,
                     bait: Bait::WickedSkymetalHook,
                     time: vec![TimeOfDay::Morning, TimeOfDay::Afternoon],
-                    weather: vec![Weather::ClearSkies, Weather::Rainy, Weather::Stormy],
+                    weather: vec![
+                        Weather::ClearSkies,
+                        Weather::Rainy,
+                        Weather::Stormy,
+                        Weather::Snowy,
+                    ],
                 }],
                 coordination: Some(2),
                 caught: false,
@@ -2052,7 +2240,7 @@ pub fn generate_coordination_data() -> CoordinationData {
                         Weather::Snowy,
                     ],
                 }],
-                coordination: None,
+                coordination: Some(2),
                 caught: false,
             },
             Fish {
@@ -2082,7 +2270,7 @@ pub fn generate_coordination_data() -> CoordinationData {
                     location: FishingSpot::DesertOasis,
                     bait: Bait::PouchOfPrawns,
                     time: vec![TimeOfDay::Morning, TimeOfDay::Afternoon],
-                    weather: vec![Weather::Rainy, Weather::Stormy],
+                    weather: vec![Weather::Rainy, Weather::Stormy, Weather::Snowy],
                 }],
                 coordination: Some(1),
                 caught: false,
@@ -2091,8 +2279,8 @@ pub fn generate_coordination_data() -> CoordinationData {
                 name: "Stumpy Lumpfish".to_string(),
                 catches: vec![Catch {
                     location: FishingSpot::OceanFishingCruiser,
-                    bait: Bait::BucketOfWorms,
-                    time: vec![TimeOfDay::Morning, TimeOfDay::Night],
+                    bait: Bait::MoundOfMinnows,
+                    time: vec![TimeOfDay::Morning, TimeOfDay::Evening, TimeOfDay::Night],
                     weather: vec![
                         Weather::ClearSkies,
                         Weather::Rainy,
@@ -2126,18 +2314,31 @@ pub fn generate_coordination_data() -> CoordinationData {
             },
             Fish {
                 name: "Pineapple Fish".to_string(),
-                catches: vec![Catch {
-                    location: FishingSpot::OceanFishingCruiser,
-                    bait: Bait::PouchOfPrawns,
-                    time: vec![
-                        TimeOfDay::Morning,
-                        TimeOfDay::Afternoon,
-                        TimeOfDay::Evening,
-                        TimeOfDay::Night,
-                    ],
-                    weather: vec![],
-                }],
-                coordination: None,
+                catches: vec![
+                    Catch {
+                        location: FishingSpot::OceanFishingCruiser,
+                        bait: Bait::PouchOfPrawns,
+                        time: vec![
+                            TimeOfDay::Morning,
+                            TimeOfDay::Afternoon,
+                            TimeOfDay::Evening,
+                            TimeOfDay::Night,
+                        ],
+                        weather: vec![],
+                    },
+                    Catch {
+                        location: FishingSpot::OceanFishingCruiser,
+                        bait: Bait::BucketOfWorms,
+                        time: vec![
+                            TimeOfDay::Morning,
+                            TimeOfDay::Afternoon,
+                            TimeOfDay::Evening,
+                            TimeOfDay::Night,
+                        ],
+                        weather: vec![],
+                    },
+                ],
+                coordination: Some(1),
                 caught: false,
             },
             Fish {
@@ -2167,9 +2368,30 @@ pub fn generate_coordination_data() -> CoordinationData {
                         TimeOfDay::Evening,
                         TimeOfDay::Night,
                     ],
-                    weather: vec![Weather::ClearSkies, Weather::Rainy, Weather::Stormy],
+                    weather: vec![
+                        Weather::ClearSkies,
+                        Weather::Rainy,
+                        Weather::Stormy,
+                        Weather::Snowy,
+                    ],
                 }],
                 coordination: Some(3),
+                caught: false,
+            },
+            Fish {
+                name: "Sunsetfish".to_string(),
+                catches: vec![Catch {
+                    location: FishingSpot::DesertOasis,
+                    bait: Bait::BucketOfWorms,
+                    time: vec![TimeOfDay::Evening],
+                    weather: vec![
+                        Weather::ClearSkies,
+                        Weather::Rainy,
+                        Weather::Stormy,
+                        Weather::Snowy,
+                    ],
+                }],
+                coordination: Some(2),
                 caught: false,
             },
         ],

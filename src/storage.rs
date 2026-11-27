@@ -22,9 +22,10 @@ const RENAMED_ENEMIES: [(&str, &str); 3] = [
 ];
 const RENAMED_ITEMS: [(&str, &str); 1] = [("Golden Secretegg", "Gold Secretegg")];
 const RENAMED_FISH: [(&str, &str); 1] = [("Rainbow Trout (Sky)", "Double Rainbow Trout")];
-const RENAMED_FOODS: [(&str, &str); 2] = [
+const RENAMED_FOODS: [(&str, &str); 3] = [
     ("Rainbow Trout (Sky)", "Double Rainbow Trout"),
     ("Pie on my Face", "Pie on My Face"),
+    ("Turnip au Gratin", "Turnip Au Gratin"),
 ];
 
 fn local_storage() -> Option<web_sys::Storage> {
